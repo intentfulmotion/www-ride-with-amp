@@ -4,26 +4,92 @@
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
 
-.gradientBg {
-	display: flex;
-	background: linear-gradient(to right, $primary-color, $secondary-color);
+// Import Bulma Carousel
+@import '~bulma-carousel/src/sass/index.sass';
+
+html {
+  scroll-behavior: smooth;
 }
 
-.center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+@font-face {
+  font-family: 'KiloGram';
+  src: url('../fonts/kilogram.otf') format('opentype');
 }
 
-.footer {
+@font-face {
+  font-family: 'Nexa Bold';
+  src: url('../fonts/nexa-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Nexa Light';
+  src: url('../fonts/nexa-light.otf') format('opentype');
+}
+
+.spec-list {
+  font-family: 'Nexa Light';
+}
+
+.brand-name {
+  font-family: 'KiloGram';
+  font-size: 8rem;
+  line-height: 7rem;
+  color: $primary;
+}
+
+.hero .navbar {
+  background-image: linear-gradient(180deg,rgba(0, 0, 0, 0.1),rgba(0,0,0, 0));
+}
+
+.hero-body .container .title, .hero-body .container .subtitle {
+  color: #fff;
+}
+
+.navbar-item {
+  color: #fff;  
+}
+
+.container .title {
+  color: $primary;
+}
+
+.subtitle {
+  font-family: 'Nexa Light';
+}
+
+.details p {
+  font-family: 'Nexa Light';
+}
+
+.button.is-text {
+  text-decoration: none;
+}
+
+.hero-video video { position: relative; left: auto; top: auto; transform: none; object-fit: cover; min-height: inherit; }
+
+.navbar-item img {
+	max-height: 2.75rem;
+}
+
+.navbar-brand-icon {
+	height: 30rem;
 	display: flex;
-	padding: 1.5rem 1.5rem;
-	line-height: 1.5rem;
-	a {
-		border-bottom: 1px solid;
-		color: black;
-	}
-	a:hover {
-		color: $secondary-color;
-	}
+}
+
+.card p, .card ul {
+  font-family: 'Nexa Light';
+}
+
+.footer-link {
+  color: #fff;
+  font-family: 'Nexa Light';
+}
+
+.footer-link:hover, .footer-link:active, .footer-link:focus {
+  color: $info;
+}
+
+.download-app {
+  width: 10rem;
+  margin-right: 2rem;
 }

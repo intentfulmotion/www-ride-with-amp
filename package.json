@@ -1,8 +1,8 @@
 {
-	"name": "gatsby-bulma-quickstart",
-	"description": "A Project to bootstrap your next Gatsby + Bulma site.",
-	"version": "1.5.2",
-	"author": "Aman Mittal <amandeepmittal@live.com>",
+	"name": "www-ride-with-amp",
+	"description": "Ride with Amp product website",
+	"version": "0.1.0",
+	"author": "Nishanth Samala <nish@intentfulmotion.com>",
 	"dependencies": {
 		"bulma": "^0.7.4",
 		"gatsby": "^2.3.25",

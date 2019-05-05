@@ -1,48 +1,30 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
-
 import './style.scss';
 
-import gatsbyLogo from '../images/gatsby-icon.png';
-import bulmaLogo from '../images/bulma-logo.png';
 import Navbar from './navbar';
+import ampVideoLoop from '../videos/amp-intro-loop.mp4'
 
-const Header = ({ siteTitle }) => (
-	<section className="hero gradientBg is-fullheight-with-navbar">
+const Header = () => (
+	<section className="hero is-fullheight video">
 		<Navbar />
+		<div className="hero-video">
+			<video id="bgvid" playsInline="" muted="" autoPlay={true} loop>
+				<source src={ampVideoLoop} type="video/mp4" />
+			</video>
+		</div>
 		<div className="hero-body">
-			<div className="container center">
-				<article className="media">
-					<figure className="is-left">
-						<span className="icon is-large ">
-							<img src={gatsbyLogo} alt="gatsby-logo" />
-						</span>
-					</figure>
-					<figure className="is-left">
-						<span className="icon is-large">
-							<img src={bulmaLogo} alt="bulma-logo" />
-						</span>
-					</figure>
-					<div className="media-content">
-						<div className="content">
-							<h1 className="is-uppercase is-size-1 has-text-white">
-								Hello from Bulma + Gatsby
-							</h1>
-							<p className="subtitle has-text-white is-size-3">
-								A Bulma CSS + GatsbyJS Starter Kit{' '}
-								<a
-									className="button is-info is-inverted"
-									href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-								>
-									<span className="icon">
-										<FaGithub size="fa-2x" />
-									</span>
-									<span>Download</span>
-								</a>
-							</p>
-						</div>
-					</div>
-				</article>
+			<div className="container">
+				<h1 className="brand-name">aMp</h1>
+				<h1 className="title">Smart running lights for your commute</h1>
+				<h2 className="subtitle">Beta Available Now.</h2>
+				<div className="buttons">
+					<a className="button is-white is-outlined">
+						<span>Learn More</span>
+					</a>
+					<a className="button is-primary">
+						<span>Get Yours</span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>

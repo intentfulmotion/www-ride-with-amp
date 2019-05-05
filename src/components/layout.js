@@ -1,18 +1,15 @@
 import React from 'react';
+import { StaticQuery, graphql } from "gatsby"
 
 import './style.scss';
 import Helmet from './helmet';
 import Header from './header';
-import Midsection from './midsection';
 import Footer from './footer';
 
-const Layout = ({ children }) => (
-	<div>
-		<Helmet />
-		<Header />
-		<Midsection />
-		<Footer />
-	</div>
+export default ({ children }) => (
+  <div>
+    <Helmet />
+    {children}
+    <Footer />
+  </div>
 );
-
-export default Layout;

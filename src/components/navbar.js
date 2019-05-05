@@ -1,41 +1,45 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
 
 import './style.scss';
-import gatsbyLogo from '../images/gatsby-icon.png';
-import bulmaLogo from '../images/bulma-logo.png';
+import ampLogo from '../images/amp-icon.svg';
 
-const Navbar = () => (
-	<div className="hero-head is-hidden-mobile">
-		<nav className="navbar">
-			<div className="container">
-				<div className="navbar-brand">
-					<a
-						className="navbar-item"
-						href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-					>
-						<img src={gatsbyLogo} alt="Logo-1" />
-						<img src={bulmaLogo} alt="Logo-2" />
-					</a>
-				</div>
-				<div id="navbarMenuHeroA" className="navbar-menu">
-					<div className="navbar-end">
-						<span className="navbar-item">
-							<a
-								className="button is-danger is-inverted"
-								href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-							>
-								<span className="icon">
-									<FaGithub size="fa-2x" />
-								</span>
-								<span>Download</span>
-							</a>
-						</span>
+import StoreButton from './storeButton'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
+
+export default ({ alt }) => {
+	const { title, menuLinks } = useSiteMetadata()
+
+	let navbarClasses = !alt || alt === false ? 'navbar' : 'navbar has-background-info'
+
+	return (
+		<div className="hero-head is-hidden-mobile">
+			<nav className={navbarClasses}>
+				<div className="container">
+					<div className="navbar-brand">
+						<a className="navbar-item" href="/">
+							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
+						</a>
+						<span className="navbar-item">{title}</span>
+					</div>
+					<div id="navbarMenuHeroA" className="navbar-menu">
+						<div className="navbar-end">
+							{
+								menuLinks
+									.map(link =>
+										<span className="navbar-item" key={"link-" + link.name}>
+											<a className="button is-text" href={link.link}>
+												<span>{link.name}</span>
+											</a>
+										</span>
+									)
+							}
+							<span className="navbar-item">
+								<StoreButton />
+							</span>
+						</div>
 					</div>
 				</div>
-			</div>
-		</nav>
-	</div>
-);
-
-export default Navbar;
+			</nav>
+		</div>
+	)
+}
