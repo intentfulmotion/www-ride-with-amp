@@ -106,7 +106,19 @@ html {
   color: $info;
 }
 
+.brand-icon-mobile {
+  position: relative;
+  top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .download-app {
   width: 10rem;
   margin-right: 2rem;
+}
+
+.notes {
+  font-family: 'Nexa Light';
+  font-size: 0.75em;
 }

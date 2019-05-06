@@ -10,11 +10,11 @@ const SpecSection = () => (
       <div className="columns">
         <div className="spec column has-text-centered">
           <h1 className="is-size-1">8+</h1>
-          <p className="subtitle has-text-white">hours of battery life</p>
+          <p className="subtitle has-text-white">hours of battery life*</p>
         </div>
         <div className="spec column has-text-centered">
           <h1 className="is-size-1">4</h1>
-          <p className="subtitle has-text-white">up to LED strips</p>
+          <p className="subtitle has-text-white">addressable LED strip ports</p>
         </div>
         <div className="spec column has-text-centered">
           <h1 className="is-size-1">3</h1>
@@ -27,6 +27,9 @@ const SpecSection = () => (
             <li className="subtitle has-text-white">Over the Air Updates</li>
           </ul>
         </div>
+      </div>
+      <div className="has-text-centered">
+        <i className="notes">*Battery life estimated with 45 LEDs and a 2000 mAh battery. This will vary with number of LEDs and battery size.</i>
       </div>
     </div>
   </div>

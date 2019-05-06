@@ -23,7 +23,7 @@ export default () => (
 					</div>
 					<div className="tile is-child box details">
 						<h5 className="title is-5">Works with Your Gear</h5>
-						<p>Keep your existing helmet, gloves, or wheels. There's no need to replace 'em with the Amp!</p><br/>
+						<p>Keep your existing helmet, gloves, and wheels. There's no need to replace 'em with the Amp!</p><br/>
 						<p>Find a compatible lighting kit and slap the Amp on your gear to make your own aesthetic.</p>
 					</div>
 				</div>

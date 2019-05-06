@@ -2,7 +2,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'Light up your ride',
 		author: '@intentfulmotion',
-		description: 'Ride safer with the Amp smart lighting kit for bicycles, scooters, and longboards.',
+		description: 'Ride in style and safety with the Amp smart lighting kit for bicycles, scooters, and longboards.',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
 		siteUrl: `https://www.ridewithamp.com`,
 		menuLinks: [
@@ -84,7 +84,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
-				trackingId: 'UA-XXXXXXXX-X',
+				trackingId: 'UA-139611338-1',
 				// Setting this parameter is optional (required for some countries such as Germany)
 				anonymize: true
 			}
