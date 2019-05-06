@@ -2,7 +2,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'Light up your ride',
 		author: '@intentfulmotion',
-		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
+		description: 'Ride safer with the Amp smart lighting kit for bicycles, scooters, and longboards.',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
 		siteUrl: `https://www.ridewithamp.com`,
 		menuLinks: [
