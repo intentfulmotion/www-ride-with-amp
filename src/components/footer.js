@@ -11,7 +11,7 @@ export default () => {
 	const { footer } = useSiteMetadata()
 	return (
 	<footer className="footer center has-background-primary has-text-white">
-		<div className="columns is-centered">
+		<div className="columns is-centered is-mobile is-multiline">
 			{
 				footer
 					.map(section => (
@@ -25,7 +25,7 @@ export default () => {
 						</div>
 					))
 			}
-			<div className="column is-narrow content">
+			<div className="column is-narrow content is-half-mobile">
 				<p className="is-size-6">Download</p>
 					<a href="https://itunes.apple.com"><img src={AppStore} className="image is-inline-flex download-app" /></a>
 					<a href="https://play.google.com/store/apps/details?id=com.intentfulmotion.amp"><img src={GooglePlay} className="image is-inline-flex download-app" /></a>
