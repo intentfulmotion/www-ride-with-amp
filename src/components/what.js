@@ -1,6 +1,8 @@
 import React from 'react';
 import './style.scss';
 
+import AmpFront from '../images/amp-front.png'
+
 export default () => (
 	<section className="section" id="what">
 		<div className="container has-text-right content">
@@ -10,6 +12,13 @@ export default () => (
 		<div className="container">
 			<div className="tile is ancestor">
 				<div className="tile is-8 is-parent">
+					<div className="tile is-child">
+						<div className="columns is-centered">
+							<div className="column is-half">
+								<img src={AmpFront} alt="The brains for smart lighting" />
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className="tile is-vertical is-parent">
 					<div className="tile is-child box details">
