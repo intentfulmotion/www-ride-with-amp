@@ -11,16 +11,19 @@ html {
 
 @font-face {
   font-family: 'KiloGram';
+  font-display: block;
   src: url('../fonts/kilogram.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Nexa Bold';
+  font-display: block;
   src: url('../fonts/nexa-bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Nexa Light';
+  font-display: block;
   src: url('../fonts/nexa-light.otf') format('opentype');
 }
 
