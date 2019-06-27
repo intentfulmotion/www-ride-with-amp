@@ -7,7 +7,7 @@ const Cart = () => {
 
   const redirectToCheckout = async (event) => {
     event.preventDefault()
-    const stripe = window.Stripe(pk_live_DjVeCbarLJtrnDP5ntOs5Hua)
+    const stripe = window.Stripe("pk_live_DjVeCbarLJtrnDP5ntOs5Hua")
 
     const { error } = await stripe.redirectToCheckout({
       items: contents.map((item) => { return { sku: item[0], quantity: item[1] } }),
