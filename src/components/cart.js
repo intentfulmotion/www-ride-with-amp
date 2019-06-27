@@ -24,6 +24,12 @@ const Cart = () => {
     document.getElementById('shopping-cart').classList.toggle('is-active')
   }
 
+  const checkoutButton = cart.length > 0 ? (
+    <button onClick={event => redirectToCheckout(event)} className="button is-primary">
+      Checkout
+    </button>
+  ) : (<div></div>)
+
   return (
     <div className="modal" id="shopping-cart">
       <div className="modal-background" onClick={() => {toggleCart()}}></div>
@@ -62,9 +68,7 @@ const Cart = () => {
                 <h5>Total: ${total/100}</h5>
               </div>
               <div className="column is-2">
-                <button onClick={event => redirectToCheckout(event)} disabled={!cart.length} className="button is-primary">
-                  Checkout
-                </button>
+                {checkoutButton}
               </div>
             </div>
           </div>
