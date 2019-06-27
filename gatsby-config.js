@@ -27,7 +27,7 @@ module.exports = {
 			},
 			{
         name: `Subscribe`,
-        link: `/#subscribe`
+        link: `#subscribe`
       }
 		],
 		footer: [
