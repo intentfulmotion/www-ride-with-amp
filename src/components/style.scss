@@ -50,6 +50,13 @@ html {
   color: #fff;
 }
 
+.hero-kit-title {
+  font-family: 'KiloGram';
+  font-size: 6rem;
+  line-height: 7rem;
+  color: '#fff';
+}
+
 .hero-video video { position: relative; left: auto; top: auto; transform: none; object-fit: cover; min-height: inherit; }
 
 @include mobile {
@@ -68,6 +75,11 @@ html {
     background-size: cover;
     min-width: 100%;
     min-height: 100%;
+  }
+
+  .hero-kit-title {
+    font-size: 4.5rem;
+    line-height: 5rem;
   }
 }
 

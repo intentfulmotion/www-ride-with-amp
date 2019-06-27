@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 
 import './style.scss'
@@ -7,9 +7,10 @@ import Footer from './footer'
 import Cart from './cart'
 
 import CartProvider from './cart.provider'
+import FloatingCart from './floatingCart'
 
 export default ({ children }) => {
-  return (
+    return (
     <StaticQuery
       query={graphql`
         query SkuQuery {
@@ -52,6 +53,7 @@ export default ({ children }) => {
             {children}
             <Footer />
             <Cart />
+            <FloatingCart />
           </CartProvider>
         </div>
       )}

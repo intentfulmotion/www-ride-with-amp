@@ -17,16 +17,16 @@ const ProductSection = ({ productId }) => {
           <div className="column is-4 product-description" dangerouslySetInnerHTML={{__html: product.metadata.description}}>
           </div>
           <div className="column is-offset-1">
-            <div className="columns is-multiline is-mobile">
+            <div className="columns is-multiline">
             {
               productSkus
-                .filter(sku => sku.active === true)
+                .filter(sku => sku.active === true)                
                 .map((sku, id) => (
                 <div className="column is-4">
                   <div className="card" key={`product-${product.name}-sku-${id}`}>
                     <div className="card-image">
                       <figure className="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                        <img src={sku.images} alt={sku.name} />
                       </figure>
                     </div>
                     <div className="card-content">
@@ -36,10 +36,10 @@ const ProductSection = ({ productId }) => {
                       </div>
                     </div>
                     <div className="card-footer">
-                      <button className="card-footer-item button is-primary" onClick={() => { add(sku.id) }}>
+                      <a className="card-footer-item button is-primary bold" onClick={() => { add(sku.id) }}>
                         <span className="icon"><FaCartPlus/></span>
                         <span>Add to Cart</span>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

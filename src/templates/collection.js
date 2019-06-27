@@ -5,6 +5,7 @@ import Navbar from '../components/navbar'
 import ProductSection from '../components/productSection'
 import KitSection from '../components/kitSection'
 import SubscribeSection from '../components/subscribe'
+import ampLogo from '../images/amp-icon.svg';
 
 export default ({ pageContext }) => {
   const collection = pageContext.node
@@ -35,20 +36,16 @@ const CollectionWithFeature = (collection, feature) => {
     }
   }
 
-  const titleStyle = {
-    fontFamily: `KiloGram`,
-    fontSize: `6rem`,
-    lineHeight: `7rem`,
-    color: `#fff`
-  }
-
   return (
     <Layout>
       <section className="hero is-info" style={heroStyle}>
         <Navbar />
+        <figure className="image is-64x64 brand-icon-mobile is-hidden-tablet">
+          <a href="/"><img src={ampLogo} alt="Logo" /></a>
+        </figure>
         <div className="hero-body">
           <div className="container">
-            <h1 style={titleStyle}>{collection.name}</h1>
+            <h1 className="hero-kit-title">{collection.name}</h1>
           </div>
         </div>
         <div className="hero-footer has-text-right">
@@ -59,6 +56,9 @@ const CollectionWithFeature = (collection, feature) => {
       </section>
       <section className="section">
         <div className="container">
+          <div className="content">
+            <h3 className="title is-3 bold">Kits</h3>
+          </div>
           <div className="tile is-ancestor">
             {
               collection.kits.map((kit, i) => <KitSection kit={kit} key={`kit-${i}`}></KitSection>)

@@ -11,7 +11,7 @@ const KitSection = ({kit}) => {
                   .reduce((total, current) => { return total + current})
 
   return (
-    <div className="tile is-parent is-4 is-vertical card">
+    <div className="tile is-parent is-4 is-vertical box">
       <div className="card-content">
         <div className="content">
           <h3 className="title is-child is-4 bold">{kit.name}</h3>
@@ -28,10 +28,10 @@ const KitSection = ({kit}) => {
         </div>
       </div>
       <div className="card-footer">
-        <button className="card-footer-item button is-primary" onClick={() => { kitSkus.forEach(sku => add(sku.sku,)) }}>
+        <a className="card-footer-item button is-primary bold" onClick={() => { kitSkus.forEach(sku => add(sku.sku,)) }}>
           <span className="icon"><FaCartPlus/></span>
           <span>Add to Cart</span>
-        </button>
+        </a>
       </div>
     </div>
   )

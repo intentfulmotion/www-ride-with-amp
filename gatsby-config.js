@@ -43,6 +43,19 @@ module.exports = {
             link: `mailto://team@intentfulmotion.com?subject=Contact`
           }
         ]
+			},
+			{
+        section: `Shop`,
+        links: [
+					{
+            name: `DIY Kits`,
+            link: `/diy`
+          },
+          {
+            name: `Longboard Kits`,
+            link: `/longboards`
+          }
+        ]
       },
       {
         section: "Legal",

@@ -19,7 +19,7 @@ const SubscribeSection = () => (
                   </span>
                 </p>
               </div>
-              <input type="submit" data-drip-attribute="sign-up-button" autoComplete="false" tabindex="-1" className="button is-primary has-text-centered" value="Sign Up for Updates" />
+              <input type="submit" data-drip-attribute="sign-up-button" autoComplete="false" tabIndex="-1" className="button is-primary has-text-centered" value="Sign Up for Updates" />
             </div>
         </div>
       </form>
