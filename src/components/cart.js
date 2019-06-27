@@ -2,13 +2,12 @@ import React, { useContext } from 'react'
 import { CartContext } from './cart.provider'
 import { FaTimes } from 'react-icons/fa'
 
-const stripe = window.Stripe(process.env.STRIPE_PUBLISHABLE_KEY)
-
 const Cart = () => {
   let { cart, contents, remove, total } = useContext(CartContext)
 
   const redirectToCheckout = async (event) => {
     event.preventDefault()
+    const stripe = window.Stripe(process.env.STRIPE_PUBLISHABLE_KEY)
 
     const { error } = await stripe.redirectToCheckout({
       items: contents.map((item) => { return { sku: item[0], quantity: item[1] } }),

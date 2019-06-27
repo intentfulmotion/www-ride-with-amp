@@ -1,40 +1,43 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type == 'ProductCollections') {
-    const slug = createFilePath({ node, getNode, basePath: `collections`, trailingSlash: false })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allProductCollections {
+      allContentfulProductCollection {
         edges {
           node {
-            fields {
-              slug
+            name
+            description
+            slug
+            kits {
+              name
+              images {
+                fluid(maxWidth: 1920) {
+                  src
+                  srcSet
+                  base64
+                }
+              }
+              skus {
+                sku
+                quantity
+              }
+              featured
             }
+            products
           }
         }
       }
     }
   `)
   .then(result => {
-    result.data.allProductCollections.edges.forEach(({node}) => {
+    result.data.allContentfulProductCollection.edges.forEach(({node}) => {
       createPage({
-        path: node.fields.slug,
+        path: node.slug,
         component: path.resolve('./src/templates/collection.js'),
-        context: { 
-          slug: node.fields.slug
+        context: {
+          node
         }
       })
     })

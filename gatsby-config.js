@@ -11,23 +11,23 @@ module.exports = {
 		menuLinks: [
       {
         name: `What Is It`,
-        link: `#what`
+        link: `/#what`
       },
       {
         name: `Specs`,
-        link: `#specs`
+        link: `/#specs`
       },
       {
         name: `Mix It Up`,
-        link: `#mixer`
+        link: `/#mixer`
       },
       {
         name: `Find a Kit`,
-        link: `#kits`
+        link: `/#kits`
 			},
 			{
         name: `Subscribe`,
-        link: `#subscribe`
+        link: `/#subscribe`
       }
 		],
 		footer: [
@@ -61,19 +61,7 @@ module.exports = {
 	},
 	plugins: [
 		'gatsby-plugin-sharp',
-		{
-			resolve: `gatsby-transformer-json`,
-			options: {
-				typeName: `ProductCollections`
-			}
-		},
 		'gatsby-transformer-sharp',
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/collections`
-			}
-		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -115,11 +103,19 @@ module.exports = {
 			}
 		},
 		{
+			resolve: `gatsby-source-contentful`,
+			options: {
+				spaceId: `smrlz4o6hk32`,
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+				downloadLocal: true
+			}
+		},
+		{
 			resolve: `gatsby-plugin-drip`,
 			options: {
 				accountId: '6140706'
 			}
-		}
+		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

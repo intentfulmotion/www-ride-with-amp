@@ -1,15 +1,16 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import ProductSection from '../components/productSection'
-import CollectionSection from '../components/collectionSection'
+import KitSection from '../components/kitSection'
+import SubscribeSection from '../components/subscribe'
 
-export default ({ props, data }) => {
-  const productCollection = data.productCollections
+export default ({ pageContext }) => {
+  const collection = pageContext.node
+  const kits = collection.kits
 
-  let allFeatured = productCollection.collections.filter(c => c.featured === true)
+  let allFeatured = kits.filter(c => c.featured === true)
   let featured = null
 
   // choose a random feature collection
@@ -17,18 +18,21 @@ export default ({ props, data }) => {
     featured = allFeatured[Math.floor(Math.random() * allFeatured.length)]
 
   if (featured)
-    return CollectionWithFeature(productCollection, props, featured)
+    return CollectionWithFeature(collection, featured)
   else
     return (<Layout></Layout>)
 }
 
-const CollectionWithFeature = (data, props, feature) => {
-  const heroStyle = {
-    backgroundImage: `url(${feature.image.childImageSharp.fluid.src})`,
-    backgroundPosition: `center 60%`,
-    backgroundRepeat: `no-repeat`,
-    backgroundSize: `cover`,
-    color: `#fff`
+const CollectionWithFeature = (collection, feature) => {
+  let heroStyle;
+  if (feature.images) {
+    heroStyle = {
+      backgroundImage: `url(${feature.images[0].fluid.src})`,
+      backgroundPosition: `center 60%`,
+      backgroundRepeat: `no-repeat`,
+      backgroundSize: `cover`,
+      color: `#fff`
+    }
   }
 
   const titleStyle = {
@@ -40,11 +44,11 @@ const CollectionWithFeature = (data, props, feature) => {
 
   return (
     <Layout>
-      <section className="hero" style={heroStyle}>
+      <section className="hero is-info" style={heroStyle}>
         <Navbar />
         <div className="hero-body">
           <div className="container">
-            <h1 style={titleStyle}>{data.title}</h1>
+            <h1 style={titleStyle}>{collection.name}</h1>
           </div>
         </div>
         <div className="hero-footer has-text-right">
@@ -57,42 +61,15 @@ const CollectionWithFeature = (data, props, feature) => {
         <div className="container">
           <div className="tile is-ancestor">
             {
-              data.collections.map((collection, i) => <CollectionSection collection={collection} key={`collection-${i}`}></CollectionSection>)
+              collection.kits.map((kit, i) => <KitSection kit={kit} key={`kit-${i}`}></KitSection>)
             }
           </div>
         </div>
       </section>
       { 
-        data.products.map((product, i) => <ProductSection productId={`prod_${product}`} key={`product-${i}`}></ProductSection>)
+        collection.products.map((product, i) => <ProductSection productId={`prod_${product}`} key={`product-${i}`}></ProductSection>)
       }
+      <SubscribeSection />
     </Layout>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    productCollections(fields: { slug: { eq: $slug } }) {
-      title
-      description
-      collections {
-        name
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        products {
-          id
-        }
-        skus {
-          sku
-          quantity
-        }
-        featured
-      }
-      products
-    }
-  }
-`

@@ -51,7 +51,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <a className="card-footer-item has-text-white" href="/boosted">Get Yours</a>
+                <a className="card-footer-item has-text-white" href="/longboards">Get Yours</a>
               </div>
             </div>
           </div>
