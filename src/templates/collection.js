@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import ProductSection from '../components/productSection'
+import CollectionSection from '../components/collectionSection'
 
 export default ({ props, data }) => {
   const productCollection = data.productCollections
@@ -46,15 +47,24 @@ const CollectionWithFeature = (data, props, feature) => {
             <h1 style={titleStyle}>{data.title}</h1>
           </div>
         </div>
-        <div className="hero-footer">
+        <div className="hero-footer has-text-right">
           <div className="container">
             <span>{feature.name}</span>
           </div>
         </div>
       </section>
-        { 
-          data.products.map((product, i) => <ProductSection productId={product} key={`product-${i}`}></ProductSection>)
-        }
+      <section className="section">
+        <div className="container">
+          <div className="tile is-ancestor">
+            {
+              data.collections.map((collection, i) => <CollectionSection collection={collection} key={`collection-${i}`}></CollectionSection>)
+            }
+          </div>
+        </div>
+      </section>
+      { 
+        data.products.map((product, i) => <ProductSection productId={`prod_${product}`} key={`product-${i}`}></ProductSection>)
+      }
     </Layout>
   )
 }

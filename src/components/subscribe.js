@@ -6,7 +6,7 @@ const SubscribeSection = () => (
     <div className="container">
       <form id="signup-form" action="https://www.getdrip.com/forms/160816409/submissions" method="post" data-drip-embedded-form="160816409" onSubmit={() => {}}>
         <div className="content">
-          <h3 className="title is-3 has-text-centered has-text-white" data-drip-attribute="headline">Stay in the Loop</h3>
+          <h3 className="title bold is-3 has-text-centered has-text-white" data-drip-attribute="headline">Stay in the Loop</h3>
           <p className="subtitle has-text-centered has-text-white" data-drip-attribute="description">Keep up to speed as we support new vehicles, form factors, and release new kits for the Amp.</p>
         </div>
         <div className="columns is-centered">

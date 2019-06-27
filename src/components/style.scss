@@ -27,6 +27,10 @@ html {
   src: url('../fonts/nexa-light.otf') format('opentype');
 }
 
+.content {
+  font-family: 'Nexa Light'
+}
+
 .spec-list {
   font-family: 'Nexa Light';
 }
@@ -152,5 +156,9 @@ td a:hover {
 }
 
 input {
-  font-family: 'Nexa Light'
+  font-family: 'Nexa Light';
+}
+
+.bold {
+  font-family: 'Nexa Bold';
 }

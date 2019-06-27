@@ -5,7 +5,7 @@ const SpecSection = () => (
   <div className="section has-background-info has-text-white" id="specs">
     <div className="container">
       <div className="content">
-      <h3 className="title is-3 has-text-centered has-text-white">Specs</h3>
+      <h3 className="title is-3 bold has-text-centered has-text-white">Specs</h3>
       </div>
       <div className="columns">
         <div className="spec column has-text-centered">

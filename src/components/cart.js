@@ -6,13 +6,12 @@ const stripe = window.Stripe(process.env.STRIPE_PUBLISHABLE_KEY)
 
 const Cart = () => {
   let { cart, contents, remove, total } = useContext(CartContext)
-  console.log(contents)
 
   const redirectToCheckout = async (event) => {
     event.preventDefault()
 
     const { error } = await stripe.redirectToCheckout({
-      items: contents.map((item ) => { return { sku: item[0], quantity: item[1] } }),
+      items: contents.map((item) => { return { sku: item[0], quantity: item[1] } }),
       successUrl: `${window.location.origin}/order-success`,
       cancelUrl: `${window.location.href}`,
     })
@@ -35,25 +34,29 @@ const Cart = () => {
           <div className="content">
             <h3 className="title is-3">Cart</h3>
             <table>
-              <tr>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Sub-Total</th>
-                <th></th>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Sub-Total</th>
+                  <th></th>
+                </tr>
+              </thead>
 
-              {
-                cart.map((item, i) => (
-                  <tr key="cart-item-${i}">
-                    <td>{item[0].attributes.name}</td>
-                    <td>{`$${item[0].price / 100}`}</td>
-                    <td>{item[1]}</td>
-                    <td>{item[0].price / 100 * item[1]}</td>
-                    <td><a className="is-rounded is-outlined" onClick={() => { remove(item[0].id) }}><span className="icon"><FaTimes /></span></a></td>
-                  </tr>
-                ))
-              }
+              <tbody>
+                {
+                  cart.map((item, i) => (
+                    <tr key="cart-item-${i}">
+                      <td>{item[0].attributes.name}</td>
+                      <td>{`$${item[0].price / 100}`}</td>
+                      <td>{item[1]}</td>
+                      <td>{item[0].price / 100 * item[1]}</td>
+                      <td><a className="is-rounded is-outlined" onClick={() => { remove(item[0].id) }}><span className="icon"><FaTimes /></span></a></td>
+                    </tr>
+                  ))
+                }
+              </tbody>
             </table>
             <div className="columns">
               <div className="column is-3 is-offset-6">
