@@ -1,0 +1,21 @@
+{
+  "title": "Do It Yourself",
+  "description": "Customize an Amp kit with the right size of battery and LED strips.",
+  "collections": [
+    {
+      "name": "DIY",
+      "image": "../images/boosted/boosted-back.jpg",
+      "products": [
+        { "id": "prod_FKQWC4Db3ztSXH" },
+        { "id": "prod_FKQaaQpjN1L4tf" },
+        { "id": "prod_FKQdtEsTJLpdoG" }
+      ],
+      "featured": true
+    }
+  ],
+  "products": [
+    "prod_FKQRfzTIsLh0Qq",
+    "prod_FKQaaQpjN1L4tf",
+    "prod_FKQdtEsTJLpdoG"
+  ]
+}

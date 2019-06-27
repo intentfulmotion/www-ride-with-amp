@@ -125,3 +125,32 @@ html {
   font-family: 'Nexa Light';
   font-size: 0.75em;
 }
+
+.card-header-title {
+  text-overflow: clip;
+  word-wrap: normal;
+}
+
+.product-description {
+  font-family: 'Nexa Light';
+}
+
+th {
+  font-family: 'Nexa Bold'
+}
+
+td {
+  font-family: 'Nexa Light';
+}
+
+td a {
+  color: #000;
+}
+
+td a:hover {
+  color: $primary;
+}
+
+input {
+  font-family: 'Nexa Light'
+}

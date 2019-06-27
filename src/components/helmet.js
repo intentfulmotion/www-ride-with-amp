@@ -32,7 +32,6 @@ export default () => (
 					itemprop="description"
 					content={data.site.siteMetadata.description}
 				/>
-				<script src="https://www.trycelery.com/js/celery.js" type="text/javascript"></script>
 			</Helmet>
 		)}
 	/>

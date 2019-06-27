@@ -1,8 +1,6 @@
 import React from 'react';
 import './style.scss';
 
-import StoreButton from './storeButton'
-
 import DIYKit from "../images/diy.svg"
 import BicycleKit from "../images/bicycle.svg"
 import ScooterKit from "../images/scooter.svg"
@@ -32,7 +30,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <StoreButton cardFooter={true} />
+                <a className="card-footer-item has-text-white" href="/diy">Get Yours</a>
               </div>
             </div>
           </div>
@@ -53,7 +51,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <StoreButton cardFooter={true} />
+                <a className="card-footer-item has-text-white" href="/boosted">Get Yours</a>
               </div>
             </div>
           </div>
@@ -73,7 +71,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <StoreButton cardFooter={true} comingSoon={true} />
+                <a className="card-footer-item has-text-white" href="#subscribe">Notify Me</a>
               </div>
             </div>
           </div>
@@ -92,7 +90,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <StoreButton cardFooter={true} comingSoon={true} />
+                <a className="card-footer-item has-text-white" href="#subscribe">Notify Me</a>
               </div>
             </div>
           </div>

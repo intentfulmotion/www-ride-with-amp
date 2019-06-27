@@ -7,10 +7,6 @@ export const useSiteMetadata = () => {
         site {
           siteMetadata {
             title
-            storeLink {
-              text
-              collection
-            }
             menuLinks {
               name
               link

@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV != 'production')
+	require("dotenv").config({path: `.env.${process.env.NODE_ENV}`})
+
 module.exports = {
 	siteMetadata: {
 		title: 'Light up your ride',
@@ -21,12 +24,12 @@ module.exports = {
       {
         name: `Find a Kit`,
         link: `#kits`
+			},
+			{
+        name: `Subscribe`,
+        link: `#subscribe`
       }
 		],
-		storeLink: {
-      text: `Get Yours`,
-      collection: `5b9163da2af10714007ba8ec`
-		},
 		footer: [
       {
         section: `About`,
@@ -57,7 +60,20 @@ module.exports = {
     ]
 	},
 	plugins: [
-		'gatsby-plugin-react-helmet',
+		'gatsby-plugin-sharp',
+		{
+			resolve: `gatsby-transformer-json`,
+			options: {
+				typeName: `ProductCollections`
+			}
+		},
+		'gatsby-transformer-sharp',
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/collections`
+			}
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -65,8 +81,7 @@ module.exports = {
 				path: `${__dirname}/src/images`
 			}
 		},
-		'gatsby-transformer-sharp',
-		'gatsby-plugin-sharp',
+		'gatsby-plugin-react-helmet',
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -89,7 +104,22 @@ module.exports = {
 				anonymize: true
 			}
 		},
-		`gatsby-plugin-sitemap`
+		`gatsby-plugin-sitemap`,
+		"gatsby-plugin-stripe",
+		{
+			resolve: `gatsby-source-stripe`,
+			options: {
+				objects: ['Product', 'Sku'],
+				secretKey: process.env.STRIPE_SECRET_KEY,
+				downloadFiles: true
+			}
+		},
+		{
+			resolve: `gatsby-plugin-drip`,
+			options: {
+				accountId: '6140706'
+			}
+		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './style.scss';
 import ampLogo from '../images/amp-icon.svg';
 
-import StoreButton from './storeButton'
+import { FaShoppingCart } from 'react-icons/fa';
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { CartContext } from './cart.provider'
 
 export default ({ alt }) => {
 	const { title, menuLinks } = useSiteMetadata()
+	const { count } = useContext(CartContext)
+
+	let cartCount
+	cartCount = count > 0 ? <span>({ count })</span> : null
 
 	let navbarClasses = !alt || alt === false ? 'navbar' : 'navbar has-background-info'
+
+	const showCart = () => {
+		document.getElementById('shopping-cart').classList.toggle('is-active')
+	}
 
 	return (
 		<div className="hero-head is-hidden-mobile">
@@ -19,7 +28,9 @@ export default ({ alt }) => {
 						<a className="navbar-item" href="/">
 							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
 						</a>
-						<span className="navbar-item">{title}</span>
+						<a className="navbar-item" href="/">
+							<span className="navbar-item">{title}</span>
+						</a>
 					</div>
 					<div id="navbarMenuHeroA" className="navbar-menu">
 						<div className="navbar-end">
@@ -34,7 +45,12 @@ export default ({ alt }) => {
 									)
 							}
 							<span className="navbar-item">
-								<StoreButton />
+								<button className="button has-text-white is-primary" onClick={() => {showCart()}}>
+									<span className="icon">
+										<FaShoppingCart />
+									</span>
+									<span>Cart { cartCount }</span>
+								</button>
 							</span>
 						</div>
 					</div>

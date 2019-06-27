@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.scss';
 
 import Navbar from './navbar';
-import StoreButton from './storeButton'
 import ampPoster from '../images/poster.jpg'
 import ampLogo from '../images/amp-icon.svg';
 import ampVideoLoop from '../videos/amp-intro-loop.mp4'
@@ -11,7 +10,7 @@ const Header = () => (
 	<section className="hero is-fullheight video">
 		<Navbar />
 		<div className="hero-video">
-			<video id="bgvid" poster={ampPoster} playsInline muted autoPlay disableRemotePlayback loop>
+			<video id="bgvid" poster={ampPoster} playsInline muted autoPlay disableremoteplayback="true" loop>
 				<source src={ampVideoLoop} type="video/mp4" />
 			</video>
 		</div>
@@ -28,7 +27,9 @@ const Header = () => (
 					<a className="button is-white is-outlined" href="#what">
 						<span>Learn More</span>
 					</a>
-					<StoreButton />
+					<a className="button is-primary has-text-white" href="#kits">
+						<span>Get Your Kit</span>
+					</a>
 				</div>
 			</div>
 		</div>

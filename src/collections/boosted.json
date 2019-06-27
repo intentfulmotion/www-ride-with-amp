@@ -1,0 +1,20 @@
+{
+  "title": "Longboards",
+  "description": "Shred the streets in style with a lighting kit tailor made for your board.",
+  "collections": [
+    {
+      "name": "Boosted Stop + Turn Kit",
+      "image": "../images/collections/boosted-stop-turn.jpg",
+      "skus": [
+        { "sku": "sku_FKQRybYnAc6TLo", "quantity": 1 },
+        { "sku": "sku_FKQW0Ken0scoZC", "quantity": 1 },
+        { "sku": "sku_FKQaDdECY3iIwK", "quantity": 1 }
+      ],
+      "featured": true
+    }
+  ],
+  "products": [
+    "prod_FKQWC4Db3ztSXH",
+    "prod_FKQaaQpjN1L4tf"
+  ]
+}

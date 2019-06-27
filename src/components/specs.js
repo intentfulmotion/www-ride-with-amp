@@ -22,7 +22,7 @@ const SpecSection = () => (
         </div>
         <div className="spec column has-text-centered">
           <ul className="spec-list">
-            <li className="subtitle has-text-white">USB Type C Charging</li>
+            <li className="subtitle has-text-white">USB Type C</li>
             <li className="subtitle has-text-white">Bluetooth Low Energy</li>
             <li className="subtitle has-text-white">Over the Air Updates</li>
           </ul>
