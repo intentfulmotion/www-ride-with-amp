@@ -20,6 +20,7 @@ const SpecSection = () => (
           <h1 className="is-size-1">3</h1>
           <p className="subtitle has-text-white">customizable lighting modes</p>
         </div>
+        <hr className="is-hidden-desktop" />
         <div className="spec column has-text-centered">
           <ul className="spec-list">
             <li className="subtitle has-text-white">USB Type C</li>

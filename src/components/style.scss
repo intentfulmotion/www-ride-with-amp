@@ -81,6 +81,10 @@ html {
     font-size: 4.5rem;
     line-height: 5rem;
   }
+
+  .navbar-menu {
+    background-color: #000;
+  }
 }
 
 .navbar-item {
@@ -123,13 +127,6 @@ html {
 
 .footer-link:hover, .footer-link:active, .footer-link:focus {
   color: $info;
-}
-
-.brand-icon-mobile {
-  position: relative;
-  top: 2em;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .download-app {

@@ -7,3 +7,5 @@ Product Landing site for the Amp
 * GatsbyJS
 * Bulma CSS
 * Netlify
+* Contentful
+* Stripe

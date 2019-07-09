@@ -14,9 +14,6 @@ const Header = () => (
 				<source src={ampVideoLoop} type="video/mp4" />
 			</video>
 		</div>
-		<figure className="image is-64x64 brand-icon-mobile is-hidden-tablet">
-			<img src={ampLogo} alt="Logo" />
-		</figure>
 		<div className="hero-body">
 			<div className="container">
 				<h1 className="brand-name">aMp</h1>

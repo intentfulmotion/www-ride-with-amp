@@ -20,19 +20,29 @@ export default ({ alt }) => {
 		document.getElementById('shopping-cart').classList.toggle('is-active')
 	}
 
+	const toggleMobileMenu = () => {
+		document.getElementById('mobile-menu').classList.toggle('is-active')
+		document.getElementById('navbar-menu').classList.toggle('is-active')
+	}
+
 	return (
-		<div className="hero-head is-hidden-mobile">
+		<div className="hero-head">
 			<nav className={navbarClasses}>
 				<div className="container">
 					<div className="navbar-brand">
 						<a className="navbar-item" href="/">
 							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
 						</a>
-						<a className="navbar-item" href="/">
+						<a className="navbar-item is-hidden-mobile" href="/">
 							<span className="navbar-item">{title}</span>
 						</a>
+						<a id="mobile-menu" role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</a>
 					</div>
-					<div id="navbarMenuHeroA" className="navbar-menu">
+					<div id="navbar-menu" className="navbar-menu">
 						<div className="navbar-end">
 							{
 								menuLinks
