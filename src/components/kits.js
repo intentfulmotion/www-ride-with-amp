@@ -15,7 +15,7 @@ export default () => (
       <div className="container">
         <div className="columns">
           <div className="column">
-            <div className="card">
+            <div className="card kit-card">
               <div className="card-content">
                 <figure className="image is-square">
                   <img src={DIYKit} />
@@ -35,7 +35,7 @@ export default () => (
             </div>
           </div>
           <div className="column">
-            <div className="card">
+            <div className="card kit-card">
               <div className="card-content">
                 <figure className="image is-square">
                   <img src={LongboardKit} />
@@ -56,7 +56,7 @@ export default () => (
             </div>
           </div>
           <div className="column">
-            <div className="card">
+            <div className="card kit-card">
               <div className="card-content">
                 <figure className="image is-square">
                   <img src={ScooterKit} />
@@ -76,7 +76,7 @@ export default () => (
             </div>
           </div>
           <div className="column">
-            <div className="card">
+            <div className="card kit-card">
               <div className="card-content">
                 <figure className="image is-square">
                   <img src={BicycleKit} />

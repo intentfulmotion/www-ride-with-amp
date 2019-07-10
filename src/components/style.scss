@@ -171,3 +171,13 @@ input {
 .bold {
   font-family: 'Nexa Bold';
 }
+
+.kit-card {
+  min-height: 55vh;
+}
+
+.kit-card .card-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

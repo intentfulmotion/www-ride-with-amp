@@ -7,7 +7,7 @@ module.exports = {
 		author: '@intentfulmotion',
 		description: 'Ride in style and safety with the Amp smart lighting kit for bicycles, scooters, and longboards.',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
-		siteUrl: `https://www.ridewithamp.com`,
+		siteUrl: `https://amp.intentfulmotion.com`,
 		menuLinks: [
       {
         name: `What Is It`,
