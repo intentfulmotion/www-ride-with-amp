@@ -2,9 +2,9 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
-import KiloGram from '../fronts/kilogram.otf'
-import NexaBold from '../fronts/nexa-bold.otf'
-import NexaLight from '../fronts/nexa-light.otf'
+import KiloGram from '../fonts/kilogram.otf'
+import NexaBold from '../fonts/nexa-bold.otf'
+import NexaLight from '../fonts/nexa-light.otf'
 
 export default () => (
 	<StaticQuery
