@@ -1,9 +1,12 @@
+import React from 'react'
+import { StripeProvider, injectStripe, Elements } from 'react-stripe-elements'
+
 export const StripeAPIKey = "pk_live_DjVeCbarLJtrnDP5ntOs5Hua"
 
 class StripeWrapper extends React.Component {
   constructor() {
     super()
-    this.sate = { stripe: null }
+    this.state = { stripe: null }
   }
 
   componentDidMount() {
@@ -19,10 +22,12 @@ class StripeWrapper extends React.Component {
   render() {
     return (
       <StripeProvider stripe={this.state.stripe}>
-        <Element>
-          <InjectedCheckoutForm />
-        </Element>
+        <Elements>
+          
+        </Elements>
       </StripeProvider>
     )
   }
 }
+
+export default StripeWrapper

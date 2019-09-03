@@ -8,7 +8,6 @@ const ProductSection = ({ productId }) => {
   const { products, skus, add } = useContext(CartContext)
   let product = products.filter(p => p.id === productId)[0]
   let productSkus = skus.filter(s => s.product.id === productId)
-
   return (
     <section className="section">
       <div className="container content">

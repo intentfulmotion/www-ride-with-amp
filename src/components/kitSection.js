@@ -3,7 +3,13 @@ import { FaCartPlus } from 'react-icons/fa'
 import { CartContext } from './cart.provider'
 
 const KitSection = ({kit}) => {
-  const { products, skus, add } = useContext(CartContext)
+  return (<div></div>)
+}
+
+export default KitSection
+
+/*
+const { products, skus, add } = useContext(CartContext)
   let kitSkus = kit.skus.map(sku => { return { sku: `sku_${sku.sku}`, quantity: sku.quantity }})
   let inflatedSkus = kitSkus.map(sku => { return { ...skus.find(s => s.id === sku.sku), quantity: sku.quantity }})
   const total = inflatedSkus
@@ -35,6 +41,4 @@ const KitSection = ({kit}) => {
       </div>
     </div>
   )
-}
-
-export default KitSection
+*/

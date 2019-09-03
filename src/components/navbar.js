@@ -36,7 +36,7 @@ export default ({ alt }) => {
 						<a className="navbar-item is-hidden-mobile" href="/">
 							<span className="navbar-item">{title}</span>
 						</a>
-						<a id="mobile-menu" role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
+						<a id="mobile-menu" role="button" className="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
@@ -55,7 +55,7 @@ export default ({ alt }) => {
 									)
 							}
 							<span className="navbar-item">
-								<button className="button has-text-white is-primary" onClick={() => {showCart()}}>
+								<button className="button has-text-white is-primary" onClick={() => { window.location.href = "https://store.intentfulmotion.com"}}>
 									<span className="icon">
 										<FaShoppingCart />
 									</span>

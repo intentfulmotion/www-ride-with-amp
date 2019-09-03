@@ -2,32 +2,17 @@ import React, { useContext } from 'react'
 import { CartContext } from './cart.provider'
 import { FaTimes } from 'react-icons/fa'
 
-const Cart = (props) => {
-  let { cart, contents, remove, total } = useContext(CartContext)
-
-  const redirectToCheckout = async (event) => {
-    event.preventDefault()
-    const stripe = this.props.stripe
-
-    const { error } = await stripe.redirectToCheckout({
-      items: contents.map((item) => { return { sku: item[0], quantity: item[1] } }),
-      successUrl: `${window.location.origin}/order-success`,
-      cancelUrl: `${window.location.href}`,
-    })
-
-    if (error) {
-      console.error('Error:', error)
-    }
-  }
+const Cart = () => {
+  let { cart, remove, total } = useContext(CartContext)
 
   const toggleCart = () => {
     document.getElementById('shopping-cart').classList.toggle('is-active')
   }
 
   const checkoutButton = cart.length > 0 ? (
-    <button onClick={event => redirectToCheckout(event)} className="button is-primary">
+    <a href="/checkout" className="button is-primary">
       Checkout
-    </button>
+    </a>
   ) : (<div></div>)
 
   return (
