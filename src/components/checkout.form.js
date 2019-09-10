@@ -5,7 +5,7 @@ import {injectStripe, CardElement, PaymentRequestButtonElement} from 'react-stri
 class CheckoutForm extends Component {
   constructor(props) {
     super(props)
-    let { total } = useContext(CartContext)
+    /*let { total } = useContext(CartContext)
   
     const paymentRequest = props.stripe.paymentRequest({
       country: 'US',
@@ -27,7 +27,7 @@ class CheckoutForm extends Component {
     this.state = {
       canMakePayment: false,
       paymentRequest
-    }
+    }*/
   }
 
   async updateCanMakePayment(paymentRequest) {
