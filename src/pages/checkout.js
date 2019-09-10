@@ -6,30 +6,34 @@ import { StripeProvider, Elements } from 'react-stripe-elements'
 
 export const StripeAPIKey = "pk_live_DjVeCbarLJtrnDP5ntOs5Hua"
 
-const CheckoutPage = () => {
-  let stripe = null
+class CheckoutPage extends React.Component {
+  state = { stripe: null }
 
-  if (window.Stripe)
-    stripe = window.Stripe(StripeAPIKey)
+  componentDidMount() {
+    if (window.Stripe)
+      this.setState({ ...state, stripe: window.Stripe(StripeAPIKey) })
   else
     document.querySelector('$stripe-js').addEventListener('load', () => {
-      stripe = window.Stripe(StripeAPIKey)
+      this.setState({ ...state, stripe: window.Stripe(StripeAPIKey) })
     })
-  
-  return (
-    <Layout>
-      <Navbar alt={true} />
-      <div className="section">
-        <div className="container">
-          <StripeProvider stripe={stripe}>
-            <Elements>
-              <CheckoutForm />
-            </Elements>
-          </StripeProvider>
+  }
+
+  render() {
+    return (
+      <Layout>
+        <Navbar alt={true} />
+        <div className="section">
+          <div className="container">
+            <StripeProvider stripe={this.state.stripe}>
+              <Elements>
+                <CheckoutForm />
+              </Elements>
+            </StripeProvider>
+          </div>
         </div>
-      </div>
-    </Layout>
-  )
+      </Layout>
+    )
+  }
 }
 
 export default CheckoutPage
