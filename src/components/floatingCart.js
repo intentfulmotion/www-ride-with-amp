@@ -7,9 +7,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 
 const FloatingCart = () => {
   const { count } = useContext(CartContext)
-
-  if (count > 0) {
-    const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles(theme => ({
       fab: {
         position: 'fixed',
         bottom: theme.spacing(4),
@@ -17,14 +15,16 @@ const FloatingCart = () => {
         zIndex: 99
       }
     }))
+  const styles = useStyles()
 
+  if (count > 0) {
     const showCart = () => {
       const cart = document.getElementById('shopping-cart')
       cart.classList.toggle('is-active')
       cart.scrollIntoView(true)
     }
 
-    const classes = useStyles()
+    const classes = styles
 
     return (
       <Fab color="primary" aria-label="Cart" className={classes.fab} onClick={() => { window.location.href = "https://store.intentfulmotion.com" }}>
