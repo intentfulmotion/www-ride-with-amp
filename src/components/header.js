@@ -5,7 +5,7 @@ import Navbar from './navbar';
 import ampPoster from '../images/poster.jpg'
 import ampLogo from '../images/amp-icon.svg';
 // import ampVideoLoop from '../videos/amp-intro-loop.mp4'
-import ampBicycle from '../images/amp-bicycle.jpg'
+import ampBicycle from '../images/amp-bicycle-min.jpg'
 
 const Header = () => (
 	<section className="hero is-fullheight video">
