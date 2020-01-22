@@ -61,7 +61,8 @@ html {
 
 @include mobile {
   .hero-video {
-    background-image: url('../images/poster.jpg');
+    // background-image: url('../images/poster.jpg');
+    background-image: url('../images/amp-bicycle-min.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
