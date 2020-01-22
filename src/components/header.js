@@ -12,8 +12,11 @@ import Img from "gatsby-image"
 export const heroImage = graphql`
 fragment heroImage on File {
   childImageSharp {
-    fluid(maxWidth: 1352) {
-      ...GatsbyImageSharpFluid
+		fluid(
+			maxWidth: 1352
+			traceSVG: { background: "#fff", color: "#663399" }
+		) {
+      ...GatsbyImageSharpFluid_tracedSVG
     }
   }
 }
@@ -34,7 +37,7 @@ const Header = () => {
 				{/* <video id="bgvid" poster={ampPoster} playsInline muted autoPlay disableremoteplayback="true" loop>
 					<source src={ampVideoLoop} type="video/mp4" />
 				</video> */}
-				<Img fluid={data.heroImage.childImageSharp.fluid} fadeIn={true} />
+				<Img fluid={data.heroImage.childImageSharp.fluid} fadeIn={true} critical={true} />
 			</div>
 			<div className="hero-body">
 				<div className="container">
