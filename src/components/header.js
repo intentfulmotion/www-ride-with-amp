@@ -37,6 +37,7 @@ const Header = () => {
 				{/* <video id="bgvid" poster={ampPoster} playsInline muted autoPlay disableremoteplayback="true" loop>
 					<source src={ampVideoLoop} type="video/mp4" />
 				</video> */}
+				<Img className="hero-image" fluid={data.heroImage.childImageSharp.fluid} fadeIn={true} />
 			</div>
 			<div className="hero-body">
 				<div className="container">

@@ -62,13 +62,19 @@ html {
 @include mobile {
   .hero-video {
     // background-image: url('../images/poster.jpg');
-    background-image: url('../images/amp-bicycle-min.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     min-width: 100%;
     min-height: 100%;
     display: block;
+  }
+
+  .hero-image {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: 100vh;
   }
 
   .hero-video video {
