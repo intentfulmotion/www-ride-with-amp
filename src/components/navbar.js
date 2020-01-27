@@ -55,7 +55,7 @@ export default ({ alt }) => {
 									)
 							}
 							<span className="navbar-item">
-								<button className="button has-text-white is-primary" onClick={() => { window.location.href = "https://store.intentfulmotion.com"}}>
+								<button className="button has-text-white is-primary" onClick={() => { showCart() }}>
 									<span className="icon">
 										<FaShoppingCart />
 									</span>

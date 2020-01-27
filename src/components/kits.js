@@ -30,7 +30,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <a className="card-footer-item has-text-white" href="https://store.intentfulmotion.com/product/amp-beta">Get Yours</a>
+                <a className="card-footer-item has-text-white" href="/diy">Get Yours</a>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default () => (
                 </div>
               </div>
               <div className="card-footer">
-                <a className="card-footer-item has-text-white" href="https://store.intentfulmotion.com/product/boosted-stop-and-turn-kit-beta">Get Yours</a>
+                <a className="card-footer-item has-text-white" href="/longboards">Get Yours</a>
               </div>
             </div>
           </div>

@@ -1,13 +1,22 @@
-import React, { Component, useContext } from 'react'
-import { CartContext } from './cart.provider'
+import React, { Component } from 'react'
+import { CartContext } from '../components/cart.provider'
 import {injectStripe, CardElement, PaymentRequestButtonElement} from 'react-stripe-elements'
 
 class CheckoutForm extends Component {
   constructor(props) {
     super(props)
-    /*let { total } = useContext(CartContext)
+
+    this.state = {
+      canMakePayment: false,
+      paymentRequest: null
+    }
+  }
+
+  async componentDidMount() {
+    let { total } = this.props.cart
+    console.log(this.props.stripe)
   
-    const paymentRequest = props.stripe.paymentRequest({
+    const paymentRequest = this.props.stripe.paymentRequest({
       country: 'US',
       currency: 'usd',
       total: {
@@ -22,17 +31,18 @@ class CheckoutForm extends Component {
       console.log('received customer information: ', data)
     })
 
-    this.updateCanMakePayment(paymentRequest)
+    await this.updateCanMakePayment(paymentRequest)
 
     this.state = {
       canMakePayment: false,
-      paymentRequest
-    }*/
+      // paymentRequest
+    }
   }
 
   async updateCanMakePayment(paymentRequest) {
     let result = await paymentRequest.canMakePayment()
-    console.log(result)
+    console.log('can make payment: ', result)
+
     this.setState({ canMakePayment: !!result })
   }
 

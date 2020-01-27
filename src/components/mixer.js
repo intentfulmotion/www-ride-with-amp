@@ -14,15 +14,15 @@ export default () => (
 				<div className="column is-4">
 					<div className="box details">
 						<h5 className="title bold is-5">Remote Control</h5>
-						<p>Manually control the light states and view the battery status of your Amp.</p>
+						<p>Use Mixer to control the braking and turn indications for the Amp in remote control mode.</p>
           </div>
           <div className="box details">
-						<h5 className="title bold is-5">Custom Light Layouts</h5>
-						<p>Mix up your own brake, indicator, and running lights layout to for each LED strip.</p>
+						<h5 className="title bold is-5">Customize Your Lights</h5>
+						<p>Customize which parts of the lights connected to the Amp should be used for braking, turning, and for headlights.</p>
 					</div>
 					<div className="box details">
 						<h5 className="title bold is-5">Share Your Amp</h5>
-						<p>Want to share one Amp between your bicycle and longboard?</p><br/>
+						<p>Want to re-use one Amp between your bicycle and longboard?</p><br/>
 						<p>Load up a new profile or create your own in Mixer and you're on your way.</p>
 					</div>
         </div>

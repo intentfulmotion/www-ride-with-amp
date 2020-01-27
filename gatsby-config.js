@@ -106,7 +106,12 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-sitemap`,
-		"gatsby-plugin-stripe",
+		{
+			resolve: `gatsby-plugin-stripe`,
+			options: { 
+				async: true
+			}
+		},
 		{
 			resolve: `gatsby-source-stripe`,
 			options: {

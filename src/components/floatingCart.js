@@ -27,7 +27,7 @@ const FloatingCart = () => {
     const classes = styles
 
     return (
-      <Fab color="primary" aria-label="Cart" className={classes.fab} onClick={() => { window.location.href = "https://store.intentfulmotion.com" }}>
+      <Fab color="primary" aria-label="Cart" className={classes.fab} onClick={() => { showCart() }}>
         <FaShoppingCart /><span>&nbsp;{ count }</span>
       </Fab>
     )
