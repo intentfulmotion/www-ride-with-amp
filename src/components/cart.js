@@ -7,7 +7,7 @@ const Cart = (props) => {
 
   const redirectToCheckout = async (event) => {
     event.preventDefault()
-    console.log(cart)
+    window.location.href = '/checkout'
 
     // const { error } = await stripe.redirectToCheckout({
     //   items: contents.map((item) => { return { sku: item[0], quantity: item[1] } }),
@@ -51,11 +51,11 @@ const Cart = (props) => {
                 {
                   cart.map((item, i) => (
                     <tr key={`cart-item-${i}`}>
-                      <td>{item[0].attributes.name}</td>
-                      <td>{`$${item[0].price / 100}`}</td>
+                      <td>{item[0].name}</td>
+                      <td>{item[0].price}</td>
                       <td>{item[1]}</td>
-                      <td>{item[0].price / 100 * item[1]}</td>
-                      <td><a className="is-rounded is-outlined" onClick={() => { remove(item[0].id) }}><span className="icon"><FaTimes /></span></a></td>
+                      <td>{item[0].price * item[1]}</td>
+                      <td><a className="is-rounded is-outlined" onClick={() => { remove(item[0].sku) }}><span className="icon"><FaTimes /></span></a></td>
                     </tr>
                   ))
                 }
@@ -63,7 +63,7 @@ const Cart = (props) => {
             </table>
             <div className="columns">
               <div className="column is-3 is-offset-6">
-                <h5>Total: ${total/100}</h5>
+                <h5>Total: ${total}</h5>
               </div>
               <div className="column is-2">
                 {checkoutButton}

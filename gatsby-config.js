@@ -113,14 +113,6 @@ module.exports = {
 			}
 		},
 		{
-			resolve: `gatsby-source-stripe`,
-			options: {
-				objects: ['Product', 'Sku'],
-				secretKey: process.env.STRIPE_SECRET_KEY,
-				downloadFiles: true
-			}
-		},
-		{
 			resolve: `gatsby-source-contentful`,
 			options: {
 				spaceId: `smrlz4o6hk32`,

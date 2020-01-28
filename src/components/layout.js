@@ -13,43 +13,29 @@ export default ({ children }) => {
     return (
     <StaticQuery
       query={graphql`
-        query SkuQuery {
-          skus: allStripeSku {
+        query SkuQuery { 
+          products: allContentfulProduct {
             edges {
               node {
-                id
+                name
+                sku
                 price
-                currency
-                product {
-                  id
-                  name
-                }
-                attributes {
-                  name
+                length
+                width
+                depth
+                images {
+                  file { url }
                 }
                 active
               }
             }
           }
-  
-          products: allStripeProduct {
-            edges {
-              node {
-                id
-                name
-                metadata {
-                  version
-                  description
-                }
-              }
-            }
-          }
         }  
       `}
-      render={({ products, skus }) => (
+      render={({ products }) => (
         <div>
           <Helmet />
-          <CartProvider products={products.edges.map(edge => edge.node)} skus={skus.edges.map(edge => edge.node)}>
+          <CartProvider products={products.edges.map(edge => edge.node)}>
             {children}
             <Footer />
             <Cart />

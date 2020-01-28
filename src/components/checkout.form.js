@@ -12,18 +12,23 @@ class CheckoutForm extends Component {
     }
   }
 
-  async componentDidMount() {
-    let { total } = this.props.cart
-    console.log(this.props.stripe)
-  
+  componentDidMount() {
     const paymentRequest = this.props.stripe.paymentRequest({
       country: 'US',
       currency: 'usd',
       total: {
         label: 'Demo total',
-        amount: total * 100,
+        amount: this.props.cart.total * 100,
       },
-      requestShipping: true
+      requestPayerName: true,
+      requestPayerEmail: true,
+      requestShipping: true,
+      shippingOptions: [{
+        id: 'free-shipping',
+        label: 'Free shipping',
+        detail: 'Arrives in 5 to 7 days',
+        amount: 0,
+      }]
     })
 
     paymentRequest.on('token', ({ complete, token, ...data}) => {
@@ -31,19 +36,13 @@ class CheckoutForm extends Component {
       console.log('received customer information: ', data)
     })
 
-    await this.updateCanMakePayment(paymentRequest)
-
-    this.state = {
-      canMakePayment: false,
-      // paymentRequest
-    }
+    this.updateCanMakePayment(paymentRequest)
   }
 
   async updateCanMakePayment(paymentRequest) {
     let result = await paymentRequest.canMakePayment()
     console.log('can make payment: ', result)
-
-    this.setState({ canMakePayment: !!result })
+    this.setState({ canMakePayment: result, paymentRequest: paymentRequest })
   }
 
   checkout(event) {
@@ -51,6 +50,7 @@ class CheckoutForm extends Component {
   }
 
   render() {
+    console.log(this.state)
     let paymentRequestButton = this.state.canMakePayment ? (
       <PaymentRequestButtonElement
         paymentRequest={this.state.paymentRequest}
@@ -64,10 +64,12 @@ class CheckoutForm extends Component {
       />
     ) : null
 
+    console.log(paymentRequestButton)
+
     return (
       <form onSubmit={(ev) => { this.checkout(ev) }}>
-        <CardElement />
         {paymentRequestButton}
+        <CardElement />
         <button>Confirm Order</button>
       </form>
     )

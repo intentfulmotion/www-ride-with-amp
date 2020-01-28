@@ -1,45 +1,53 @@
 const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  return graphql(`
-    {
+  const result = await graphql(`
+    query {
       allContentfulProductCollection {
         edges {
           node {
             name
             description
             slug
-            kits {
-              name
-              images {
-                fluid(maxWidth: 1920) {
-                  src
-                  srcSet
-                  base64
-                }
-              }
-              skus {
-                sku
-                quantity
-              }
-              featured
+            featuredImage {
+              file { url }
             }
-            products
+            products {
+              name
+              active
+              sku
+              price
+              description {
+                description
+              }
+              shortDescription          
+              images {
+                file { url }
+              }
+              length
+              width
+              depth
+              tags
+            }
           }
         }
       }
     }
   `)
-  .then(result => {
-    result.data.allContentfulProductCollection.edges.forEach(({node}) => {
-      createPage({
-        path: node.slug,
-        component: path.resolve('./src/templates/collection.js'),
-        context: {
-          node
-        }
-      })
+
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query: ${JSON.stringify(result.errors, null, 2)}`)
+    return
+  }
+
+  const collectionTemplate = path.resolve(`src/templates/collection.js`)
+
+  result.data.allContentfulProductCollection.edges.forEach(({ node }) => {
+    createPage({
+      path: `/${node.slug}`,
+      component: collectionTemplate,
+      context: { node }
     })
   })
 }

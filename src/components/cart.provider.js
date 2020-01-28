@@ -7,11 +7,11 @@ export const CartContext = React.createContext()
  * Manages the shopping cart, which is persisted in local storage.
  * The cart and related methods are shared through context.
  */
-const CartProvider = ({ children, skus, products }) => {
+const CartProvider = ({ children, products }) => {
   const [mode, setMode] = useState(false)
-  let skuList = {}
-  skus.forEach(s => {
-    skuList[s.id] = s
+  let productList = {}
+  products.forEach(p => {
+    productList[p.sku] = p
   })
 
   /** Load cart from local storage. Initialize if not present or incorrect. */
@@ -37,7 +37,7 @@ const CartProvider = ({ children, skus, products }) => {
 
   /** An array representing the cart in the form of [{sku}, quantity] */
   const cart = contents.map(([id, quantity]) => {
-    return [skuList[id], quantity]
+    return [productList[id], quantity]
   })
 
   /** The number of items in the cart */
@@ -45,47 +45,48 @@ const CartProvider = ({ children, skus, products }) => {
 
   /** The total cost of the items in the cart */
   const total = contents.reduce(
-    (sum, [id, quantity]) => sum + skuList[id].price * quantity,
+    (sum, [sku, quantity]) => sum + productList[sku].price * quantity,
     0
   )
 
   /** Sets quantity of item with `id` */
-  function set(id, quantity) {
-    if (!available(id)) return
+  function set(sku, quantity) {
+    if (!available(sku)) return
 
-    const index = contents.findIndex(item => item[0] === id)
+    const index = contents.findIndex(item => item[0] === sku)
     setContents(state => {
       const newState = [...state]
       if (index !== -1) {
-        newState[index] = [id, quantity]
+        newState[index] = [sku, quantity]
       } else {
-        newState.push([id, quantity])
+        newState.push([sku, quantity])
       }
       return newState
     })
   }
 
   /** Increments item with `id` by `quantity`, which defaults to 0 */
-  function add(id, quantity = 1) {
-    const currentItem = contents.find(item => item[0] === id)
+  function add(sku, quantity = 1) {
+    const currentItem = contents.find(item => item[0] === sku)
     const currentQuantity = currentItem ? currentItem[1] : 0
-    set(id, quantity + currentQuantity)
+    set(sku, quantity + currentQuantity)
   }
 
   /** Removes item with `id` */
-  function remove(id) {
+  function remove(sku) {
     setContents(state => {
-      return state.filter(item => item[0] !== id)
+      return state.filter(item => item[0] !== sku)
     })
   }
 
   /** Returns true if `quantity` of item with `id` is available for purchase */
-  function available(id, quantity = 1) {
-    const sku = skuList[id]
-    if (!sku) {
-      console.error(`Sku with id ${id} not found`)
+  function available(sku, quantity = 1) {
+    const product = productList[sku]
+    if (!product) {
+      console.error(`Product with sku ${sku} not found`)
       return false
-    } else if (!sku.active) {
+    } else if (!product.active) {
+      console.error(`Product with sku ${sku} is not active`)
       return false
     } else {
       return true
@@ -108,7 +109,6 @@ const CartProvider = ({ children, skus, products }) => {
     count,
     total,
     mode,
-    skus,
     products
   }
 
