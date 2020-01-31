@@ -10,7 +10,6 @@ class CheckoutForm extends Component {
     this.state = {
       canMakePayment: false,
       paymentRequest: null,
-      
     }
   }
 
