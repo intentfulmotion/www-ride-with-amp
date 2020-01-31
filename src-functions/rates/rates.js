@@ -42,7 +42,7 @@ exports.handler = async (event, context, callback) => {
     callback(null, {
       statusCode: 200,
       headers,
-      body: shipment.rates
+      body: JSON.stringify(shipment.rates)
     })
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
