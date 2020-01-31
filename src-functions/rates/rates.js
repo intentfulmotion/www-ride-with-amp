@@ -1,5 +1,10 @@
-let apiKey = process.env.FUNCTIONS_ENVIRONMENT === "production" ? process.env.SHIPPO_API_KEY_PRODUCTION : process.env.SHIPPO_API_KEY_STAGING
-const shippo = require(shippo)(apiKey)
+let apiKey = process.env.SHIPPO_API_KEY_STAGING
+if (process.env.FUNCTIONS_ENVIRONMENT === "production") {
+  apiKey = process.env.SHIPPO_API_KEY_PRODUCTION
+  console.log(`loading production key`)
+}
+
+const shippo = require("shippo")(apiKey)
 
 let fromAddress = JSON.parse(process.env.FROM_ADDRESS)
 const headers = {
@@ -35,6 +40,7 @@ exports.handler = async (event, context, callback) => {
     })
     return {
       statusCode: 200,
+      headers,
       body: shipment.rates
     }
   } catch (err) {
