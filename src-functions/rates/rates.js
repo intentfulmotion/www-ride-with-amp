@@ -34,7 +34,7 @@ exports.handler = async (event, context, callback) => {
   try {
     let shipment = await shippo.shipment.create({
       "address_from": fromAddress,
-      "address_to": toAddress,
+      "address_to": data.toAddress,
       "parcels": [data.parcels],
       "async": false
     })
