@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import CheckoutForm from '../components/checkout.form'
+import CheckoutCart from '../components/checkout.cart'
 import { CartContext } from '../components/cart.provider'
 
 import { Elements, StripeProvider } from 'react-stripe-elements'
@@ -15,12 +16,20 @@ const CheckoutPage = () => {
         { cart => (
             <div className="section">
               <div className="container">
-                <StripeProvider apiKey={StripeAPIKey}>
-                  <Elements>
-                    <CheckoutForm cart={cart} />
-                  </Elements>
-                </StripeProvider>
-              </div>
+                <h1 className="title">Checkout</h1>
+                <div className="columns">
+                  <div className="column">
+                    <CheckoutCart />
+                  </div>
+                  <div className="column checkout-divider">
+                    <StripeProvider apiKey={StripeAPIKey}>
+                      <Elements>
+                        <CheckoutForm cart={cart} />
+                      </Elements>
+                    </StripeProvider>
+                  </div>
+                </div>
+                </div>
             </div>
           )
         }

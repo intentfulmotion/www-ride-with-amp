@@ -1,0 +1,10 @@
+{
+  "name": "function-amp-ecommerce",
+  "version": "1.0.0",
+  "description": "Functions for Amp Product page",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "shippo": "^1.3.1"
+  }
+}

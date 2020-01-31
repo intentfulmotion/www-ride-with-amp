@@ -35,6 +35,7 @@ export default () => (
 				<meta
 					itemprop="description"
 					content={data.site.siteMetadata.description} />
+				<link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
 				<link rel="preload" as="font" href={KiloGram} type="font/otf" crossOrigin="anonymous" />
 				<link rel="preload" as="font" href={NexaBold} type="font/otf" crossOrigin="anonymous" />
 				<link rel="preload" as="font" href={NexaLight} type="font/otf" crossOrigin="anonymous" />

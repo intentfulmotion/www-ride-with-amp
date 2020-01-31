@@ -10,21 +10,16 @@ export default ({ pageContext }) => {
   const collection = pageContext.node
   console.log(collection)
 
-  if (collection.featuredImage.file.url)
-    return CollectionWithFeature(collection)
-  else
-    return (<Layout></Layout>)
-}
+  let heroStyle = null;
 
-const CollectionWithFeature = (collection) => {
-  let heroStyle;
-  heroStyle = {
-    backgroundImage: `url(${collection.featuredImage.file.url})`,
-    backgroundPosition: `center 60%`,
-    backgroundRepeat: `no-repeat`,
-    backgroundSize: `cover`,
-    color: `#fff`
-  }
+  if (collection.featuredImage)
+    heroStyle = {
+      backgroundImage: `url(${collection.featuredImage.file.url})`,
+      backgroundPosition: `center 60%`,
+      backgroundRepeat: `no-repeat`,
+      backgroundSize: `cover`,
+      color: `#fff`
+    }
 
   return (
     <Layout>

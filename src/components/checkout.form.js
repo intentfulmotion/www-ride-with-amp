@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { CartContext } from '../components/cart.provider'
 import {injectStripe, CardElement, PaymentRequestButtonElement} from 'react-stripe-elements'
+import listOfCountries from 'iso3166-2-db/i18n/dispute/UN/en';
+import AddressSection from './checkout/address'
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class CheckoutForm extends Component {
 
     this.state = {
       canMakePayment: false,
-      paymentRequest: null
+      paymentRequest: null,
+      
     }
   }
 
@@ -17,8 +19,8 @@ class CheckoutForm extends Component {
       country: 'US',
       currency: 'usd',
       total: {
-        label: 'Demo total',
-        amount: this.props.cart.total * 100,
+        label: 'Amp Checkout',
+        amount: Math.round(this.props.cart.total * 100),
       },
       requestPayerName: true,
       requestPayerEmail: true,
@@ -41,7 +43,6 @@ class CheckoutForm extends Component {
 
   async updateCanMakePayment(paymentRequest) {
     let result = await paymentRequest.canMakePayment()
-    console.log('can make payment: ', result)
     this.setState({ canMakePayment: result, paymentRequest: paymentRequest })
   }
 
@@ -50,28 +51,35 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    console.log(this.state)
     let paymentRequestButton = this.state.canMakePayment ? (
-      <PaymentRequestButtonElement
-        paymentRequest={this.state.paymentRequest}
-        className="PaymentRequestButton"
-        style={{
-          paymentRequestButton: {
-            theme: 'light',
-            height: '64px'
-          }
-        }}
-      />
+      <div className="payment-request-container">
+        <PaymentRequestButtonElement
+          paymentRequest={this.state.paymentRequest}
+          className="PaymentRequestButton"
+          style={{
+            paymentRequestButton: {
+              theme: 'light',
+              height: '64px',
+              marginBottom: '1rem'
+            }
+          }}
+        />
+
+        <h6 className="has-text-centered checkout-option-text">Or enter your shipment and payment details below</h6>
+      </div>
     ) : null
 
-    console.log(paymentRequestButton)
-
     return (
-      <form onSubmit={(ev) => { this.checkout(ev) }}>
-        {paymentRequestButton}
-        <CardElement />
-        <button>Confirm Order</button>
-      </form>
+      <div className="checkout-root">
+        <div className="box">
+          {paymentRequestButton}
+          <h3>Shipping Address</h3>
+          <AddressSection />
+        </div>
+        <div className="has-text-centered">
+          <button className="button is-primary" onClick={() => {}}>Get Shipping Options</button>
+        </div>
+      </div>
     )
   }
 }

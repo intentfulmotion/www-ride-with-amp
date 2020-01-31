@@ -47,7 +47,7 @@ const CartProvider = ({ children, products }) => {
   const total = contents.reduce(
     (sum, [sku, quantity]) => sum + productList[sku].price * quantity,
     0
-  )
+  ).toFixed(2)
 
   /** Sets quantity of item with `id` */
   function set(sku, quantity) {

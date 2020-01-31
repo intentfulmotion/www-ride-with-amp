@@ -15,4 +15,12 @@ $button-text-hover-background-color: transparent;
 $button-text-color: white;
 $button-text-hover-color: $primary;
 
-$card-footer-background-color: $primary
+$card-footer-background-color: $primary;
+
+$input-border-color: rbga(0, 0, 0, 0.0);
+$input-shadow: unset;
+$input-hover-border-color: rgba(0, 0, 0, 0.0);
+$input-focus-border-color: rgba(0, 0, 0, 0.0);
+$input-focus-box-shadow-size: 0 0 0 0;
+$input-focus-box-shadow-color: rgba(0, 0, 0, 0.0);
+$input-radius: 0px;
