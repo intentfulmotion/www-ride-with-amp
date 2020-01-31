@@ -38,11 +38,12 @@ exports.handler = async (event, context, callback) => {
       "parcels": data.parcels,
       "async": false
     })
-    return {
+    
+    callback(null, {
       statusCode: 200,
       headers,
       body: shipment.rates
-    }
+    })
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
   }
