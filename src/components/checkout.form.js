@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {injectStripe, CardElement, PaymentRequestButtonElement} from 'react-stripe-elements'
-import listOfCountries from 'iso3166-2-db/i18n/dispute/UN/en';
+import {injectStripe, PaymentRequestButtonElement} from 'react-stripe-elements'
 import AddressSection from './checkout/address'
 
 class CheckoutForm extends Component {
