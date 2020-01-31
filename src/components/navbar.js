@@ -34,7 +34,7 @@ export default ({ alt }) => {
 							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
 						</a>
 						<a className="navbar-item is-hidden-mobile" href="/">
-							<span className="navbar-item">{title}</span>
+							<span className="navbar-item">Light up your ride.</span>
 						</a>
 						<a id="mobile-menu" role="button" className="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
 							<span aria-hidden="true"></span>

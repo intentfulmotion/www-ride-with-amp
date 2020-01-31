@@ -3,9 +3,9 @@ if (process.env.NODE_ENV != 'production')
 
 module.exports = {
 	siteMetadata: {
-		title: 'Light up your ride',
-		author: '@intentfulmotion',
-		description: 'Ride in style and safety with the Amp smart lighting kit for bicycles, scooters, and longboards.',
+		title: 'Amp by Intentful Motion',
+		author: 'Intentful Motion, Inc.',
+		description: 'Reactive, smart brake and turn lights for your ride',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
 		siteUrl: `https://amp.intentfulmotion.com`,
 		menuLinks: [
@@ -112,6 +112,7 @@ module.exports = {
 				async: true
 			}
 		},
+		'gatsby-transformer-remark',
 		{
 			resolve: `gatsby-source-contentful`,
 			options: {

@@ -24,7 +24,9 @@ const SingleProductCheckoutView = () => {
               <FaMinus />
             </span>
           </button>
-          <span className="subtitle"> x {quantity}</span>
+          <button class="button is-white" disabled>
+            { quantity }
+          </button>
           <button class="button is-white" onClick={() => set(product.sku, quantity + 1)}>
             <span class="icon is-small">
               <FaPlus />
@@ -69,14 +71,17 @@ const MultipleProductsCheckoutView = () => {
                       <h4 className="checkout-item-subtitle">Quantity: {quantity}</h4>
                     </div>
                     <div className="media-right">
-                      <h3 className="checkout-item-title">${(product.price * quantity).toFixed(2)} USD</h3>
+                      <h3 className="checkout-item-title has-text-right">${(product.price * quantity).toFixed(2)} USD</h3>
                       <div className="buttons checkout-item-subtitle">
-                        <button class="button is-small is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
+                        <button class="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
                           <span class="icon is-small">
                             <FaMinus />
                           </span>
                         </button>
-                        <button class="button is-small is-white" onClick={() => set(product.sku, quantity + 1)}>
+                        <button class="button is-white" disabled>
+                          { quantity }
+                        </button>
+                        <button class="button is-white" onClick={() => set(product.sku, quantity + 1)}>
                           <span class="icon is-small">
                             <FaPlus />
                           </span>

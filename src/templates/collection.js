@@ -1,15 +1,14 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
-import ProductSection from '../components/productSection'
+import ProductListItem from '../components/productListItem'
 import SubscribeSection from '../components/subscribe'
-import ampLogo from '../images/amp-icon.svg';
+import ampLogo from '../images/amp-icon.svg'
 
-export default ({ pageContext }) => {
-  const collection = pageContext.node
-  console.log(collection)
-
+export default ({ data }) => {
+  const collection = data.contentfulProductCollection
   let heroStyle = null;
 
   if (collection.featuredImage)
@@ -22,7 +21,7 @@ export default ({ pageContext }) => {
     }
 
   return (
-    <Layout>
+    <Layout title={collection.name} description={collection.description}>
       <section className="hero is-info" style={heroStyle}>
         <Navbar />
         <figure className="image is-64x64 brand-icon-mobile is-hidden-tablet">
@@ -38,7 +37,7 @@ export default ({ pageContext }) => {
         <div className="container">
           <div className="tile is-ancestor">
             {
-              collection.products.map((product, i) => <ProductSection product={product} productId={`prod_${product}`} key={`product-${i}`}></ProductSection>)
+              collection.products.filter(p => p.active).map((product, i) => <ProductListItem product={product} key={`product-${i}`}></ProductListItem>)
             }
           </div>
         </div>
@@ -47,3 +46,31 @@ export default ({ pageContext }) => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query ProductCollectionBySlug($slug: String!) {
+    contentfulProductCollection(slug: { eq: $slug }) {
+      name
+      description
+      slug
+      featuredImage { 
+        file {
+          url
+        }
+      }
+      products {
+        name
+        active
+        sku
+        price
+        shortDescription
+        tags
+        images {
+          fluid(maxWidth: 250) {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`

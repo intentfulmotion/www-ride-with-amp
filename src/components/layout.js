@@ -9,7 +9,7 @@ import Cart from './cart'
 import CartProvider from './cart.provider'
 import FloatingCart from './floatingCart'
 
-export default ({ children }) => {
+export default ({ children, title, description, tags }) => {
     return (
     <StaticQuery
       query={graphql`
@@ -34,7 +34,7 @@ export default ({ children }) => {
       `}
       render={({ products }) => (
         <div>
-          <Helmet />
+          <Helmet title={title} description={description} tags={tags} />
           <CartProvider products={products.edges.map(edge => edge.node)}>
             {children}
             <Footer />
