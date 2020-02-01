@@ -36,6 +36,10 @@ class CheckoutForm extends Component {
     //   console.log('received customer information: ', data)
     // })
 
+    // paymentRequest.on('shippingaddresschange', (ev) => {
+    //   console.log(ev.shippingAddress)
+    // })
+
     // this.updateCanMakePayment(paymentRequest)
   }
 

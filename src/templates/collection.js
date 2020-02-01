@@ -70,17 +70,6 @@ export const pageQuery = graphql`
             ...GatsbyContentfulFluid
           }
         }
-        parcel {
-          length
-          width
-          height
-          weight
-        }
-        length
-        width
-        depth
-        weight
-        unitsPerParcel
       }
     }
   }
