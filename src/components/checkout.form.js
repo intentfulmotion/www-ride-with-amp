@@ -58,11 +58,24 @@ class CheckoutForm extends Component {
     console.log(await response.text())
   }
 
-  render() {
-    let parcels = this.props.cart.cart.map(p => {
-      return { length: p.length, width: p.width, height: p.depth, distance_unit: 'cm', mass_unit: 'g' }
+  calculateParcelsRequired() {
+    let { cart } = this.props.cart
+    let boxes = []
+
+    cart.map(p => {
+      let product = p[0]
+      let parcel = product.parcel
+      let quantity = p[1]
+      for (let left = quantity; left > 0;) {
+        boxes.push({ ...parcel, distance_unit: 'cm', mass_unit: 'kg', weight: parcel.weight + (left * product.weight )})
+        left -= product.unitsPerParcel
+      }
     })
 
+    return boxes
+  }
+
+  render() {
     let paymentRequestButton = this.state.canMakePayment ? (
       <div className="payment-request-container">
         <PaymentRequestButtonElement
@@ -86,7 +99,7 @@ class CheckoutForm extends Component {
         <div className="box">
           {paymentRequestButton}
           <h3>Shipping Address</h3>
-          <AddressSection onSubmit={(address) => { this.getShippingOptions(address, parcels) }} submitText="Get Shipping Options" />
+          <AddressSection onSubmit={(address) => { this.getShippingOptions(address, this.calculateParcelsRequired()) }} submitText="Get Shipping Options" />
         </div>
       </div>
     )
