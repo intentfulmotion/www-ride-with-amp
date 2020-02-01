@@ -19,6 +19,7 @@ class CheckoutPage extends Component {
       this.setState({stripe: window.Stripe(StripeAPIKey)});
     } else {
       document.querySelector('#stripe-js').addEventListener('load', () => {
+        console.log('loaded stripe.js')
         // Create Stripe instance once Stripe.js loads
         this.setState({stripe: window.Stripe(StripeAPIKey)});
       })

@@ -13,30 +13,30 @@ class CheckoutForm extends Component {
   }
 
   componentDidMount() {
-    const paymentRequest = this.props.stripe.paymentRequest({
-      country: 'US',
-      currency: 'usd',
-      total: {
-        label: 'Amp Checkout',
-        amount: Math.round(this.props.cart.total * 100),
-      },
-      requestPayerName: true,
-      requestPayerEmail: true,
-      requestShipping: true,
-      shippingOptions: [{
-        id: 'free-shipping',
-        label: 'Free shipping',
-        detail: 'Arrives in 5 to 7 days',
-        amount: 0,
-      }]
-    })
+    // const paymentRequest = this.props.stripe.paymentRequest({
+    //   country: 'US',
+    //   currency: 'usd',
+    //   total: {
+    //     label: 'Amp Checkout',
+    //     amount: Math.round(this.props.cart.total * 100),
+    //   },
+    //   requestPayerName: true,
+    //   requestPayerEmail: true,
+    //   requestShipping: true,
+    //   shippingOptions: [{
+    //     id: 'free-shipping',
+    //     label: 'Free shipping',
+    //     detail: 'Arrives in 5 to 7 days',
+    //     amount: 0,
+    //   }]
+    // })
 
-    paymentRequest.on('token', ({ complete, token, ...data}) => {
-      console.log('received stripe token: ', token)
-      console.log('received customer information: ', data)
-    })
+    // paymentRequest.on('token', ({ complete, token, ...data}) => {
+    //   console.log('received stripe token: ', token)
+    //   console.log('received customer information: ', data)
+    // })
 
-    this.updateCanMakePayment(paymentRequest)
+    // this.updateCanMakePayment(paymentRequest)
   }
 
   async updateCanMakePayment(paymentRequest) {
@@ -48,7 +48,21 @@ class CheckoutForm extends Component {
     event.preventDefault()
   }
 
+  async getShippingOptions(to, parcels) {
+    var response = await fetch(`https://amp.intentfulmotion.com/.netlify/functions/rates`, {
+      method: 'POST',
+      body: JSON.stringify({ toAddress: to, parcels: parcels }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+
+    console.log(await response.text())
+  }
+
   render() {
+    let parcels = this.props.cart.cart.map(p => {
+      return { length: p.length, width: p.width, height: p.depth, distance_unit: 'cm', mass_unit: 'g' }
+    })
+
     let paymentRequestButton = this.state.canMakePayment ? (
       <div className="payment-request-container">
         <PaymentRequestButtonElement
@@ -72,10 +86,7 @@ class CheckoutForm extends Component {
         <div className="box">
           {paymentRequestButton}
           <h3>Shipping Address</h3>
-          <AddressSection />
-        </div>
-        <div className="has-text-centered">
-          <button className="button is-primary" onClick={() => {}}>Get Shipping Options</button>
+          <AddressSection onSubmit={(address) => { this.getShippingOptions(address, parcels) }} submitText="Get Shipping Options" />
         </div>
       </div>
     )

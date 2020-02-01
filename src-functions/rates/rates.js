@@ -9,11 +9,18 @@ const shippo = require("shippo")(apiKey)
 let fromAddress = JSON.parse(process.env.FROM_ADDRESS)
 const headers = {
   "Access-Control-Allow-Origin" : "*",
-  "Access-Control-Allow-Headers": "Content-Type"
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "OPTIONS, POST"
 };
 
 exports.handler = async (event, context, callback) => {
-  if(event.httpMethod !== 'POST' || !event.body) {
+  if (event.httpMethod === 'OPTIONS') {
+    callback(null, {
+      statusCode: 204,
+      headers,
+    })
+  }
+  else if(event.httpMethod !== 'POST' || !event.body) {
     callback(null, {
       statusCode: 400,
       headers,

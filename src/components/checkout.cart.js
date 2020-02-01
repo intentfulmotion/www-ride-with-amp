@@ -19,16 +19,16 @@ const SingleProductCheckoutView = () => {
           </figure>
         </div>
         <div className="column is-3">
-          <button class="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
-            <span class="icon is-small">
+          <button className="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
+            <span className="icon is-small">
               <FaMinus />
             </span>
           </button>
-          <button class="button is-white" disabled>
+          <button className="button is-white" disabled>
             { quantity }
           </button>
-          <button class="button is-white" onClick={() => set(product.sku, quantity + 1)}>
-            <span class="icon is-small">
+          <button className="button is-white" onClick={() => set(product.sku, quantity + 1)}>
+            <span className="icon is-small">
               <FaPlus />
             </span>
           </button>
@@ -58,7 +58,7 @@ const MultipleProductsCheckoutView = () => {
             console.log('product', product)
 
             return (
-              <div className="card">
+              <div className="card" key={`cart-item-${product.sku}`}>
                 <div className="card-content">
                   <div className="media">
                     <div className="media-left">
@@ -73,16 +73,16 @@ const MultipleProductsCheckoutView = () => {
                     <div className="media-right">
                       <h3 className="checkout-item-title has-text-right">${(product.price * quantity).toFixed(2)} USD</h3>
                       <div className="buttons checkout-item-subtitle">
-                        <button class="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
-                          <span class="icon is-small">
+                        <button className="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
+                          <span className="icon is-small">
                             <FaMinus />
                           </span>
                         </button>
-                        <button class="button is-white" disabled>
+                        <button className="button is-white" disabled>
                           { quantity }
                         </button>
-                        <button class="button is-white" onClick={() => set(product.sku, quantity + 1)}>
-                          <span class="icon is-small">
+                        <button className="button is-white" onClick={() => set(product.sku, quantity + 1)}>
+                          <span className="icon is-small">
                             <FaPlus />
                           </span>
                         </button>

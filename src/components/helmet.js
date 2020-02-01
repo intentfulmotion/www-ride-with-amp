@@ -39,7 +39,6 @@ export default ({ title, description, tags }) => (
 					content={data.site.siteMetadata.description} />
 				<link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
 				<link rel="preload" as="font" href={KiloGram} type="font/otf" crossOrigin="anonymous" />
-				<script id="stripe-js" src="https://js.stripe.com/v3/" async></script>
 			</Helmet>
 		)}
 	}
