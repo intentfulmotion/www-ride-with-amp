@@ -3,8 +3,8 @@
 
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
+@import '~bulma-pricingtable/src/sass/index.sass';
 @import './snipcart.css';
-@import '~bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable.sass';
 @import '~bulma/sass/utilities/mixins';
 
 html {
@@ -54,72 +54,23 @@ html {
   color: '#fff';
 }
 
+.hero-product-title {
+  font-family: 'questa-slab';
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 5rem;
+  color: '#fff';
+}
+
 .hero-video video { position: relative; left: auto; top: auto; transform: none; object-fit: cover; min-height: inherit; }
 
-.checkout-root {
-  font-family: 'questa-slab';
+.product-price {
+  margin-right: 1rem;
+  color: $primary;
 }
 
-.checkout-root h3 {
-  margin-bottom: 1rem;
-}
-
-.button {
-  font-family: 'questa-slab';
-  font-weight: 700;
-}
-
-.checkout-title {
-  font-family: 'questa-slab';
-  font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  color: #000;
-  margin-bottom: 1rem;
-}
-
-.checkout-subtitle {
-  font-family: 'questa-slab';
-  font-weight: 400;
-  color: #69797E;
-  font-size: 1.2rem;
-  color: #69797E;
-}
-
-.checkout-items-title {
-  margin-bottom: 0.8rem;
-}
-
-.checkout-cart h5 {
-  font-family: 'questa-slab';
-  font-weight: 300;
-  font-size: 1rem;
-  color: #69797E;
-}
-
-.checkout-item-title {
-  font-family: 'questa-slab';
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #000;
-}
-
-.checkout-item-subtitle {
-  font-family: 'questa-slab';
-  font-weight: 300;
-  font-size: 0.8rem;
-  color: #69797E;
-}
-
-.checkout-option-text {
-  font-family: 'questa-slab';
-  font-weight: 300;
-  color: #69797E;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
-  border-top: thin #69797E solid;
+.product-description {
+  margin-top: 2rem;
 }
 
 @include mobile {

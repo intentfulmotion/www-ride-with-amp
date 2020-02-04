@@ -8,4 +8,4 @@ Product Landing site for the Amp
 * Bulma CSS
 * Netlify
 * Contentful
-* Stripe
+* Snipcart

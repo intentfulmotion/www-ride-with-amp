@@ -29,7 +29,7 @@ export default ({ data }) => {
         </figure>
         <div className="hero-body">
           <div className="container">
-            <h1 className="hero-kit-title">{collection.name}</h1>
+            <h1 className="hero-product-title">{collection.name}</h1>
           </div>
         </div>
       </section>

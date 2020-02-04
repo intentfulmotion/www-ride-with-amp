@@ -17,7 +17,7 @@ const ProductListItem = ({ product }) => {
           </div>
         </div>
         <div className="card-footer">
-          <a className="card-footer-item is-outlined list-item-details">
+          <a className="card-footer-item is-outlined list-item-details" href={`/products/${product.sku}`}>
             <span>Learn More</span>
           </a>
           <a className="card-footer-item is-primary bold list-item-cta snipcart-add-item"
