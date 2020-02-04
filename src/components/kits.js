@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.scss';
 
-import DIYKit from "../images/diy.svg"
-import BicycleKit from "../images/bicycle.svg"
-import ScooterKit from "../images/scooter.svg"
-import LongboardKit from "../images/longboard.svg"
+// import DIYKit from "../images/diy.svg"
+// import BicycleKit from "../images/bicycle.svg"
+// import ScooterKit from "../images/scooter.svg"
+// import LongboardKit from "../images/longboard.svg"
 
 export default () => (
   <>

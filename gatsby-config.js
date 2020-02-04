@@ -127,6 +127,14 @@ module.exports = {
 				accountId: '6140706'
 			}
 		},
+		{
+			resolve: 'gatsby-plugin-snipcartv3',
+				options: {
+						apiKey: process.env.SNIPCART_PUBLIC_API_KEY,
+						jquery: false,
+						styles: false
+				}
+		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

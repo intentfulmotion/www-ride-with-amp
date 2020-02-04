@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
+
+import React from 'react'
 import { FaCartPlus } from 'react-icons/fa'
 import './style.scss'
 import Img from 'gatsby-image'
 
-import { CartContext } from './cart.provider'
-
 const ProductListItem = ({ product }) => {
-  const { add } = useContext(CartContext)
   return (
     <div className="tile is-3" key={`product-${product.name}-sku-${product.sku}`}>
       <div className="card">
@@ -19,10 +17,17 @@ const ProductListItem = ({ product }) => {
           </div>
         </div>
         <div className="card-footer">
-          <a className="card-footer-item is-outlined list-item-details" onClick={() => { add(product.sku) }}>
+          <a className="card-footer-item is-outlined list-item-details">
             <span>Learn More</span>
           </a>
-          <a className="card-footer-item is-primary bold list-item-cta" onClick={() => { add(product.sku) }}>
+          <a className="card-footer-item is-primary bold list-item-cta snipcart-add-item"
+            data-item-id={product.sku}
+            data-item-price={product.price}
+            data-item-url={`/products/${product.sku}`}
+            data-item-description={product.shortDescription}
+            data-item-image={product.images[0].file.url}
+            data-item-name={product.name}
+          >
             <span className="icon"><FaCartPlus/></span>
             <span>Add to Cart</span>
           </a>

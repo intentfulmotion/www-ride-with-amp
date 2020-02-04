@@ -18,6 +18,7 @@
 		"gatsby-plugin-sass": "^2.1.27",
 		"gatsby-plugin-sharp": "^2.4.0",
 		"gatsby-plugin-sitemap": "^2.2.26",
+		"gatsby-plugin-snipcartv3": "^1.2.5",
 		"gatsby-plugin-stripe": "^1.2.3",
 		"gatsby-source-contentful": "^2.1.78",
 		"gatsby-source-filesystem": "^2.1.46",
@@ -51,9 +52,5 @@
 	},
 	"devDependencies": {
 		"prettier": "^1.19.1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/amandeepmittal/gatsby-bulma-quickstart"
 	}
 }

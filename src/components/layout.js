@@ -4,10 +4,6 @@ import { StaticQuery, graphql } from "gatsby"
 import './style.scss'
 import Helmet from './helmet'
 import Footer from './footer'
-import Cart from './cart'
-
-import CartProvider from './cart.provider'
-import FloatingCart from './floatingCart'
 
 export default ({ children, title, description, tags }) => {
     return (
@@ -20,9 +16,6 @@ export default ({ children, title, description, tags }) => {
                 name
                 sku
                 price
-                length
-                width
-                depth
                 images {
                   file { url }
                 }
@@ -35,7 +28,7 @@ export default ({ children, title, description, tags }) => {
                 }
                 length
                 width
-                depth
+                height
                 weight
                 unitsPerParcel
               }
@@ -46,12 +39,9 @@ export default ({ children, title, description, tags }) => {
       render={({ products }) => (
         <div>
           <Helmet title={title} description={description} tags={tags} />
-          <CartProvider products={products.edges.map(edge => edge.node)}>
-            {children}
-            <Footer />
-            <Cart />
-            <FloatingCart />
-          </CartProvider>
+          {children}
+          <Footer />
+          <div hidden id="snipcart" data-api-key={process.env.SNIPCART_PUBLIC_API_KEY}></div>
         </div>
       )}
     />

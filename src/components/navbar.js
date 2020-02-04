@@ -1,24 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import './style.scss';
 import ampLogo from '../images/amp-icon.svg';
 
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingBag } from 'react-icons/fa';
 import { useSiteMetadata } from '../hooks/use-site-metadata'
-import { CartContext } from './cart.provider'
 
 export default ({ alt }) => {
-	const { title, menuLinks } = useSiteMetadata()
-	const { count } = useContext(CartContext)
-
-	let cartCount
-	cartCount = count > 0 ? <span>({ count })</span> : null
+	const { menuLinks } = useSiteMetadata()
 
 	let navbarClasses = !alt || alt === false ? 'navbar' : 'navbar has-background-info'
-
-	const showCart = () => {
-		document.getElementById('shopping-cart').classList.toggle('is-active')
-	}
 
 	const toggleMobileMenu = () => {
 		document.getElementById('mobile-menu').classList.toggle('is-active')
@@ -55,11 +46,11 @@ export default ({ alt }) => {
 									)
 							}
 							<span className="navbar-item">
-								<button className="button has-text-white is-primary" onClick={() => { showCart() }}>
+								<button className="button is-outline is-text snipcart-checkout">
 									<span className="icon">
-										<FaShoppingCart />
+										<FaShoppingBag />
 									</span>
-									<span>Cart { cartCount }</span>
+									<span class="snipcart-items-count"></span>
 								</button>
 							</span>
 						</div>

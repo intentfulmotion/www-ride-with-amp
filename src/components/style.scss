@@ -3,6 +3,7 @@
 
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
+@import './snipcart.css';
 @import '~bulma-extensions/bulma-pricingtable/dist/css/bulma-pricingtable.sass';
 @import '~bulma/sass/utilities/mixins';
 
@@ -25,6 +26,10 @@ html {
 
 .spec-list {
   font-family: 'questa-slab';
+}
+
+.snipcart-modal__container {
+  z-index: 50;
 }
 
 .brand-name {

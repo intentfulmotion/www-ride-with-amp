@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import './style.scss';
 
 import Navbar from './navbar';
-import ampPoster from '../images/poster.jpg'
-import ampLogo from '../images/amp-icon.svg';
+// import ampPoster from '../images/poster.jpg'
+// import ampLogo from '../images/amp-icon.svg';
 // import ampVideoLoop from '../videos/amp-intro-loop.mp4'
-import ampBicycle from '../images/amp-bicycle-min.jpg'
+// import ampBicycle from '../images/amp-bicycle-min.jpg'
 import Img from "gatsby-image"
 
 export const heroImage = graphql`
