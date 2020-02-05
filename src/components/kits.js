@@ -18,7 +18,7 @@ export default () => (
             <div className="column">
               <div className="pricing-plan">
                 <div className="plan-header">Do It Yourself</div>
-                <div class="plan-price">Pricing <span class="plan-price-amount">TBA</span></div>
+                <div className="plan-price">Starting at: <span className="plan-price-amount"><span className="plan-price-currency">$</span>59.99</span></div>
                 <div className="plan-items">
                   <div className="plan-item">Mix and match LED strips</div>
                   <div className="plan-item">Great for bags, jackets, or helmets</div>
@@ -33,7 +33,7 @@ export default () => (
             <div className="column">
               <div className="pricing-plan">
                 <div className="plan-header">Longboards + E-skates</div>
-                <div class="plan-price">Pricing <span class="plan-price-amount">TBA</span></div>
+                <div className="plan-price">Starting at: <span className="plan-price-amount"><span className="plan-price-currency">$</span>74.99</span></div>
                 <div className="plan-items">
                   <div className="plan-item">Front truck running lights</div>
                   <div className="plan-item">Motor mount brake lights</div>

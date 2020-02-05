@@ -8,6 +8,7 @@ module.exports = {
 		description: 'Reactive, smart brake and turn lights for your ride',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
 		siteUrl: `https://amp.intentfulmotion.com`,
+		snipcartKey: process.env.SNIPCART_PUBLIC_API_KEY,
 		menuLinks: [
       {
         name: `What Is It`,
@@ -106,6 +107,12 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-sitemap`,
+		{
+			resolve: `gatsby-plugin-stripe`,
+			options: { 
+				async: true
+			}
+		},
 		'gatsby-transformer-remark',
 		{
 			resolve: `gatsby-source-contentful`,
