@@ -20,7 +20,6 @@ export default ({ data }) => {
 
   const addToCart = product.active ? (
     <div>
-      <span className="subtitle is-4 product-price">${product.price}</span>
       <button className="button is-primary snipcart-add-item"
         data-item-id={product.sku}
         data-item-price={product.price}
@@ -30,6 +29,7 @@ export default ({ data }) => {
         data-item-name={product.name}>
         Add to Cart
       </button>
+      <span className="subtitle is-4 product-price">${product.price}</span>
     </div>
   ) : (<div></div>)
 
