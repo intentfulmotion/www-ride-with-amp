@@ -5,7 +5,6 @@ import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import ProductListItem from '../components/productListItem'
 import SubscribeSection from '../components/subscribe'
-import ampLogo from '../images/amp-icon.svg'
 
 export default ({ data }) => {
   const collection = data.contentfulProductCollection
@@ -22,11 +21,8 @@ export default ({ data }) => {
 
   return (
     <Layout title={collection.name} description={collection.description}>
-      <section className="hero is-info" style={heroStyle}>
-        <Navbar />
-        <figure className="image is-64x64 brand-icon-mobile is-hidden-tablet">
-          <a href="/"><img src={ampLogo} alt="Logo" /></a>
-        </figure>
+      <section className="hero" style={heroStyle}>
+        <Navbar invert={collection.featuredImage == null} />
         <div className="hero-body">
           <div className="container">
             <h1 className="hero-product-title">{collection.name}</h1>

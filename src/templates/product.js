@@ -5,19 +5,10 @@ import Layout from '../components/layout'
 import Navbar from '../components/navbar'
 import SubscribeSection from '../components/subscribe'
 
-import ampLogo from '../images/amp-icon.svg'
 import Carousel from '../components/Carousel/carousel'
 
 export default ({ data }) => {
   const product = data.contentfulProduct
-  const heroStyle = {
-    backgroundImage: `url(${product.images[0].file.url})`,
-    backgroundPosition: `center center`,
-    backgroundRepeat: `no-repeat`,
-    backgroundSize: `cover`,
-    color: `#fff`
-  }
-
   const addToCart = product.active ? (
     <div>
       <button className="button is-primary snipcart-add-item"
@@ -35,7 +26,7 @@ export default ({ data }) => {
 
   return (
     <Layout title={product.name} description={product.shortDescription} tags={product.tags}>
-      <Navbar />
+      <Navbar invert={true} />
       <section className="section">
         <div className="container">
           <div className="columns">
