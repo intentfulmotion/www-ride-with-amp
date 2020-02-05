@@ -73,6 +73,20 @@ html {
   margin-top: 2rem;
 }
 
+.carousel-dot {
+  background-color: $inactive;
+  border-radius: 5px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.carousel-dot-active, .carousel-dot:hover {
+  background-color: $primary;
+}
+
 @include mobile {
   .hero-video {
     // background-image: url('../images/poster.jpg');

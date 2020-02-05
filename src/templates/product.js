@@ -6,7 +6,7 @@ import Navbar from '../components/navbar'
 import SubscribeSection from '../components/subscribe'
 
 import ampLogo from '../images/amp-icon.svg'
-import Carousel from '../components/carousel'
+import Carousel from '../components/Carousel/carousel'
 
 export default ({ data }) => {
   const product = data.contentfulProduct
