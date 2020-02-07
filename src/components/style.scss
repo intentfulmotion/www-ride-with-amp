@@ -97,7 +97,15 @@ html {
   }
 
   .navbar-menu {
-    background-color: $purple;
+    background-color: $info;
+  }
+
+  .navbar-burger, .navbar-burger:hover, .navbar-burger:active {
+    color: #fff;
+  }
+
+  .navbar-burger .invert, .navbar-burger:hover .invert, .navbar-burger:active .invert {
+    color: #000;
   }
 
   .hero-video {
@@ -127,14 +135,6 @@ html {
   .hero-kit-title {
     font-size: 4.5rem;
     line-height: 5rem;
-  }
-
-  .navbar-menu {
-    background-color: $info;
-  }
-
-  .navbar-burger {
-    color: #fff;
   }
 }
 

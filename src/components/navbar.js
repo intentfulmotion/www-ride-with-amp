@@ -31,7 +31,7 @@ export default ({ alt, invert }) => {
 						<a className={`navbar-item has-text-white is-hidden-mobile`} href="/">
 							<span className={`navbar-item ${itemInvertClasses}`}>Light up your ride.</span>
 						</a>
-						<a id="mobile-menu" role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
+						<a id="mobile-menu" role="button" className={`navbar-burger ${itemInvertClasses}`} aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
