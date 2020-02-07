@@ -6,6 +6,8 @@ import ampLogo from '../images/amp-icon.svg';
 import { FaShoppingBag } from 'react-icons/fa';
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
+import { Link } from "gatsby"
+
 export default ({ alt, invert }) => {
 	const { menuLinks } = useSiteMetadata()
 
@@ -41,9 +43,10 @@ export default ({ alt, invert }) => {
 								menuLinks
 									.map(link =>
 										<span className={`navbar-item`} key={"link-" + link.name}>
-											<a className={`button is-text	${itemInvertClasses}`} href={link.link}>
+											<Link className={`button is-text ${itemInvertClasses}`} to={link.link}>{link.name}</Link>
+											{/* <a className={`button is-text	${itemInvertClasses}`} href={link.link}>
 												<span>{link.name}</span>
-											</a>
+											</a> */}
 										</span>
 									)
 							}
@@ -52,7 +55,7 @@ export default ({ alt, invert }) => {
 									<span className="icon">
 										<FaShoppingBag />
 									</span>
-									<span class="snipcart-items-count"></span>
+									<span className="snipcart-items-count"></span>
 								</button>
 							</span>
 						</div>

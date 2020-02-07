@@ -27,7 +27,7 @@ export default ({ title, description, tags }) => (
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-				/>
+				/>	
 				<meta name="description" content={pageDescription} />
 				<meta name="keywords" content={pageTags} />
 				<title>{pageTitle}</title>

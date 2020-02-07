@@ -25,8 +25,8 @@ export default () => (
                   <div className="plan-item">Customize in Amp Mixer</div>
                   <div className="plan-item">Beta Available Now</div>
                 </div>
-                <div class="plan-footer">
-                  <button class="button is-primary" onClick={() => window.location.href = '/diy'}>Make Your Kit</button>
+                <div className="plan-footer">
+                  <button className="button is-primary" onClick={() => window.location.href = '/diy'}>Make Your Kit</button>
                 </div>
               </div>
             </div>
@@ -40,38 +40,38 @@ export default () => (
                   <div className="plan-item">Deck mounted underglow / indicators</div>
                   <div className="plan-item">Beta Available Now</div>
                 </div>
-                <div class="plan-footer">
-                  <button class="button is-primary" onClick={() => window.location.href = '/longboards'}>Find a Kit</button>
+                <div className="plan-footer">
+                  <button className="button is-primary" onClick={() => window.location.href = '/longboards'}>Find a Kit</button>
                 </div>
               </div>
             </div>
             <div className="column">
               <div className="pricing-plan">
                 <div className="plan-header">Bicycles</div>
-                <div class="plan-price">Pricing <span class="plan-price-amount">TBA</span></div>
+                <div className="plan-price">Pricing <span className="plan-price-amount">TBA</span></div>
                 <div className="plan-items">
                   <div className="plan-item">Front fork running lights</div>
                   <div className="plan-item">Rear fork brake lights</div>
                   <div className="plan-item">Handlebar mount controller</div>
                   <div className="plan-item">Alpha Available Soon</div>
                 </div>
-                <div class="plan-footer">
-                  <button class="button is-primary is-outlined" onClick={() => window.location.href = '#subscribe'}>Notify Me</button>
+                <div className="plan-footer">
+                  <button className="button is-primary is-outlined" onClick={() => window.location.href = '#subscribe'}>Notify Me</button>
                 </div>
               </div>
             </div>
             <div className="column">
               <div className="pricing-plan">
                 <div className="plan-header">Scooters</div>
-                <div class="plan-price">Pricing <span class="plan-price-amount">TBA</span></div>
+                <div className="plan-price">Pricing <span className="plan-price-amount">TBA</span></div>
                 <div className="plan-items">
                   <div className="plan-item">Handlebar running lights and indicators</div>
                   <div className="plan-item">Rear fender brake lights</div>
                   <div className="plan-item">Deck running style lights</div>
                   <div className="plan-item">Coming soon</div>
                 </div>
-                <div class="plan-footer">
-                  <button class="button is-primary is-outlined" onClick={() => window.location.href = '#subscribe'}>Notify Me</button>
+                <div className="plan-footer">
+                  <button className="button is-primary is-outlined" onClick={() => window.location.href = '#subscribe'}>Notify Me</button>
                 </div>
               </div>
             </div>
