@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import './style.scss';
 
 import Navbar from './navbar';
@@ -48,12 +48,8 @@ const Header = () => {
 							<h2 className="subtitle">Beta Available Now.</h2>
 							<br/>
 							<div className="buttons">
-								<a className="button is-white is-outlined" href="/#what">
-									<span>Learn More</span>
-								</a>
-								<a className="button is-primary has-text-white" href="/#kits">
-									<span>Get Your Kit</span>
-								</a>
+								<Link to="#what" className="button is-white is-outlined">Learn More</Link>
+								<Link to="#kits" className="button is-primary has-text-white">Get Your Kit</Link>
 							</div>
 						</div>
 					</div>

@@ -44,9 +44,6 @@ export default ({ alt, invert }) => {
 									.map(link =>
 										<span className={`navbar-item`} key={"link-" + link.name}>
 											<Link className={`button is-text ${itemInvertClasses}`} to={link.link}>{link.name}</Link>
-											{/* <a className={`button is-text	${itemInvertClasses}`} href={link.link}>
-												<span>{link.name}</span>
-											</a> */}
 										</span>
 									)
 							}
