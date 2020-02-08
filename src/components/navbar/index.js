@@ -47,11 +47,11 @@ export default ({ alt, invert }) => {
 									)
 							}
 							<span className={`navbar-item`}>
-								<button className={`button is-outline is-text snipcart-checkout ${itemInvertClasses}`}>
+								<button className={`button is-outline is-text ${itemInvertClasses}`}>
 									<span className="icon">
 										<FaShoppingBag />
 									</span>
-									<span className="snipcart-items-count"></span>
+									<span className=""></span>
 								</button>
 							</span>
 						</div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
-import "./carousel.scss";
 import Img from 'gatsby-image'
+
+import "./carousel.scss";
 
 export const DotBtn = ({ selected, onClick }) => (
   <span

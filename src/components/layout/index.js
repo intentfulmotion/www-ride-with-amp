@@ -7,7 +7,6 @@ import Helmet from '../helmet'
 import Footer from '../footer'
 
 export default ({ children, title, description, tags }) => {
-  const { snipcartKey } = useSiteMetadata()
   return (
   <StaticQuery
     query={graphql`
@@ -44,7 +43,6 @@ export default ({ children, title, description, tags }) => {
         <Helmet title={title} description={description} tags={tags} />
         {children}
         <Footer />
-        <div hidden id="snipcart" data-api-key={snipcartKey}></div>
       </div>
     )}
   />

@@ -20,7 +20,7 @@ const ProductListItem = ({ product }) => {
           <a className="card-footer-item is-outlined list-item-details" href={`/products/${product.sku}`}>
             <span>Learn More</span>
           </a>
-          <a className="card-footer-item is-primary bold list-item-cta snipcart-add-item"
+          <a className="card-footer-item is-primary bold list-item-cta"
             data-item-id={product.sku}
             data-item-price={product.price}
             data-item-url={`/products/${product.sku}`}

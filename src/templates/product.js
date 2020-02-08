@@ -11,7 +11,7 @@ export default ({ data }) => {
   const product = data.contentfulProduct
   const addToCart = product.active ? (
     <div>
-      <button className="button is-primary snipcart-add-item"
+      <button className="button is-primary"
         data-item-id={product.sku}
         data-item-price={product.price}
         data-item-url={`/products/${product.sku}`}

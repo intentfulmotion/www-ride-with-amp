@@ -27,20 +27,7 @@ html {
 
 .container .title {
   color: $primary;
-  font-family: 'questa-slab';
   font-weight: 700;
-}
-
-.subtitle {
-  font-family: 'questa-slab';
-}
-
-.details p {
-  font-family: 'questa-slab';
-}
-
-.card p, .card ul {
-  font-family: 'questa-slab';
 }
 
 .product-description {
@@ -48,17 +35,14 @@ html {
 }
 
 input {
-  font-family: 'questa-slab';
   font-weight: 300;
 }
 
 .bold {
-  font-family: 'questa-slab';
   font-weight: 700;
 }
 
 .field {
-  font-family: 'questa-slab';
   font-weight: 400;
 }
 
@@ -75,7 +59,6 @@ input {
 .field select, .field input {
   border: 0px;
   border-bottom: thin #69797E solid;
-  font-family: 'questa-slab';
   padding: 0;
   margin: 0;
 }
