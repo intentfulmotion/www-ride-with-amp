@@ -1,0 +1,47 @@
+@import '../style.scss';
+@import '~bulma-pricingtable/src/sass/index.sass';
+
+// specs
+// .spec-list {
+//   font-family: 'questa-slab';
+// }
+
+.brand-name {
+  font-family: 'KiloGram';
+  font-size: 8rem;
+  line-height: 7rem;
+  color: $primary;
+}
+
+// notes
+.notes {
+  font-size: 0.75em;
+}
+
+// kits
+.kit-card {
+  min-height: 55vh;
+}
+
+.kit-card .card-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+// kits table
+th {
+  font-weight: 700;
+}
+
+td {
+  font-weight: 300;
+}
+
+td a {
+  color: #000;
+}
+
+td a:hover {
+  color: $primary;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.scss';
+import './footer.scss';
 
-import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-import AppStore from '../images/app-store.svg'
-import GooglePlay from '../images/google-play.svg'
+import AppStore from '../../images/app-store.svg'
+import GooglePlay from '../../images/google-play.svg'
 
 export default () => {
 	const { footer } = useSiteMetadata()

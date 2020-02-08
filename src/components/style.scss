@@ -1,11 +1,6 @@
 // Importing variables
 @import './variables.scss';
-
-// Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
-@import '~bulma-pricingtable/src/sass/index.sass';
-@import './snipcart.css';
-@import '~bulma/sass/utilities/mixins';
 
 html {
   scroll-behavior: smooth;
@@ -13,60 +8,13 @@ html {
   font-weight: 500;
 }
 
-@font-face {
-  font-family: 'KiloGram';
-  font-display: block;
-  src: url('../fonts/kilogram.otf') format('opentype');
+.button.is-text {
+  text-decoration: none;
 }
 
 .content {
-  font-family: 'questa-slab';
   font-weight: 500;
 }
-
-.spec-list {
-  font-family: 'questa-slab';
-}
-
-.snipcart-modal__container {
-  z-index: 50;
-}
-
-.brand-name {
-  font-family: 'KiloGram';
-  font-size: 8rem;
-  line-height: 7rem;
-  color: $primary;
-}
-
-.hero-head .navbar {
-  background-image: linear-gradient(180deg,rgba(0, 0, 0, 0.8),rgba(0,0,0, 0.0));
-}
-
-.hero-head .invert {
-  background-image: unset;
-}
-
-.hero-body .container .title, .hero-body .container .subtitle {
-  color: #fff;
-}
-
-.hero-kit-title {
-  font-family: 'KiloGram';
-  font-size: 6rem;
-  line-height: 7rem;
-  color: '#fff';
-}
-
-.hero-product-title {
-  font-family: 'questa-slab';
-  font-weight: 700;
-  font-size: 3rem;
-  line-height: 5rem;
-  color: '#fff';
-}
-
-.hero-video video { position: relative; left: auto; top: auto; transform: none; object-fit: cover; min-height: inherit; }
 
 .product-price {
   margin-left: 1rem;
@@ -75,73 +23,6 @@ html {
 
 .product-description {
   margin-top: 2rem;
-}
-
-.carousel-dot {
-  background-color: $inactive;
-  border-radius: 5px;
-  display: inline-block;
-  height: 8px;
-  width: 8px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-.carousel-dot-active, .carousel-dot:hover {
-  background-color: $primary;
-}
-
-@include mobile {
-  .section {
-    padding: 1.5rem 1.5rem;
-  }
-
-  .navbar-menu {
-    background-color: $info;
-  }
-
-  .navbar-burger, .navbar-burger:hover, .navbar-burger:active {
-    color: #fff;
-  }
-
-  .navbar-burger .invert, .navbar-burger:hover .invert, .navbar-burger:active .invert {
-    color: #000;
-  }
-
-  .hero-video {
-    // background-image: url('../images/poster.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-    display: block;
-  }
-
-  .hero-image {
-    position: relative;
-    left: auto;
-    top: auto;
-    height: 100vh;
-  }
-
-  .hero-video video {
-    background-position: center;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-  }
-
-  .hero-kit-title {
-    font-size: 4.5rem;
-    line-height: 5rem;
-  }
-}
-
-.navbar-item {
-  color: #fff;  
-  font-family: 'questa-slab';
-  font-weight: 700;
 }
 
 .container .title {
@@ -158,68 +39,12 @@ html {
   font-family: 'questa-slab';
 }
 
-.button.is-text {
-  text-decoration: none;
-}
-
-.navbar-item img {
-	max-height: 2.75rem;
-}
-
-.navbar-brand-icon {
-	height: 30rem;
-	display: flex;
-}
-
 .card p, .card ul {
   font-family: 'questa-slab';
 }
 
-.footer-link {
-  color: #fff;
-  font-family: 'questa-slab';
-}
-
-.footer-link:hover, .footer-link:active, .footer-link:focus {
-  color: $info;
-}
-
-.download-app {
-  width: 10rem;
-  margin-right: 2rem;
-}
-
-.notes {
-  font-family: 'questa-slab';
-  font-size: 0.75em;
-}
-
-.card-header-title {
-  text-overflow: clip;
-  word-wrap: normal;
-}
-
 .product-description {
-  font-family: 'questa-slab';
   font-weight: 300;
-}
-
-th {
-  font-family: 'questa-slab';
-  font-weight: 700;
-}
-
-td {
-  font-family: 'questa-slab';
-  font-weight: 300;
-}
-
-td a {
-  color: #000;
-}
-
-td a:hover {
-  color: $primary;
 }
 
 input {
@@ -230,16 +55,6 @@ input {
 .bold {
   font-family: 'questa-slab';
   font-weight: 700;
-}
-
-.kit-card {
-  min-height: 55vh;
-}
-
-.kit-card .card-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
 }
 
 .field {

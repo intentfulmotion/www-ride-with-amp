@@ -1,10 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
-import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-import './style.scss'
-import Helmet from './helmet'
-import Footer from './footer'
+import './layout.scss'
+import Helmet from '../helmet'
+import Footer from '../footer'
 
 export default ({ children, title, description, tags }) => {
   const { snipcartKey } = useSiteMetadata()

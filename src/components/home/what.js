@@ -1,7 +1,7 @@
 import React from 'react';
-import './style.scss';
+import './home.scss';
 
-import AmpFront from '../images/amp-front.png'
+import AmpFront from '../../images/amp-front.png'
 
 export default () => (
 	<section className="section" id="what">

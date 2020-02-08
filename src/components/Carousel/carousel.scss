@@ -52,3 +52,17 @@
   justify-content: center;
   margin-top: 1rem;
 }
+
+.carousel-dot {
+  background-color: $inactive;
+  border-radius: 5px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.carousel-dot-active, .carousel-dot:hover {
+  background-color: $primary;
+}

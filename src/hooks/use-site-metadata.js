@@ -7,7 +7,6 @@ export const useSiteMetadata = () => {
         site {
           siteMetadata {
             title
-            snipcartKey
             menuLinks {
               name
               link

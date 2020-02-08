@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './home.scss';
 
 const SpecSection = () => (
   <div className="section has-background-info has-text-white" id="specs">

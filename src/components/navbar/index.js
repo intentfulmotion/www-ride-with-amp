@@ -1,12 +1,11 @@
 import React from 'react';
+import { Link } from 'gatsby'
 
-import './style.scss';
-import ampLogo from '../images/amp-icon.svg';
+import './navbar.scss';
+import ampLogo from '../../images/amp-icon.svg';
 
 import { FaShoppingBag } from 'react-icons/fa';
-import { useSiteMetadata } from '../hooks/use-site-metadata'
-
-import { Link } from "gatsby"
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 export default ({ alt, invert }) => {
 	const { menuLinks } = useSiteMetadata()

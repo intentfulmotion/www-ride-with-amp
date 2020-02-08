@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from "gatsby";
-import './style.scss';
+import './header.scss';
 
-import Navbar from './navbar';
+import Navbar from '../navbar';
 // import ampPoster from '../images/poster.jpg'
 // import ampLogo from '../images/amp-icon.svg';
 // import ampVideoLoop from '../videos/amp-intro-loop.mp4'

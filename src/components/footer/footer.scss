@@ -1,0 +1,15 @@
+@import '../style.scss';
+
+.footer-link {
+  color: #fff;
+  font-family: 'questa-slab';
+}
+
+.footer-link:hover, .footer-link:active, .footer-link:focus {
+  color: $info;
+}
+
+.download-app {
+  width: 10rem;
+  margin-right: 2rem;
+}
