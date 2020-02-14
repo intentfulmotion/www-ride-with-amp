@@ -1,0 +1,68 @@
+@import '../variables.scss';
+@import "~bulma/sass/utilities/_all";
+
+.carousel {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 60rem;
+  width: 100%;
+}
+
+@include mobile {
+  .carousel {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.carousel__wrap {
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.carousel__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel__viewport.is-draggable {
+  cursor: move;
+  cursor: grab;
+}
+
+.carousel__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.carousel__container {
+  display: flex;
+}
+
+.carousel__item {
+  position: relative;
+  background-color: #131313;
+  flex: 0 0 80%;
+}
+
+.carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-dot {
+  background-color: $inactive;
+  border-radius: 5px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.carousel-dot-active, .carousel-dot:hover {
+  background-color: $primary;
+}
