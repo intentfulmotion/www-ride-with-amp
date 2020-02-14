@@ -1,5 +1,5 @@
-
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import { FaCartPlus } from 'react-icons/fa'
 import './style.scss'
 import Img from 'gatsby-image'

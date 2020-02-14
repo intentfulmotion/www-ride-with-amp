@@ -1,5 +1,5 @@
 [build]
-  command = "gatsby build && cd functions && yarn install"
+  command = "./build.sh"
   publish = "public/"
   functions = "functions/"
 
