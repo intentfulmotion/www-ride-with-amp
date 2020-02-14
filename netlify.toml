@@ -1,6 +1,6 @@
 [build]
   base = '.'
-  command = "sh ./build.sh"
+  command = "gatsby build && cd functions && yarn install"
   publish = "public/"
   functions = "functions/"
 
