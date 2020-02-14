@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import KiloGram from '../fonts/kilogram.otf'
 
-export default ({ title, description, tags }) => (
+export default ({ title, description, tags, extras }) => (
 	<StaticQuery
 		query={graphql`
 			query helmetQuery {

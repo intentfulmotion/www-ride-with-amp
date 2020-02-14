@@ -1,0 +1,89 @@
+@import '../style.scss';
+@import '~bulma-divider/src/sass/index.sass';
+
+.checkout-card {
+  margin-bottom: 1rem;
+}
+
+.checkout-summary-icon {
+  margin-right: 1rem;
+}
+
+.duration-terms {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.shipping-option {
+  padding: 0.5rem;
+}
+
+.shipping-option:hover, .shipping-option:active {
+  cursor: pointer;
+  background-color: $white-ter;
+}
+
+.shipping-price {
+  font-weight: 500;
+}
+
+.checkout-subtitle {
+  font-weight: 400;
+  color: #69797E;
+  font-size: 1.2rem;
+  color: #69797E;
+  margin-bottom: 1rem;
+}
+
+.checkout-line-item {
+  font-weight: 400;
+  color: #69797E;
+  font-size: 1rem;
+  color: #69797E;
+  margin-bottom: 1rem;
+}
+
+.checkout-line-total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #69797E;
+  font-size: 1.5rem;
+  color: #69797E;
+  margin-bottom: 1rem;
+}
+
+.checkout-items-title {
+  margin-bottom: 0.8rem;
+}
+
+.checkout-cart h5 {
+  font-family: 'questa-slab';
+  font-weight: 300;
+  font-size: 1rem;
+  color: #69797E;
+}
+
+.checkout-item-title {
+  font-family: 'questa-slab';
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.checkout-item-subtitle {
+  font-family: 'questa-slab';
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #69797E;
+}
+
+.checkout-option-text {
+  font-family: 'questa-slab';
+  font-weight: 300;
+  color: #69797E;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: thin #69797E solid;
+}

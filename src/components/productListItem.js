@@ -1,10 +1,19 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaCartPlus } from 'react-icons/fa'
 import './style.scss'
 import Img from 'gatsby-image'
 
+import { CartContext } from './cart-provider'
+
 const ProductListItem = ({ product }) => {
+  const { add } = useContext(CartContext)
+
+  const addToCart = (evt) => {
+    evt.preventDefault()
+    add(product.sku)
+  }
+
   return (
     <div className="tile is-3" key={`product-${product.name}-sku-${product.sku}`}>
       <div className="card">
@@ -17,17 +26,10 @@ const ProductListItem = ({ product }) => {
           </div>
         </div>
         <div className="card-footer">
-          <a className="card-footer-item is-outlined list-item-details" href={`/products/${product.sku}`}>
+          <Link className="card-footer-item is-outlined list-item-details" to={`/products/${product.sku}`}>
             <span>Learn More</span>
-          </a>
-          <a className="card-footer-item is-primary bold list-item-cta"
-            data-item-id={product.sku}
-            data-item-price={product.price}
-            data-item-url={`/products/${product.sku}`}
-            data-item-description={product.shortDescription}
-            data-item-image={product.images[0].file.url}
-            data-item-name={product.name}
-          >
+          </Link>
+          <a className="card-footer-item is-primary bold list-item-cta" onClick={(evt) => addToCart(evt)}>
             <span className="icon"><FaCartPlus/></span>
             <span>Add to Cart</span>
           </a>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'gatsby'
 
 import './navbar.scss';
@@ -6,9 +6,11 @@ import ampLogo from '../../images/amp-icon.svg';
 
 import { FaShoppingBag } from 'react-icons/fa';
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { CartContext } from '../cart-provider'
 
 export default ({ alt, invert }) => {
 	const { menuLinks } = useSiteMetadata()
+	const { count } = useContext(CartContext)
 
 	let navbarClasses = !alt || alt === false ? 'navbar' : 'navbar has-background-info'
 	let invertClasses = !invert || invert === false ? '' : 'invert'
@@ -19,17 +21,20 @@ export default ({ alt, invert }) => {
 		document.getElementById('navbar-menu').classList.toggle('is-active')
 	}
 
+	let cartCount
+	cartCount = count > 0 ? <span>{ count }</span> : null
+
 	return (
 		<div className="hero-head">
 			<nav className={`${navbarClasses} ${invertClasses}`}>
 				<div className="container">
 					<div className="navbar-brand">
-						<a className={`navbar-item ${itemInvertClasses}`} href="/">
+						<Link className={`navbar-item ${itemInvertClasses}`} to="/">
 							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
-						</a>
-						<a className={`navbar-item has-text-white is-hidden-mobile`} href="/">
+						</Link>
+						<Link className={`navbar-item has-text-white is-hidden-mobile`} to="/">
 							<span className={`navbar-item ${itemInvertClasses}`}>Light up your ride.</span>
-						</a>
+						</Link>
 						<a id="mobile-menu" role="button" className={`navbar-burger ${itemInvertClasses}`} aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
@@ -47,12 +52,12 @@ export default ({ alt, invert }) => {
 									)
 							}
 							<span className={`navbar-item`}>
-								<button className={`button is-outline is-text ${itemInvertClasses}`}>
+								<Link className={`button is-outline is-text ${itemInvertClasses}`} to={`checkout`}>
 									<span className="icon">
 										<FaShoppingBag />
 									</span>
-									<span className=""></span>
-								</button>
+									{ cartCount }
+								</Link>
 							</span>
 						</div>
 					</div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import CartProvider from '../cart-provider'
+import { IntlProvider } from 'react-intl'
 
 import './layout.scss'
-import Helmet from '../helmet'
 import Footer from '../footer'
 
 export default ({ children, title, description, tags }) => {
@@ -11,7 +11,6 @@ export default ({ children, title, description, tags }) => {
   <StaticQuery
     query={graphql`
       query SkuQuery { 
-
         products: allContentfulProduct {
           edges {
             node {
@@ -22,28 +21,18 @@ export default ({ children, title, description, tags }) => {
                 file { url }
               }
               active
-              parcel {
-                length
-                width
-                height
-                weight
-              }
-              length
-              width
-              height
-              weight
-              unitsPerParcel
             }
           }
         }
       }  
     `}
     render={({ products }) => (
-      <div>
-        <Helmet title={title} description={description} tags={tags} />
-        {children}
-        <Footer />
-      </div>
+      <IntlProvider locale="en">
+        <CartProvider products={products.edges.map(edge => edge.node)}>
+          {children}
+          <Footer />
+        </CartProvider>
+      </IntlProvider>
     )}
   />
 )}
