@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../cart-provider'
 import CartSummary from './cart-summary'
 import ShippingDetails from './shipping-details'
+import AmpLogo from '../../images/amp-icon.svg'
 
 import './checkout.scss'
 
@@ -13,62 +14,78 @@ export default ({ onSessionUpdate }) => {
 
   useEffect(() => {
     stripe = window.Stripe("pk_test_okOJsiRTntebwPSXkuGe4XOJ")
-  })  
+  })
 
-  const createCheckoutSession = async (details) => {
-    let items = cart.reduce((res, item) => {
-      res[item[0].sku] = item[1]
-      return res
-    }, {})
+  if (cart.length > 0) {
+    const createCheckoutSession = async (details) => {
+      let items = cart.reduce((res, item) => {
+        res[item[0].sku] = item[1]
+        return res
+      }, {})
 
-    let path = window.location.href.split('?')[0]
+      let path = window.location.href.split('?')[0]
 
-    try {
-      let result = await fetch('/.netlify/functions/checkout', {
-        method: 'POST',
-        body: JSON.stringify({ email: details.email, items, shipping: details.shipping, success_url: `${path}?success=true&session_id={CHECKOUT_SESSION_ID}`, cancel_url: `${path}?cancel=true` }),
-        headers: { 'Content-Type': 'application/json' }
+      try {
+        let result = await fetch('/.netlify/functions/checkout', {
+          method: 'POST',
+          body: JSON.stringify({ email: details.email, items, shipping: details.shipping, success_url: `${path}?success=true&session_id={CHECKOUT_SESSION_ID}`, cancel_url: `${path}?cancel=true` }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+
+        let { id: session_id } = await result.json()
+        setCheckoutSession(session_id)
+      }
+      catch (err) {
+        setError(error.message)
+      }
+    }
+
+    const checkout = async () => {
+      const { error: err } = await stripe.redirectToCheckout({
+        sessionId: checkoutSession
       })
-
-      let { id: session_id } = await result.json()
-      setCheckoutSession(session_id)
+      if (err)
+        setError(err)
     }
-    catch (err) {
-      setError(error.message)
-    }
-  }
 
-  const checkout = async () => {
-    const { error: err } = await stripe.redirectToCheckout({
-      sessionId: checkoutSession
-    })
-    if (err)
-      setError(err)
-  }
+    let checkoutButton = null
+    if (checkoutSession)
+      checkoutButton = <button className="button is-primary" onClick={() => {checkout()}}>Proceed to Payment</button>
 
-  let checkoutButton = null
-  if (checkoutSession)
-    checkoutButton = <button className="button is-primary" onClick={() => {checkout()}}>Proceed to Payment</button>
+    if (error)
+      console.error(error)
 
-  if (error)
-    console.error(error)
-
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="columns">
-          <div className="column">
-            <h1 className="checkout-subtitle">Shipment Details</h1>
-            <ShippingDetails cart={cart} onVerifiedShippingInfo={(details) => createCheckoutSession(details)} onInvalidateShippingInfo={() => setCheckoutSession(null)} />
-          </div>
-          <div className="column is-offset-1">
-            <CartSummary />
-            <div className="has-text-centered">
-              {checkoutButton}
+    return (
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <h1 className="checkout-subtitle">Shipment Details</h1>
+              <ShippingDetails cart={cart} onVerifiedShippingInfo={(details) => createCheckoutSession(details)} onInvalidateShippingInfo={() => setCheckoutSession(null)} />
+            </div>
+            <div className="column is-offset-1">
+              <CartSummary />
+              <div className="has-text-centered">
+                {checkoutButton}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
+  else {
+    return (
+      <section className="section">
+        <div className="container">
+          <div className="columns is-vcentered empty-cart">
+            <div className="column has-text-centered">
+              <img className="cart-empty-logo" src={AmpLogo} alt="Empty Cart" />
+              <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 }

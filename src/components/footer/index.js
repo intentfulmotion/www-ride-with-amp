@@ -1,5 +1,6 @@
-import React from 'react';
-import './footer.scss';
+import React from 'react'
+import { Link } from 'gatsby'
+import './footer.scss'
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
@@ -18,7 +19,7 @@ export default () => {
 							<p className="is-size-6 bold">{section.section}</p>
 							{
 								section.links.map(link => 
-									<span key={'footer-link-' + link.name}><a className="footer-link is-text" href={link.link}>{link.name}</a><br/></span>
+									<span key={'footer-link-' + link.name}><Link className="footer-link is-text" to={link.link}>{link.name}</Link><br/></span>
 								)
 							}
 						</div>
