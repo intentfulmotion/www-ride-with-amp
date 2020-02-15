@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import './home.scss';
 
 export default () => (
@@ -21,7 +22,7 @@ export default () => (
                   <div className="plan-item">Beta Available Now</div>
                 </div>
                 <div className="plan-footer">
-                  <button className="button is-primary" onClick={() => window.location.href = '/diy'}>Make Your Kit</button>
+                <Link className="button is-primary" to="diy">Make Yours</Link>
                 </div>
               </div>
             </div>
@@ -36,7 +37,7 @@ export default () => (
                   <div className="plan-item">Beta Available Now</div>
                 </div>
                 <div className="plan-footer">
-                  <button className="button is-primary" onClick={() => window.location.href = '/longboards'}>Find a Kit</button>
+                  <Link className="button is-primary" to="longboards">Find Yours</Link>
                 </div>
               </div>
             </div>

@@ -18,9 +18,15 @@ export default () => {
 						<div className="column is-narrow content" key={`footer-section-${id}`}>
 							<p className="is-size-6 bold">{section.section}</p>
 							{
-								section.links.map(link => 
-									<span key={'footer-link-' + link.name}><Link className="footer-link is-text" to={link.link}>{link.name}</Link><br/></span>
-								)
+								section.links.map(link => {
+									if (link.link.indexOf("mailto://") >= 0)
+										return (
+											<span key={'footer-link-' + link.name}><a className="footer-link is-text" href={link.link}>{link.name}</a><br/></span>
+										)
+									else return (
+										<span key={'footer-link-' + link.name}><Link className="footer-link is-text" to={link.link}>{link.name}</Link><br/></span>
+									)
+								})
 							}
 						</div>
 					))
