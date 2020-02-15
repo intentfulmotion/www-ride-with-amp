@@ -10,7 +10,7 @@ export default ({ onStart, email }) => {
   }
 
   return (
-    <div className="card">
+    <div className="card checkout-card">
       <div className="card-content">
         <form id="contact-form" onSubmit={handleSubmit(startCheckout)}>
           <h2 className="subtitle">Contact</h2>
