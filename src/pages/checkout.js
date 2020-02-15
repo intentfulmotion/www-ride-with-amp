@@ -20,28 +20,8 @@ import Checkout from '../components/checkout'
 */
 
 const CheckoutPage = ({ search }) => {
-  const { cancel, success, session_id } = search
+  const { cancel, success, reference } = search
   const { title, description, author } = useSiteMetadata()
-
-  useEffect(() => {
-    let session = localStorage.getItem("checkout-session")
-    console.log(session)
-
-    if (success) {
-      console.log('successful checkout')
-      // server side print shipping label
-      localStorage.removeItem("checkout-session")
-
-      console.log('cleared cart. time to redirect to order page')
-    }
-
-    if (cancel) {
-      console.log('time to cancel')
-
-      // remove session id from localstorage
-      localStorage.removeItem("checkout-session")
-    }
-  })
 
   return (
     <Layout title="Checkout" extras={[<script src="https://js.stripe.com/v3/" async></script>]}>
@@ -55,7 +35,7 @@ const CheckoutPage = ({ search }) => {
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
       </Helmet>
       <Navbar invert={true} />
-      <Checkout success={success} />
+      <Checkout success={success} reference={reference} />
     </Layout>
   )
 }

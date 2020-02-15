@@ -6,14 +6,17 @@ import AmpLogo from '../../images/amp-icon.svg'
 
 import './checkout.scss'
 
-export default ({ success }) => {
-  const { cart, clear } = useContext(CartContext)
+export default ({ success, reference }) => {
+  const { cart, remove } = useContext(CartContext)
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [error, setError] = useState(null)
   let stripe = null
 
-  if (success)
-    clear()
+  if (success) {
+    cart.forEach(c => {
+      remove(c[0].sku)
+    })
+  }
 
   useEffect(() => {
     stripe = window.Stripe("pk_test_okOJsiRTntebwPSXkuGe4XOJ")
@@ -33,7 +36,7 @@ export default ({ success }) => {
       try {
         let result = await fetch('/.netlify/functions/checkout', {
           method: 'POST',
-          body: JSON.stringify({ email: details.email, items, shipping: details.shipping, success_url: `${path}?success=true&session_id={CHECKOUT_SESSION_ID}`, cancel_url: `${path}?cancel=true` }),
+          body: JSON.stringify({ email: details.email, items, shipping: details.shipping, success_url: `${path}?success=true`, cancel_url: `${path}?cancel=true` }),
           headers: { 'Content-Type': 'application/json' }
         })
 
@@ -82,18 +85,33 @@ export default ({ success }) => {
       </section>
     )
   }
-  else {
-    return (
-      <section className="section">
-        <div className="container">
-          <div className="columns is-vcentered invalid-content">
-            <div className="column has-text-centered">
-              <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
-              <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
+  else if (success) return <OrderComplete reference={reference} />
+  else return <EmptyCart />
 }
+
+const EmptyCart = () => (
+  <section className="section">
+    <div className="container">
+      <div className="columns is-vcentered invalid-content">
+        <div className="column has-text-centered">
+          <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
+          <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
+const OrderComplete = ({ reference }) => (
+  <section className="section">
+    <div className="container">
+      <div className="columns is-vcentered invalid-content">
+        <div className="column has-text-centered">
+          <img className="invalid-content-logo" src={AmpLogo} alt="Order Complete" />
+          <h3 className="subtitle">Thanks for your order! Your order reference is</h3>
+          <span className="order-reference has-text-info">{reference}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+)

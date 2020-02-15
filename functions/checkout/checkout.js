@@ -1,7 +1,8 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const contentful = require('contentful')
+const xkcdPassword = require('xkcd-z-password').init();
 
-const client = contentful.createClient({
+const contentfulClient = contentful.createClient({
   space: `smrlz4o6hk32`,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 })
@@ -14,7 +15,7 @@ exports.handler = async (event, context) => {
   try {
     const { items, email, shipping, success_url, cancel_url } = JSON.parse(event.body)
 
-    let { items: results } = await client.getEntries({
+    let { items: results } = await contentfulClient.getEntries({
       'fields.sku[in]': ''.concat(Object.keys(items), ','),
       'content_type': 'product'
     })
@@ -25,8 +26,12 @@ exports.handler = async (event, context) => {
       return result
     }, [])
 
+    let reference = await xkcdPassword.generate(4)
+    console.log(reference.join('-'))
+
     const session = await stripe.checkout.sessions.create({
       customer_email: email,
+      client_reference_id: reference.join('-'),
       line_items: line_items,
       locale: 'auto',
       payment_method_types: ['card'],
@@ -37,7 +42,7 @@ exports.handler = async (event, context) => {
         shipping: shipping
       },
       submit_type: 'pay',
-      success_url: success_url,
+      success_url: `${success_url}&reference=${reference.join('-')}`,
       cancel_url, cancel_url
     })
 

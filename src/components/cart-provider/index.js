@@ -98,13 +98,6 @@ const CartProvider = ({ children, products }) => {
     setMode(prev => force || !prev)
   }
 
-  function setShipping() {
-    setContents(state => {
-      const newState = [...state]
-
-    })
-  }
-
   const ctx = {
     contents,
     cart,

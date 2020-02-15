@@ -23,7 +23,7 @@ export default ({ onStart, email }) => {
               <div className="field">
                 <div className="control">
                   <input name="email" className="input" type="text" placeholder="example@email.com"
-                    ref={register({ 
+                    ref={register({
                       required: 'required', 
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
