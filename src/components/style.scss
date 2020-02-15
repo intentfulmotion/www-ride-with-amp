@@ -2,6 +2,12 @@
 @import './variables.scss';
 @import '~bulma/bulma.sass';
 
+@font-face {
+  font-family: 'KiloGram';
+  font-display: block;
+  src: url('../fonts/kilogram.otf') format('opentype');
+}
+
 html {
   scroll-behavior: smooth;
   font-family: 'questa-slab';
