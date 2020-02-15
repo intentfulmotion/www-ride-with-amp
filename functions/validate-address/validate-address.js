@@ -1,5 +1,4 @@
-let apiKey = process.env.SHIPPO_API_KEY
-const shippo = require("shippo")(apiKey)
+const shippo = require("shippo")(process.env.SHIPPO_API_KEY)
 
 let fromAddress = JSON.parse(process.env.FROM_ADDRESS)
 const headers = {

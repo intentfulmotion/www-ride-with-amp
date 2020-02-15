@@ -13,24 +13,24 @@ exports.handler = async (event, context) => {
     return { statusCode: 200, body: '' }
 
   try {
-    const { items, email, shipping, success_url, cancel_url } = JSON.parse(event.body)
+    const { items, email, customer, shipping, success_url, cancel_url } = JSON.parse(event.body)
 
     let { items: results } = await contentfulClient.getEntries({
       'fields.sku[in]': ''.concat(Object.keys(items), ','),
       'content_type': 'product'
     })
 
+    let totalWeight = 0
     let line_items = results.reduce((result, entry) => {
       let { fields: product } = entry
+      totalWeight += product.weight
       result.push({ amount: (product.price * 100).toFixed(0), currency: 'usd', name: product.name, description: product.shortDescription, quantity: items[product.sku], images: product.images.map(i => `https:${i.fields.file.url}`) })
       return result
     }, [])
 
     let reference = await xkcdPassword.generate(4)
-    console.log(reference.join('-'))
 
-    const session = await stripe.checkout.sessions.create({
-      customer_email: email,
+    let options = {
       client_reference_id: reference.join('-'),
       line_items: line_items,
       locale: 'auto',
@@ -39,12 +39,26 @@ exports.handler = async (event, context) => {
       payment_intent_data: {
         receipt_email: email,
         setup_future_usage: "on_session",
-        shipping: shipping
+        shipping: shipping,
+        metadata: {
+          weight: totalWeight,
+        }
       },
       submit_type: 'pay',
       success_url: `${success_url}&reference=${reference.join('-')}`,
       cancel_url, cancel_url
+    }
+
+    results.forEach(r => {
+      options.payment_intent_data.metadata[r.fields.sku] = JSON.stringify({ title: r.fields.name, quantity: items[r.fields.sku], sku: r.fields.sku, total_price: (r.fields.price * items[r.fields.sku]).toFixed(2) })
     })
+
+    if (customer)
+      options.customer = customer
+    else
+      options.customer_email = email
+
+    const session = await stripe.checkout.sessions.create(options)
 
     return { statusCode: 200, body: JSON.stringify({ id: session.id })}
   } catch (err) {

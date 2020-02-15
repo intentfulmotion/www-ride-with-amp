@@ -39,7 +39,7 @@ class ShippingDetails extends Component {
       name: address.name,
       phone: address.phone,
       street1: address.line1,
-      street_no: address.line2,
+      street2: address.line2,
       city: address.city,
       state: address.state,
       country: address.country,
@@ -59,7 +59,7 @@ class ShippingDetails extends Component {
           this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: null })
 
           if (this.props.onVerifiedShippingInfo)
-            this.props.onVerifiedShippingInfo({ email: this.state.customer_email, shipping: this.state.shipping })
+            this.props.onVerifiedShippingInfo({ email: this.state.customer_email, previousCustomer: this.state.previousCustomer, customer: this.state.customer, shipping: this.state.shipping })
         }
         else
           this.setState({ ...this.state, shippingAddressValid: false, shippingAddressErrors: validationResult.messages.filter(m => m.type.indexOf('error') > 0 || m.type.indexOf('warning') > 0).map(m => m.text) })

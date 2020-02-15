@@ -33,10 +33,22 @@ export default ({ success, reference }) => {
 
       let path = window.location.href.split('?')[0]
 
+      let options = { 
+        email: details.email, 
+        items, 
+        shipping: details.shipping, 
+        success_url: `${path}?success=true`, 
+        cancel_url: `${path}?cancel=true`
+      }
+
+      if (details.previousCustomer)
+        options.customer = details.customer.id
+
       try {
+        setError(null)
         let result = await fetch('/.netlify/functions/checkout', {
           method: 'POST',
-          body: JSON.stringify({ email: details.email, items, shipping: details.shipping, success_url: `${path}?success=true`, cancel_url: `${path}?cancel=true` }),
+          body: JSON.stringify(options),
           headers: { 'Content-Type': 'application/json' }
         })
 
