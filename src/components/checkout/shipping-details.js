@@ -26,17 +26,38 @@ class ShippingDetails extends Component {
   }
 
   async updateShippingAddress(address) {
+    let addressNoContact = {
+      line1: address.line1,
+      line2: address.linee2,
+      city: address.city,
+      state: address.state,
+      country: address.country,
+      postal_code: address.postal_code
+    }
+
+    let toVerify = {
+      name: address.name,
+      phone: address.phone,
+      street1: address.line1,
+      street_no: address.line2,
+      city: address.city,
+      state: address.state,
+      country: address.country,
+      zipcode: address.postal_code
+    }
+
     try {
       let result = await fetch('/.netlify/functions/validate-address', {
         method: 'POST',
-        body: JSON.stringify({ address: { ...address, name: this.state.shipping.name, phone: this.state.shipping.phone, street1: address.line1, street_no: address.line2, zipcode: address.postal_code }}),
+        body: JSON.stringify({ address: toVerify }),
         headers: { 'Content-Type': 'application/json' }
       })
 
       if (result.status == 200) {
         const validationResult = await result.json()
         if (validationResult.is_valid) {
-          this.setState({ ...this.state, shipping: { ...this.state.shipping, address: address }, step: 3, shippingAddressValid: true, shippingAddressErrors: null })
+          this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: null })
+
           if (this.props.onVerifiedShippingInfo)
             this.props.onVerifiedShippingInfo({ email: this.state.customer_email, shipping: this.state.shipping })
         }
@@ -73,9 +94,9 @@ class ShippingDetails extends Component {
     let parts = []
     let { step } = this.state
     if (step > 0)
-      parts.push(<ContactSummary key="contact-summary" email={this.state.customer_email} name={this.state.shipping.name} phone={this.state.shipping.phone} onEdit={() => this.setState({ ...this.state, step: 0 })} />)
+      parts.push(<ContactSummary key="contact-summary" email={this.state.customer_email} name={this.state.shipping.name} phone={this.state.shipping.phone} onEdit={() => { this.setState({ ...this.state, step: 0 }); this.props.onInvalidateShippingInfo() }} />)
     if (step > 1)
-      parts.push(<AddressSummary key="shipping-address-summary" title="Shipping Address" address={this.state.shipping.address} onEdit={() => this.setState({ ...this.state, step: 1 })} onChange={() => this.props.onInvalidateShippingInfo()} />)
+      parts.push(<AddressSummary key="shipping-address-summary" title="Shipping Address" address={this.state.shipping.address} onEdit={() => { this.setState({ ...this.state, step: 1 }); this.props.onInvalidateShippingInfo() }} />)
     // if (step > 2)
       // parts.push(<ShippingSummary key="shipping-rate-summary" rate={this.state.rate} onEdit={() => { this.setState({ ...this.state, step: 2 }) }} />)
 
@@ -100,7 +121,7 @@ class ShippingDetails extends Component {
         return (
           <div>
             { summarySteps }
-            <AddressSection address={this.state.shipping.address} errors={this.state.shippingAddressErrors} title="Shipping Address" onSubmit={(address) => { this.updateShippingAddress(address) }} submitText="Verify Address" />
+            <AddressSection name={this.state.shipping.name} phone={this.state.shipping.phone} address={this.state.shipping.address} errors={this.state.shippingAddressErrors} title="Shipping Address" onSubmit={(address) => { this.updateShippingAddress(address) }} submitText="Verify Address" />
           </div>
         )
       case 2:

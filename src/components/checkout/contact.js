@@ -1,33 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { MdMail, MdEdit } from 'react-icons/md'
+import { useForm } from "react-hook-form"
 
 export default ({ onStart, email }) => {
-  const [_email, setEmail] = useState(email ? email : "")
+  const { handleSubmit, register, errors } = useForm()
 
-  const startCheckout = (evt) => {
-    evt.preventDefault()
-    onStart(_email)
+  const startCheckout = values => {
+    onStart(values.email)
   }
 
   return (
     <div className="card">
       <div className="card-content">
-        <form id="contact-form" onSubmit={startCheckout}>
+        <form id="contact-form" onSubmit={handleSubmit(startCheckout)}>
           <h2 className="subtitle">Contact</h2>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Email*</label>
+              <label className="label">Email</label>
             </div>
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <input name="phone" className="input" type="text" placeholder="example@email.com" onChange={(evt) => { setEmail(evt.target.value) }} value={_email} />
+                  <input name="email" className="input" type="text" placeholder="example@email.com"
+                    ref={register({ 
+                      required: 'required', 
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "invalid email address"
+                      }
+                    })} defaultValue={email} />
+                    <span className="validation has-text-danger">{ errors.email && errors.email.message }</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="has-text-centered">
-            <button type="submit" className="button is-primary is-outlined">Start Checkout</button>
+            <button id="contact-submit" type="submit" className="button is-primary is-outlined" onClick={() => { document.getElementById('contact-submit').classList.add('is-loading')}}>Start Checkout</button>
           </div>
         </form>
       </div>

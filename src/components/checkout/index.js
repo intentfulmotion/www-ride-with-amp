@@ -8,7 +8,7 @@ import './checkout.scss'
 
 export default ({ onSessionUpdate }) => {
   const { cart } = useContext(CartContext)
-  const [checkoutSession, setCheckoutSession] = useState(false)
+  const [checkoutSession, setCheckoutSession] = useState(null)
   const [error, setError] = useState(null)
   let stripe = null
 
@@ -18,6 +18,8 @@ export default ({ onSessionUpdate }) => {
 
   if (cart.length > 0) {
     const createCheckoutSession = async (details) => {
+      console.log('create checkout session')
+      document.getElementById('checkout-button').classList.add('is-loading')
       let items = cart.reduce((res, item) => {
         res[item[0].sku] = item[1]
         return res
@@ -33,10 +35,13 @@ export default ({ onSessionUpdate }) => {
         })
 
         let { id: session_id } = await result.json()
+        console.log('checkout session created', session_id)
+        document.getElementById('checkout-button').classList.remove('is-loading')
         setCheckoutSession(session_id)
       }
       catch (err) {
-        setError(error.message)
+        console.error(err)
+        setError('there was an error creating the checkout session')
       }
     }
 
@@ -48,9 +53,8 @@ export default ({ onSessionUpdate }) => {
         setError(err)
     }
 
-    let checkoutButton = null
-    if (checkoutSession)
-      checkoutButton = <button className="button is-primary" onClick={() => {checkout()}}>Proceed to Payment</button>
+    
+    let checkoutButton = <button id="checkout-button" className="button is-primary is-outlined" onClick={() => {checkout()}} disabled={checkoutSession === null}>Proceed to Payment</button>
 
     if (error)
       console.error(error)
@@ -60,13 +64,14 @@ export default ({ onSessionUpdate }) => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <h1 className="checkout-subtitle">Shipment Details</h1>
-              <ShippingDetails cart={cart} onVerifiedShippingInfo={(details) => createCheckoutSession(details)} onInvalidateShippingInfo={() => setCheckoutSession(null)} />
+              <CartSummary />
             </div>
             <div className="column is-offset-1">
-              <CartSummary />
+              <h1 className="checkout-subtitle">Shipment Details</h1>
+              <ShippingDetails cart={cart} onVerifiedShippingInfo={(details) => createCheckoutSession(details)} onInvalidateShippingInfo={() => setCheckoutSession(null)} />
               <div className="has-text-centered">
                 {checkoutButton}
+                {error}
               </div>
             </div>
           </div>

@@ -25,8 +25,6 @@ exports.handler = async (event, context) => {
       return result
     }, [])
 
-    console.log(line_items)
-
     const session = await stripe.checkout.sessions.create({
       customer_email: email,
       line_items: line_items,
