@@ -15,7 +15,7 @@ const ProductListItem = ({ product }) => {
   }
 
   return (
-    <div className="tile is-3" key={`product-${product.name}-sku-${product.sku}`}>
+    <div className="tile is-parent is-4" key={`product-${product.name}-sku-${product.sku}`}>
       <div className="card">
         <Img fluid={product.images[0].fluid} fadeIn={true} />
         <div className="card-content">
