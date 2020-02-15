@@ -83,9 +83,9 @@ export default ({ onSessionUpdate }) => {
     return (
       <section className="section">
         <div className="container">
-          <div className="columns is-vcentered empty-cart">
+          <div className="columns is-vcentered invalid-content">
             <div className="column has-text-centered">
-              <img className="cart-empty-logo" src={AmpLogo} alt="Empty Cart" />
+              <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
               <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
             </div>
           </div>

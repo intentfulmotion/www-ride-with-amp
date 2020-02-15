@@ -1,17 +1,6 @@
 @import '../style.scss';
 @import '~bulma-divider/src/sass/index.sass';
 
-.empty-cart {
-  height: 65vh;
-}
-
-.cart-empty-logo {
-  width: 3rem;
-  height: 3rem;
-  filter: grayscale(0.8);
-  margin-bottom: 1rem;
-}
-
 .checkout-card {
   margin-bottom: 1rem;
 }

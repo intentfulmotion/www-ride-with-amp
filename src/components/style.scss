@@ -8,6 +8,17 @@ html {
   font-weight: 500;
 }
 
+.invalid-content {
+  height: 65vh;
+}
+
+.invalid-content-logo {
+  width: 3rem;
+  height: 3rem;
+  filter: grayscale(0.8);
+  margin-bottom: 1rem;
+}
+
 .button.is-text {
   text-decoration: none;
 }
