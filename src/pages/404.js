@@ -22,9 +22,9 @@ const NotFoundPage = () => {
       </Helmet>
       <section className="section">
         <div className="container">
-          <div className="columns is-vcentered invalid-content">
+          <div className="columns is-vcentered center-content">
             <div className="column has-text-centered">
-              <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
+              <img className="invalid-content-logo" src={AmpLogo} alt="Amp" />
               <h3 className="subtitle">There's nothing at that link...sorry.</h3>
             </div>
           </div>

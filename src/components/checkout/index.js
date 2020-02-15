@@ -92,7 +92,7 @@ export default ({ success, reference }) => {
 const EmptyCart = () => (
   <section className="section">
     <div className="container">
-      <div className="columns is-vcentered invalid-content">
+      <div className="columns is-vcentered center-content">
         <div className="column has-text-centered">
           <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
           <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
@@ -105,9 +105,9 @@ const EmptyCart = () => (
 const OrderComplete = ({ reference }) => (
   <section className="section">
     <div className="container">
-      <div className="columns is-vcentered invalid-content">
+      <div className="columns is-vcentered center-content">
         <div className="column has-text-centered">
-          <img className="invalid-content-logo" src={AmpLogo} alt="Order Complete" />
+          <img className="content-logo" src={AmpLogo} alt="Order Complete" />
           <h3 className="subtitle">Thanks for your order! Your order reference is</h3>
           <span className="order-reference has-text-info">{reference}</span>
         </div>
