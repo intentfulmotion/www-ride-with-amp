@@ -31,7 +31,7 @@ module.exports = {
 			},
 			{
 				name: `Shop Now`,
-				link: `/store`
+				link: `/shop`
 			}
 		],
 		footer: [
