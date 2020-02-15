@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import withLocation from "../components/withLocation"
 
 import Layout from '../components/layout'
@@ -31,6 +31,8 @@ const CheckoutPage = ({ search }) => {
       console.log('successful checkout')
       // server side print shipping label
       localStorage.removeItem("checkout-session")
+
+      console.log('cleared cart. time to redirect to order page')
     }
 
     if (cancel) {
@@ -40,10 +42,6 @@ const CheckoutPage = ({ search }) => {
       localStorage.removeItem("checkout-session")
     }
   })
-
-  const onSessionUpdate = (session) => {
-    // we'll update our checkout session
-  }
 
   return (
     <Layout title="Checkout" extras={[<script src="https://js.stripe.com/v3/" async></script>]}>
@@ -57,7 +55,7 @@ const CheckoutPage = ({ search }) => {
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
       </Helmet>
       <Navbar invert={true} />
-      <Checkout onSessionUpdate={(session) => this.onSessionUpdate(session)} />
+      <Checkout success={success} />
     </Layout>
   )
 }

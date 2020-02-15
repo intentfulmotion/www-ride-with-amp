@@ -6,6 +6,7 @@ export default ({ onStart, email }) => {
   const { handleSubmit, register, errors } = useForm()
 
   const startCheckout = values => {
+    document.getElementById('contact-submit').classList.add('is-loading')
     onStart(values.email)
   }
 
@@ -35,7 +36,7 @@ export default ({ onStart, email }) => {
             </div>
           </div>
           <div className="has-text-centered">
-            <button id="contact-submit" type="submit" className="button is-primary is-outlined" onClick={() => { document.getElementById('contact-submit').classList.add('is-loading')}}>Start Checkout</button>
+            <button id="contact-submit" type="submit" className="button is-primary is-outlined">Start Checkout</button>
           </div>
         </form>
       </div>

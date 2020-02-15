@@ -6,11 +6,14 @@ import AmpLogo from '../../images/amp-icon.svg'
 
 import './checkout.scss'
 
-export default ({ onSessionUpdate }) => {
-  const { cart } = useContext(CartContext)
+export default ({ success }) => {
+  const { cart, clear } = useContext(CartContext)
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [error, setError] = useState(null)
   let stripe = null
+
+  if (success)
+    clear()
 
   useEffect(() => {
     stripe = window.Stripe("pk_test_okOJsiRTntebwPSXkuGe4XOJ")

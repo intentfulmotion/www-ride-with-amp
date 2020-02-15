@@ -18,6 +18,11 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) =
     setState(e.target.value)
   }
 
+  const beforeSubmit = (data) => {
+    document.getElementById('address-submit').classList.add('is-loading')
+    onSubmit(data)
+  }
+
   let regions = []
   if (country)
     regions = listOfCountries[country].regions
@@ -25,7 +30,7 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) =
   return (
     <div className="card checkout-card">
       <div className="card-content">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(beforeSubmit)}>
           <h2 className="subtitle">{title}</h2>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
@@ -131,7 +136,7 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) =
             </div>
           </div>
           <div className="has-text-centered">
-            <button id="address-submit" className="button is-primary is-outlined" onClick={() => { document.getElementById('address-submit').classList.add('is-loading')}}>{submitText}</button>
+            <button id="address-submit" className="button is-primary is-outlined">{submitText}</button>
           </div>
         </form>
       </div>
