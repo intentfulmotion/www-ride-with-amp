@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 import Navbar from '../components/navbar'
-import ProductListItem from '../components/productListItem'
+import ProductListItem from '../components/product-list-item'
 import SubscribeSection from '../components/subscribe'
 
 export default ({ data }) => {

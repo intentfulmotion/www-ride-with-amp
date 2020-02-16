@@ -1,0 +1,23 @@
+@import '../variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
+
+.list-item-details {
+  background-color: #fff;
+  color: $primary;
+}
+
+.list-item-cta {
+  background-color: $primary;
+  color: #fff;
+}
+
+.list-item-details:hover {
+  font-weight: 700;
+  color: $primary;
+}
+
+.list-item-cta:hover {
+  font-weight: 700;
+  color: #fff;
+}

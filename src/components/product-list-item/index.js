@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { FaCartPlus } from 'react-icons/fa'
-import './style.scss'
+import './list-item.scss'
 import Img from 'gatsby-image'
 
-import { CartContext } from './cart-provider'
+import { CartContext } from '../cart-provider'
 
 const ProductListItem = ({ product }) => {
   const { add } = useContext(CartContext)

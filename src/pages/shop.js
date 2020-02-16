@@ -5,7 +5,7 @@ import Navbar from "../components/navbar"
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { graphql, Link } from 'gatsby'
 
-import ProductListItem from '../components/productListItem'
+import ProductListItem from '../components/product-list-item'
 
 const ShopPage = ({ data }) => {
   const { title, description, keywords, author } = useSiteMetadata()
