@@ -1,9 +1,15 @@
-@import '../style.scss';
+@import '../variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
 
 .navbar-item {
   color: #fff;  
   font-family: 'questa-slab';
   font-weight: 700;
+}
+
+.mobile-cart {
+  margin-left: auto;
 }
 
 .navbar-item img {

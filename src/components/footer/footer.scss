@@ -1,4 +1,6 @@
-@import '../style.scss';
+@import '../variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
 
 .footer-link {
   color: #fff;

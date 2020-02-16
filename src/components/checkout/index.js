@@ -71,8 +71,11 @@ export default ({ success, reference }) => {
         setError(err)
     }
 
+    let buttonStyle = "button is-primary is-outlined"
+    if (checkoutSession === null)
+      buttonStyle += ' is-hidden'
     
-    let checkoutButton = <button id="checkout-button" className="button is-primary is-outlined" onClick={() => {checkout()}} disabled={checkoutSession === null}>Proceed to Payment</button>
+    let checkoutButton = <button id="checkout-button" className={buttonStyle} onClick={() => {checkout()}}>Proceed to Payment</button>
 
     if (error)
       console.error(error)

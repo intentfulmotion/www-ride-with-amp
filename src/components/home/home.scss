@@ -1,5 +1,13 @@
-@import '../style.scss';
+@import '../variables.scss';
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
 @import '~bulma-pricingtable/src/sass/index.sass';
+
+@font-face {
+  font-family: 'KiloGram';
+  font-display: block;
+  src: url('../../fonts/kilogram.otf') format('opentype');
+}
 
 // specs
 // .spec-list {
@@ -44,4 +52,18 @@ td a {
 
 td a:hover {
   color: $primary;
+}
+
+@include mobile {
+  .navbar-menu {
+    background-color: $info;
+  }
+
+  .navbar-burger, .navbar-burger:hover, .navbar-burger:active {
+    color: #fff;
+  }
+
+  .navbar-burger .invert, .navbar-burger:hover .invert, .navbar-burger:active .invert {
+    color: #000;
+  }
 }

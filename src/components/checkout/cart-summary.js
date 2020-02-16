@@ -55,7 +55,7 @@ export default ({ shipping, taxes }) => {
           }
         </div>
         <div className="is-divider" data-content="SUMMARY"></div>
-        <div className="columns">
+        <div className="columns is-mobile">
           <div className="column">
             <h2 className="checkout-line-item">Sub-Total</h2>
             <h2 className="checkout-line-item">Shipping</h2>
