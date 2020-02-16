@@ -19,7 +19,7 @@ export default ({ success, reference }) => {
   }
 
   useEffect(() => {
-    stripe = window.Stripe("pk_test_okOJsiRTntebwPSXkuGe4XOJ")
+    stripe = window.Stripe("pk_live_DjVeCbarLJtrnDP5ntOs5Hua")
   })
 
   if (cart.length > 0) {
