@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import CartProvider from '../cart-provider'
 import { IntlProvider } from 'react-intl'
+import CartModal from '../cart-modal'
 
 import './layout.scss'
 import Footer from '../footer'
@@ -31,6 +32,7 @@ export default ({ children, title, description, tags }) => {
         <CartProvider products={products.edges.map(edge => edge.node)}>
           {children}
           <Footer />
+          <CartModal />
         </CartProvider>
       </IntlProvider>
     )}

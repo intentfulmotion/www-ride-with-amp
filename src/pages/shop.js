@@ -11,7 +11,6 @@ const ShopPage = ({ data }) => {
   const { title, description, keywords, author } = useSiteMetadata()
   const categories = data.allContentfulProductCollection.edges.map(node => node.node)
   const products = data.allContentfulProduct.edges.map(node => node.node)
-  console.log(products)
   return (
     <Layout>
       <Helmet>

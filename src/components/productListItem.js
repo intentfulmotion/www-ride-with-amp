@@ -12,6 +12,7 @@ const ProductListItem = ({ product }) => {
   const addToCart = (evt) => {
     evt.preventDefault()
     add(product.sku)
+    document.getElementById('cart-modal').classList.add('is-active')
   }
 
   return (
