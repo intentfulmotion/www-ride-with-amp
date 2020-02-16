@@ -35,7 +35,7 @@ export default ({ alt, invert }) => {
 						<Link className={`navbar-item has-text-white is-hidden-mobile`} to="/">
 							<span className={`navbar-item ${itemInvertClasses}`}>Light up your ride.</span>
 						</Link>
-						<span className={`navbar-item mobile-cart`}>
+						<span className={`navbar-item mobile-cart is-hidden-desktop`}>
 							<Link className={`button is-outline is-text ${itemInvertClasses}`} to={`checkout`}>
 								<span className="icon">
 									<FaShoppingBag />

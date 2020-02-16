@@ -25,6 +25,7 @@ export default ({ success, reference }) => {
   if (cart.length > 0) {
     const createCheckoutSession = async (details) => {
       console.log('create checkout session')
+      document.getElementById('checkout-button').classList.remove('is-hidden')
       document.getElementById('checkout-button').classList.add('is-loading')
       let items = cart.reduce((res, item) => {
         res[item[0].sku] = item[1]

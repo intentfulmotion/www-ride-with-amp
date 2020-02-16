@@ -3,7 +3,7 @@ import listOfCountries from 'iso3166-2-db/i18n/dispute/UN/en'
 import { MdEdit, MdLocalShipping } from 'react-icons/md'
 import { useForm } from "react-hook-form"
 
-const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) => {
+const AddressSection = ({ submitText, title, name, phone, address, onSubmit, errors: addressErrors }) => {
   const { register, handleSubmit, setValue, errors } = useForm()
   const [country, setCountry] = useState(address ? address.country : null)
   const [state, setState] = useState(address ? address.state : null)
@@ -21,6 +21,22 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) =
   const beforeSubmit = (data) => {
     document.getElementById('address-submit').classList.add('is-loading')
     onSubmit(data)
+  }
+
+  const removeNotification = () => {
+    let el = document.getElementById('error-notification')
+    el.classList.add('is-hidden')
+  }
+
+  let addressErrorContent = null
+  if (addressErrors && addressErrors.length > 0) {
+    addressErrorContent = (
+      <div id="error-notification" className="notification is-danger">
+        <button className="delete" onClick={() => removeNotification()}></button>
+        { addressErrors.map((e, i) => (<p key={`error-${i}`}>{e}</p>)) }
+      </div>
+    )
+    document.getElementById('address-submit').classList.remove('is-loading')
   }
 
   let regions = []
@@ -138,6 +154,7 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit }) =
           <div className="has-text-centered">
             <button id="address-submit" className="button is-primary is-outlined">{submitText}</button>
           </div>
+          {addressErrorContent}
         </form>
       </div>
     </div>

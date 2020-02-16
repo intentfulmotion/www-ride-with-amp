@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import ContactSection, { ContactSummary } from './contact'
 import AddressSection, { AddressSummary } from './address'
-import ShippingOptions, { ShippingSummary } from './shipping-options'
+// import ShippingOptions, { ShippingSummary } from './shipping-options'
 import './checkout.scss'
 
 class ShippingDetails extends Component {
@@ -26,6 +26,7 @@ class ShippingDetails extends Component {
   }
 
   async updateShippingAddress(address) {
+    this.setState({ ...this.state, shippingAddressErrors: [] })
     let addressNoContact = {
       line1: address.line1,
       line2: address.linee2,
@@ -56,7 +57,7 @@ class ShippingDetails extends Component {
       if (result.status == 200) {
         const validationResult = await result.json()
         if (validationResult.is_valid) {
-          this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: null })
+          this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: [] })
 
           if (this.props.onVerifiedShippingInfo)
             this.props.onVerifiedShippingInfo({ email: this.state.customer_email, previousCustomer: this.state.previousCustomer, customer: this.state.customer, shipping: this.state.shipping })
