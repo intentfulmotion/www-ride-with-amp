@@ -18,7 +18,7 @@ export default ({ data }) => {
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
         <meta name="description" content={product.shortDescription} />
-        <meta name="keywords" content={product.tags} />
+        <meta name="keywords" content={[].concat(product.tags, ',')} />
         <title>{product.name} | {title}</title>
         <html lang="en" />
         <meta itemprop="name" content={author} />

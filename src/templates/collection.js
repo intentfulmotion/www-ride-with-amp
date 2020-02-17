@@ -28,7 +28,7 @@ export default ({ data }) => {
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
         <meta name="description" content={collection.shortDescription} />
-        {/* <meta name="keywords" content={collection.tags} /> */}
+        <meta name="keywords" content={[].concat(collection.tags, ',')} />
         <title>{collection.name} | {title}</title>
         <html lang="en" />
         <meta itemprop="name" content={author} />
@@ -68,6 +68,7 @@ export const pageQuery = graphql`
           url
         }
       }
+      tags
       products {
         name
         active
