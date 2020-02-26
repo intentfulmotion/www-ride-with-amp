@@ -44,15 +44,15 @@ export default () => (
             <div className="column">
               <div className="pricing-plan">
                 <div className="plan-header">Bicycles</div>
-                <div className="plan-price">Pricing <span className="plan-price-amount">TBA</span></div>
+                <div className="plan-price">Starting at: <span className="plan-price-amount"><span className="plan-price-currency">$</span>74.99</span></div>
                 <div className="plan-items">
                   <div className="plan-item">Front fork running lights</div>
                   <div className="plan-item">Rear fork brake lights</div>
                   <div className="plan-item">Handlebar mount controller</div>
-                  <div className="plan-item">Alpha Available Soon</div>
+                  <div className="plan-item">Beta Available Now</div>
                 </div>
                 <div className="plan-footer">
-                  <button className="button is-primary is-outlined" onClick={() => window.location.href = '#subscribe'}>Notify Me</button>
+                  <Link className="button is-primary" to="longboards">Find Yours</Link>
                 </div>
               </div>
             </div>
