@@ -79,7 +79,7 @@ export const query = graphql`
           shortDescription
           tags
           images {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 720) {
               ...GatsbyContentfulFluid
             }
             file {
