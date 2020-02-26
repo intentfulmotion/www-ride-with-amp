@@ -61,14 +61,30 @@ const EmblaCarouselComponent = ({ children }) => {
   )
 }
 
-const Carousel = ({ images }) => (
-  <EmblaCarouselComponent>
-    {images.map((image, i) => (
-      <div>
-        <Img fluid={image.fluid} fadeIn={true} key={i} />
-      </div>
-    ))}
-  </EmblaCarouselComponent>
-)
+const Carousel = ({ images, videos }) => {
+  if (!videos) videos = []
+
+  let imageElements = images.map((image, i) => (
+    <div>
+      <Img fluid={image.fluid} fadeIn={true} key={i} />
+    </div>
+  ))
+
+  let videoElements = videos.map((video, i) => (
+    <div>
+      <video class="carousel-video" autoPlay={true} loop={true} allowFullScreen={true}>
+        <source key={`video-${i}`} src={`https:${video.file.url}`} type="video/mp4" />
+      </video>
+    </div>
+  ))
+
+  let elements = videoElements.concat(imageElements)
+
+  return (
+    <EmblaCarouselComponent>
+      { elements }
+    </EmblaCarouselComponent>
+  )
+}
 
 export default Carousel

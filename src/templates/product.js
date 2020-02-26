@@ -46,9 +46,14 @@ export const productQuery = graphql`
       }
       tags
       images {
-        fluid(maxWidth: 250) {
+        fluid(maxWidth: 720) {
           ...GatsbyContentfulFluid
         }
+        file {
+          url
+        }
+      }
+      videos {
         file {
           url
         }

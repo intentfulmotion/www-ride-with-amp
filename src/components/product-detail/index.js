@@ -19,7 +19,7 @@ export default ({ product }) => {
     <div className="container">
       <div className="columns">
         <div className="column is-two-thirds">
-          <Carousel images={product.images} />
+          <Carousel images={product.images} videos={product.videos} />
         </div>
         <div className="column">
           <h1 className='title has-text-black'>{product.name}</h1>
