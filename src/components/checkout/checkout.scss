@@ -59,28 +59,24 @@
 }
 
 .checkout-cart h5 {
-  font-family: 'questa-slab';
   font-weight: 300;
   font-size: 1rem;
   color: #69797E;
 }
 
 .checkout-item-title {
-  font-family: 'questa-slab';
   font-weight: 700;
   font-size: 1.2rem;
   color: #000;
 }
 
 .checkout-item-subtitle {
-  font-family: 'questa-slab';
   font-weight: 300;
   font-size: 0.8rem;
   color: #69797E;
 }
 
 .checkout-option-text {
-  font-family: 'questa-slab';
   font-weight: 300;
   color: #69797E;
   font-size: 1rem;
@@ -92,4 +88,12 @@
 
 .validation {
   font-size: 0.8rem;
+}
+
+.card .media:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.cart-image {
+  width: 96px;
 }

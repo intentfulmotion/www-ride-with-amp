@@ -21,13 +21,13 @@ export default ({ shipping, taxes }) => {
                   <div className="card-content">
                     <div className="media">
                       <div className="media-left">
-                        <figure className="image is-64x64">
+                        <figure className="image cart-image">
                           <img src={product.images[0].file.url} alt={product.name} />
                         </figure>
                       </div>
                       <div className="media-content">
-                        <h3 className="checkout-item-title">{product.name}</h3>
-                        <h4 className="checkout-item-subtitle">Quantity: {quantity}</h4>
+                        <h3 className="checkout-item-title is-hidden-mobile">{product.name}</h3>
+                        <h4 className="checkout-item-subtitle is-hidden-mobile">Quantity: {quantity}</h4>
                       </div>
                       <div className="media-right">
                         <h3 className="checkout-item-title has-text-right"><FormattedNumber value={product.price * quantity} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /></h3>
@@ -47,6 +47,9 @@ export default ({ shipping, taxes }) => {
                           </button>
                         </div>
                       </div>
+                    </div>
+                    <div className="is-hidden-desktop is-hidden-tablet">
+                      <h3 className="checkout-item-title">{product.name}</h3>
                     </div>
                   </div>
                 </div>
