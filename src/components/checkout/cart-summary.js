@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../cart-provider'
 import { FaPlus, FaMinus } from 'react-icons/fa'
 import { FormattedNumber } from 'react-intl'
+import Img from 'gatsby-image'
 
 export default ({ shipping, taxes }) => {
   const { cart, total, remove, set } = useContext(CartContext)
@@ -22,7 +23,7 @@ export default ({ shipping, taxes }) => {
                     <div className="media">
                       <div className="media-left">
                         <figure className="image cart-image">
-                          <img src={product.images[0].file.url} alt={product.name} />
+                          <Img fluid={product.images[0].fluid} alt={product.name} />
                         </figure>
                       </div>
                       <div className="media-content">

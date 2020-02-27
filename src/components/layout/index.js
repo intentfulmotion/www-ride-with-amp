@@ -19,7 +19,9 @@ export default ({ children, title, description, tags }) => {
               sku
               price
               images {
-                file { url }
+                fluid(maxWidth: 720) {
+                  ...GatsbyContentfulFluid
+                }
               }
               active
             }
