@@ -48,8 +48,8 @@ const Header = () => {
 							<h2 className="subtitle">Beta Available Now.</h2>
 							<br/>
 							<div className="buttons">
-								<Link to="#what" className="button is-white is-outlined">Learn More</Link>
-								<Link to="#kits" className="button is-primary has-text-white">Get Your Kit</Link>
+								<Link to="/#what" className="button is-white is-outlined">Learn More</Link>
+								<Link to="/shop" className="button is-primary has-text-white">Shop Now</Link>
 							</div>
 						</div>
 					</div>

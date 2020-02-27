@@ -7,7 +7,6 @@ import Header from '../components/header'
 import WhatSection from '../components/home/what'
 import SpecSection from '../components/home/specs'
 import MixerSection from '../components/home/mixer'
-import KitSection from '../components/home/kits'
 
 import SubscribeSection from '../components/subscribe'
 import KiloGram from '../fonts/kilogram.otf'
@@ -34,7 +33,6 @@ export default () => {
       <WhatSection />
       <SpecSection />
       <MixerSection />
-      <KitSection />
       <SubscribeSection />
     </Layout>
   )

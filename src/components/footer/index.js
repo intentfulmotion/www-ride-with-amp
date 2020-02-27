@@ -3,12 +3,14 @@ import { Link } from 'gatsby'
 import './footer.scss'
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { useCollections } from '../../hooks/use-collections'
 
 import AppStore from '../../images/app-store.svg'
 import GooglePlay from '../../images/google-play.svg'
 
 export default () => {
 	const { footer } = useSiteMetadata()
+	const collections = useCollections()
 	return (
 	<footer className="footer center has-background-primary has-text-white">
 		<div className="columns is-centered is-mobile is-multiline">
@@ -16,7 +18,7 @@ export default () => {
 				footer
 					.map((section, id) => (
 						<div className="column is-narrow content footer-section" key={`footer-section-${id}`}>
-							<p className="is-size-6 bold">{section.section}</p>
+							<Link className="footer-section-header" to={section.link}><p className="is-size-6 bold">{section.section}</p></Link>
 							{
 								section.links.map(link => {
 									if (link.link.indexOf("mailto://") >= 0)
@@ -31,6 +33,14 @@ export default () => {
 						</div>
 					))
 			}
+			<div className="column is-narrow content footer-section" key='footer-section-shop'>
+				<Link className="footer-section-header" to='/shop'><p className="is-size-6 bold">Shop</p></Link>
+				{
+					collections.map(collection => (
+						<span key={'footer-link-' + collection.name}><Link className="footer-link is-text" to={`/${collection.slug}`}>{collection.name}</Link><br/></span>
+					))
+				}
+			</div>
 			<div className="column is-narrow-desktop is-narrow-tablet is-full-mobile has-text-centered content" key="footer-section-mobile-download">
 				<p className="is-size-6 bold">Download Amp Mixer</p>
 					<a href="https://itunes.apple.com"><img src={AppStore} className="image is-inline-flex download-app" alt="Download Amp Mixer on App Store" /></a>

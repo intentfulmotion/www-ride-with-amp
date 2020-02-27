@@ -36,7 +36,7 @@ export default ({ alt, invert }) => {
 							<span className={`navbar-item ${itemInvertClasses}`}>Light up your ride.</span>
 						</Link>
 						<span className={`navbar-item mobile-cart is-hidden-desktop`}>
-							<Link className={`button is-outline is-text ${itemInvertClasses}`} to={`checkout`}>
+							<Link className={`button is-outline is-text ${itemInvertClasses}`} to='/checkout'>
 								<span className="icon">
 									<FaShoppingBag />
 								</span>
@@ -60,7 +60,7 @@ export default ({ alt, invert }) => {
 									)
 							}
 							<span className={`navbar-item`}>
-								<Link className={`button is-outline is-text is-hidden-mobile ${itemInvertClasses}`} to={`checkout`}>
+								<Link className={`button is-outline is-text is-hidden-mobile ${itemInvertClasses}`} to='/checkout'>
 									<span className="icon">
 										<FaShoppingBag />
 									</span>

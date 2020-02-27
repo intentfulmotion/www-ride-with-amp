@@ -21,10 +21,6 @@ module.exports = {
         name: `Mix It Up`,
         link: `/#mixer`
       },
-      {
-        name: `Find a Kit`,
-        link: `/#kits`
-			},
 			{
         name: `Subscribe`,
         link: `/#subscribe`
@@ -36,35 +32,14 @@ module.exports = {
 		],
 		footer: [
       {
-        section: `About`,
+				section: `Info`,
+				link: '/',
         links: [
-          {
-            name: `Home`,
-            link: `/`
-          },
           {
             name: `Contact`,
             link: `mailto://chat@intentfulmotion.com?subject=Contact`
-          }
-        ]
-			},
-			{
-        section: `Shop`,
-        links: [
+					},
 					{
-            name: `DIY Kits`,
-            link: `/diy`
-          },
-          {
-            name: `Longboard Kits`,
-            link: `/longboards`
-          }
-        ]
-      },
-      {
-        section: "Legal",
-        links: [
-          {
             name: `Terms`,
             link: `/terms`
           },
@@ -73,7 +48,7 @@ module.exports = {
             link: `/privacy`
           }
         ]
-      }
+			}
     ]
 	},
 	plugins: [

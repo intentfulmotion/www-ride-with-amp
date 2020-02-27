@@ -13,6 +13,7 @@ export const useSiteMetadata = () => {
             }
             footer {
               section
+              link
               links {
                 name
                 link
