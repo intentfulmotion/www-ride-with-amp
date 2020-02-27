@@ -40,7 +40,7 @@ const ShopPage = ({ data }) => {
               </aside>
             </div>
             <div className="column">
-              <div className="columns is-multiline is-mobile">
+              <div className="columns is-multiline">
                 {
                   products.map(product => (
                     <ProductListItem product={product} key={`product-${product.sku}`}></ProductListItem>
