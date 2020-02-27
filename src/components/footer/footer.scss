@@ -15,3 +15,15 @@
   width: 10rem;
   margin-right: 2rem;
 }
+
+@include mobile {
+  .footer-section {
+    margin-bottom: unset;
+  }
+
+  .download-app {
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+    width: 8rem;
+  }
+}

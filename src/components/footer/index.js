@@ -15,7 +15,7 @@ export default () => {
 			{
 				footer
 					.map((section, id) => (
-						<div className="column is-narrow content" key={`footer-section-${id}`}>
+						<div className="column is-narrow content footer-section" key={`footer-section-${id}`}>
 							<p className="is-size-6 bold">{section.section}</p>
 							{
 								section.links.map(link => {
@@ -31,7 +31,7 @@ export default () => {
 						</div>
 					))
 			}
-			<div className="column is-narrow content is-half-mobile" key="footer-section-mobile-download">
+			<div className="column is-narrow-desktop is-narrow-tablet is-full-mobile has-text-centered content" key="footer-section-mobile-download">
 				<p className="is-size-6 bold">Download Amp Mixer</p>
 					<a href="https://itunes.apple.com"><img src={AppStore} className="image is-inline-flex download-app" alt="Download Amp Mixer on App Store" /></a>
 					<a href="https://play.google.com/store/apps/details?id=com.intentfulmotion.amp"><img src={GooglePlay} className="image is-inline-flex download-app"  alt="Download Amp Mixer on Google Play"/></a>
