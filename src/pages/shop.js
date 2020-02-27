@@ -40,7 +40,7 @@ const ShopPage = ({ data }) => {
               </aside>
             </div>
             <div className="column">
-              <div className="tile is-ancestor">
+              <div className="columns is-multiline is-mobile">
                 {
                   products.map(product => (
                     <ProductListItem product={product} key={`product-${product.sku}`}></ProductListItem>

@@ -45,9 +45,9 @@ export default ({ data }) => {
       </section>
       <section className="section">
         <div className="container">
-          <div className="tile is-ancestor">
+          <div className="columns is-multiline is-mobile">
             {
-              collection.products.filter(p => p.active).map((product, i) => <ProductListItem product={product} key={`product-${i}`}></ProductListItem>)
+              collection.products.filter(p => p.active).map((product, i) => <ProductListItem compact={true} product={product} key={`product-${i}`}></ProductListItem>)
             }
           </div>
         </div>

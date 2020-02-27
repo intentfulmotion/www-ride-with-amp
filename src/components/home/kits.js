@@ -37,7 +37,7 @@ export default () => (
                   <div className="plan-item">Beta Available Now</div>
                 </div>
                 <div className="plan-footer">
-                  <Link className="button is-primary" to="longboards">Find Yours</Link>
+                  <Link className="button is-primary" to="skate">Find Yours</Link>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default () => (
                   <div className="plan-item">Beta Available Now</div>
                 </div>
                 <div className="plan-footer">
-                  <Link className="button is-primary" to="longboards">Find Yours</Link>
+                  <Link className="button is-primary" to="bike">Find Yours</Link>
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 
 import { CartContext } from '../cart-provider'
 
-const ProductListItem = ({ product }) => {
+const ProductListItem = ({ product, compact }) => {
   const { add } = useContext(CartContext)
 
   const addToCart = (evt) => {
@@ -15,10 +15,14 @@ const ProductListItem = ({ product }) => {
     document.getElementById('cart-modal').classList.add('is-active')
   }
 
+  const size = compact ? 'is-3' : 'is-4'
+
   return (
-    <div className="tile is-parent is-4" key={`product-${product.name}-sku-${product.sku}`}>
+    <div className={`column ${size}`} key={`product-${product.name}-sku-${product.sku}`}>
       <div className="card">
-        <Img fluid={product.images[0].fluid} fadeIn={true} />
+        <Link to={`/products/${product.sku}`}>
+          <Img fluid={product.images[0].fluid} fadeIn={true} />
+        </Link>
         <div className="card-content">
           <div className="content">
             <h5>{product.name}</h5>
