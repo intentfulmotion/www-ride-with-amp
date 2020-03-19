@@ -105,7 +105,19 @@ module.exports = {
       options: {
         async: true,
       },
-    },
+		},
+		{
+			resolve: `gatsby-plugin-netlify`,
+			options: {
+				headers: {
+					'X-Frame-Options': 'SAMEORIGIN',
+					'X-Content-Type-Options': 'nosniff',
+					'Content-Security-Policy': "default-src 'self'; script-src self; script-src js.stripe.com",
+					'Referrer-Policy': 'strict-origin-when-cross-origin',
+					'Feature-Policy': 'none'
+				}
+			}
+		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

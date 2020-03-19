@@ -9,13 +9,19 @@ export default () => {
     document.getElementById('cart-modal').classList.remove('is-active')
   }
 
+  const keyPressHideModal = event => {
+    let char = event.which || event.keyCode
+    if (char === 27)
+      hideModal()
+  }
+
   let checkoutButton = cart.length > 0 ? 
     (<Link to="/checkout" className="button is-primary has-text-white checkout-card">Checkout</Link>) :
     (<button className="button is-primary has-text-white checkout-card" disabled>Checkout</button>)
 
   return (
-    <div id="cart-modal" className="modal">
-      <div className="modal-background" onClick={() => hideModal()}></div>
+    <div id="cart-modal" className="modal" tabIndex="-1" onKeyPress={keyPressHideModal} role="dialog">
+      <div className="modal-background" onClick={hideModal} onKeyPress={keyPressHideModal} role="dialog"></div>
       <div className="modal-content box">
         <CartSummary />
         <div className="has-text-centered">

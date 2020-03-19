@@ -50,12 +50,12 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           <h2 className="subtitle">{title}</h2>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Name*</label>
+              <label htmlFor="name-field" className="label">Name*</label>
             </div>
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <input name="name" className="input" type="text" defaultValue={name} ref={register({ required: true })} />
+                  <input id="name-field" name="name" className="input" type="text" defaultValue={name} ref={register({ required: true })} />
                   <span className="validation has-text-danger">{ errors.name && 'Name is required' }</span>
                 </div>
               </div>
@@ -63,12 +63,12 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Phone Number*</label>
+              <label htmlFor="phone-field" className="label">Phone Number*</label>
             </div>
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <input name="phone" className="input" type="tel" placeholder="+11234567890" defaultValue={phone} ref={register({required: true, minLength: 6, maxLength: 12})} />
+                  <input id="phone-field" name="phone" className="input" type="tel" placeholder="+11234567890" defaultValue={phone} ref={register({required: true, minLength: 6, maxLength: 12})} />
                   <span className="validation has-text-danger">{ errors.phone && 'Phone number is required' }</span>
                 </div>
               </div>
@@ -76,11 +76,11 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Street Address*</label>
+              <label htmlFor="line1-field" className="label">Street Address*</label>
             </div>
             <div className="field-body">
               <div className="field">
-                <input name="line1" className="input" type="text" placeholder="Street Address" defaultValue={address ? address.line1 : ''} ref={register({ required: true })} />
+                <input id="line1-field" name="line1" className="input" type="text" placeholder="Street Address" defaultValue={address ? address.line1 : ''} ref={register({ required: true })} />
                 <span className="validation has-text-danger">{ errors.line1 && 'Street address is required' }</span>
               </div>
               <div className="field is-narrow">
@@ -90,12 +90,12 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">City*</label>
+              <label htmlFor="city-field" className="label">City*</label>
             </div>
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <input name="city" className="input" type="text" defaultValue={address ? address.city : ''} ref={register({ required: true })} />
+                  <input htmlFor="city-field" name="city" className="input" type="text" defaultValue={address ? address.city : ''} ref={register({ required: true })} />
                   <span className="validation has-text-danger">{ errors.city && "City is required" }</span>
                 </div>
               </div>
@@ -103,13 +103,13 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Country*</label>
+              <label htmlFor="country-field" className="label">Country*</label>
             </div>
             <div className="field-body">
               <div className="field is-narrow">
                 <div className="control">
                   <div className="select is-fullwidth">
-                    <select name="country" onChange={onCountryChange} defaultValue={country} ref={register({ required: true })}>
+                    <select id="country-field" name="country" onBlur={onCountryChange} defaultValue={country} ref={register({ required: true })}>
                       {
                         Object.keys(listOfCountries).map(isoCode => <option key={isoCode} value={isoCode}>{listOfCountries[isoCode].name}</option>)
                       }
@@ -121,13 +121,13 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">State / Province*</label>
+              <label htmlFor="region-field" className="label">State / Province*</label>
             </div>
             <div className="field-body">
               <div className="field is-narrow">
                 <div className="control">
                   <div className="select is-fullwidth">
-                    <select name="state" onChange={onRegionChange} defaultValue={state} ref={register}>
+                    <select id="region-field" name="state" onBlur={onRegionChange} defaultValue={state} ref={register}>
                       {
                         regions.map(region => <option key={region.iso} value={region.iso}>{region.name}</option>)
                         })
@@ -140,12 +140,12 @@ const AddressSection = ({ submitText, title, name, phone, address, onSubmit, err
           </div>
           <div className="field is-horizontal">
             <div className="field-label is-normal">
-              <label className="label">Postcode*</label>
+              <label htmlFor="postcode-field" className="label">Postcode*</label>
             </div>
             <div className="field-body">
               <div className="field">
                 <div className="control">
-                  <input name="postal_code" className="input" type="text" defaultValue={address ? address.postal_code : ''} ref={register({ required: true })} />
+                  <input id="postcode-field" name="postal_code" className="input" type="text" defaultValue={address ? address.postal_code : ''} ref={register({ required: true })} />
                   <span className="validation has-text-danger">{ errors.postal_code && 'Postcode is required' }</span>
                 </div>
               </div>

@@ -9,6 +9,7 @@ export default ({ product }) => {
     evt.preventDefault()
     add(product.sku)
     document.getElementById('cart-modal').classList.add('is-active')
+    document.getElementById('cart-modal').focus()
   }
 
   const addToCartButton = product.active ? (

@@ -21,6 +21,12 @@ export default ({ alt, invert }) => {
 		document.getElementById('navbar-menu').classList.toggle('is-active')
 	}
 
+	const onKeyPress = event => {
+    let char = event.which || event.keyCode
+    if (char === 13 || char === 32)
+      toggleMobileMenu()
+  }
+
 	let cartCount
 	cartCount = count > 0 ? <span>{ count }</span> : null
 
@@ -43,7 +49,7 @@ export default ({ alt, invert }) => {
 								{ cartCount }
 							</Link>
 						</span>
-						<a id="mobile-menu" role="button" className={`navbar-burger ${itemInvertClasses}`} aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }}>
+						<a id="mobile-menu" role="button" className={`navbar-burger ${itemInvertClasses}`} aria-label="menu" aria-expanded="false" onClick={() => { toggleMobileMenu() }} onKeyPress={onKeyPress}>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>

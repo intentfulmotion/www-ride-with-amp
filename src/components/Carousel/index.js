@@ -4,12 +4,27 @@ import Img from 'gatsby-image'
 
 import "./carousel.scss";
 
-export const DotBtn = ({ selected, onClick }) => (
-  <span
-    className={`carousel-dot${selected ? " carousel-dot-active" : ""}`}
-    onClick={onClick}
-  />
-);
+export const DotBtn = ({ selected, onInteract, key }) => {
+  const onKeyPress = event => {
+    let char = event.which || event.keyCode
+    if (char === 13 || char === 32)
+      onInteract(0)
+    else if (char === 37)
+      onInteract(-1)
+    else if (char === 39)
+      onInteract(1)
+  }
+
+  return (
+    <span
+      className={`carousel-dot${selected ? " carousel-dot-active" : ""}`}
+      onClick={onInteract(0)}
+      onKeyPress={onKeyPress}
+      role="option"
+      key={key}
+    />
+  );
+}
 
 const EmblaCarouselComponent = ({ children }) => {
   const [carousel, initCarousel] = useState(null);
@@ -52,7 +67,7 @@ const EmblaCarouselComponent = ({ children }) => {
         {scrollSnaps.map((snap, index) => (
           <DotBtn
             selected={index === selectedIndex}
-            onClick={() => scrollTo(index)}
+            onInteract={(offset) => scrollTo(index + offset)}
             key={index}
           />
         ))}

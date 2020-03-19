@@ -13,6 +13,7 @@ const ProductListItem = ({ product, compact }) => {
     evt.preventDefault()
     add(product.sku)
     document.getElementById('cart-modal').classList.add('is-active')
+    document.getElementById('cart-modal').focus()
   }
 
   const size = compact ? 'is-3' : 'is-4'

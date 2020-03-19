@@ -54,7 +54,7 @@ class ShippingDetails extends Component {
         headers: { 'Content-Type': 'application/json' }
       })
 
-      if (result.status == 200) {
+      if (result.status === 200) {
         const validationResult = await result.json()
         if (validationResult.is_valid) {
           this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: [] })
@@ -106,7 +106,7 @@ class ShippingDetails extends Component {
 
   componentDidUpdate(oldProps) {
     const newProps = this.props
-    if (oldProps.cart != newProps.cart && this.state.step == 3)
+    if (oldProps.cart !== newProps.cart && this.state.step === 3)
       this.setState({ ...this.state, step: 2 })
   }
 

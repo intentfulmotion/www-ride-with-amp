@@ -1,0 +1,5 @@
+# Redirect domain aliases to primary domain
+https://ridewithamp.com/* https://amp.intentfulmotion.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://ridewithamp.netlify.com/* https://amp.intentfulmotion.com/:splat 301!
