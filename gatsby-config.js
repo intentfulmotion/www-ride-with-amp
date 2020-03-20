@@ -5,7 +5,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'Amp by Intentful Motion',
 		author: 'Intentful Motion, Inc.',
-		description: 'Reactive, smart brake and turn lights for your ride',
+		description: 'Motion and gesture reactive brake, turn and running lights for your bicycle, scooter, or e-skate',
 		keywords: `Amp, smart lights, bicycle lights, longboard lights, Boosted Board lights, OneWheel lights, scooter lights, brake lights, indicators`,
 		siteUrl: `https://amp.intentfulmotion.com`,
 		menuLinks: [
@@ -27,7 +27,7 @@ module.exports = {
 			},
 			{
 				name: `Shop Now`,
-				link: `/shop`
+				link: `/store`
 			}
 		],
 		footer: [

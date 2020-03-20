@@ -34,7 +34,7 @@ export default () => {
 					))
 			}
 			<div className="column is-narrow content footer-section" key='footer-section-shop'>
-				<Link className="footer-section-header" to='/shop'><p className="is-size-6 bold">Shop</p></Link>
+				<Link className="footer-section-header" to='/store'><p className="is-size-6 bold">Shop</p></Link>
 				{
 					collections.map(collection => (
 						<span key={'footer-link-' + collection.name}><Link className="footer-link is-text" to={`/${collection.slug}`}>{collection.name}</Link><br/></span>

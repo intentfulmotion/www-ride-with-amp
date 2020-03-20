@@ -15,6 +15,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 export default () => {
   const { title, description, keywords, author } = useSiteMetadata()
+  console.log(description)
   return (
     <Layout>
       <Helmet>

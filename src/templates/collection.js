@@ -27,9 +27,9 @@ export default ({ data }) => {
     <Layout title={collection.name} description={collection.description}>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
-        <meta name="description" content={collection.shortDescription} />
+        <meta name="description" content={collection.description} />
         <meta name="keywords" content={[].concat(collection.tags, ',')} />
-        <title>{collection.name} | {title}</title>
+        <title>Smart Lights for {collection.name}s | {title}</title>
         <html lang="en" />
         <meta itemprop="name" content={author} />
         <meta itemprop="description" content={collection.shortDescription} />
