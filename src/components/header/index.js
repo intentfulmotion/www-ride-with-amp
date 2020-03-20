@@ -49,7 +49,7 @@ const Header = () => {
 							<br/>
 							<div className="buttons">
 								<Link to="/#what" className="button is-white is-outlined">Learn More</Link>
-								<Link to="/shop" className="button is-primary has-text-white">Shop Now</Link>
+								<Link to="/store" className="button is-primary has-text-white">Shop Now</Link>
 							</div>
 						</div>
 					</div>

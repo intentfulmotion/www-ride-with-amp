@@ -117,6 +117,12 @@ module.exports = {
 					'Feature-Policy: none'
 				]
 			}
+		},
+		{
+			resolve: `gatsby-plugin-robots-txt`,
+			options: {
+				policy: [{ userAgent: '*', disallow: ['/checkout', '/404'] }],
+			}
 		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
