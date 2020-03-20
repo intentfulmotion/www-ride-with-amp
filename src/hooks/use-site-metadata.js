@@ -14,6 +14,7 @@ export const useSiteMetadata = () => {
               link
             }
             siteUrl
+            slogan
             footer {
               section
               link

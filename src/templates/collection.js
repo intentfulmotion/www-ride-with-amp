@@ -15,11 +15,11 @@ export default ({ data }) => {
 
   const structured = {
     "@context": "https://schema.org",
-    "@type": "ListItem",
+    "@type": "ItemList",
     "itemListElement": collection.products.filter(p => p.active).map((product, index) => {
       return {
         "@type": "ListItem",
-        "position": index,
+        "position": index + 1,
         "url": `${siteUrl}/products/${product.sku}`
       }
     })

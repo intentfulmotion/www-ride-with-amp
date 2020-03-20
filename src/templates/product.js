@@ -11,22 +11,26 @@ import ProductDetail from '../components/product-detail'
 
 export default ({ data }) => {
   const product = data.contentfulProduct
-  const { title, author, siteUrl } = useSiteMetadata()
+  const { title, description, author, siteUrl, slogan } = useSiteMetadata()
 
   const structured = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@brand": {
+    "brand": {
       "@type": "Brand",
-      "name": author
+      "name": title,
+      "slogan": slogan,
+      "description": description,
+      "url": siteUrl
     },
     "url": `${siteUrl}/products/${product.name}`,
     "name": product.name,
-    "description": product.description,
+    "description": product.shortDescription,
     "sku": product.sku,
+    "mpn": product.sku,
     "height": product.height,
     "width": product.width,
-    "length": product.length,
+    "depth": product.length,
     "manufacturer": author,
     "image": product.images.map(i => i.file.url),
     "offers": {
