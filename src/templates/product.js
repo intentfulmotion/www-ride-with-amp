@@ -41,8 +41,11 @@ export default ({ data }) => {
       "itemCondition": "https://schema.org/NewCondition",
       "availability": "https://schema.org/PreOrder",
       "seller": {
-        "@type": "Organization",
-        "name": author
+        "@type": "Brand",
+        "name": title,
+        "slogan": slogan,
+        "description": description,
+        "url": siteUrl
       }
     }
   }
