@@ -18,7 +18,7 @@ export const DotBtn = ({ selected, onInteract, key }) => {
   return (
     <span
       className={`carousel-dot${selected ? " carousel-dot-active" : ""}`}
-      onClick={onInteract(0)}
+      onClick={() => onInteract(0)}
       onKeyPress={onKeyPress}
       role="option"
       key={key}

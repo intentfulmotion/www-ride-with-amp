@@ -21,7 +21,7 @@ export default () => {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <title>{title}</title>
+        <title>Smart Lights for Your Ride | {title}</title>
         <html lang="en" />
         <meta itemprop="name" content={author} />
         <meta itemprop="description" content={description} />
