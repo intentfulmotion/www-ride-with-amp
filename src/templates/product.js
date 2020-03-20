@@ -11,7 +11,37 @@ import ProductDetail from '../components/product-detail'
 
 export default ({ data }) => {
   const product = data.contentfulProduct
-  const { title, author } = useSiteMetadata()
+  const { title, author, siteUrl } = useSiteMetadata()
+
+  const structured = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@brand": {
+      "@type": "Brand",
+      "name": author
+    },
+    "url": `${siteUrl}/products/${product.name}`,
+    "name": product.name,
+    "description": product.description,
+    "sku": product.sku,
+    "height": product.height,
+    "width": product.width,
+    "length": product.length,
+    "manufacturer": author,
+    "image": product.images.map(i => i.file.url),
+    "offers": {
+      "@type": "Offer",
+      "url": `${siteUrl}/products/${product.name}`,
+      "priceCurrency": "USD",
+      "price": product.price,
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/PreOrder",
+      "seller": {
+        "@type": "Organization",
+        "name": author
+      }
+    }
+  }
 
   return (
     <Layout>
@@ -24,6 +54,9 @@ export default ({ data }) => {
         <meta itemprop="name" content={author} />
         <meta itemprop="description" content={product.shortDescription} />
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
+        <script type="application/ld+json">
+          { JSON.stringify(structured) }
+        </script>
       </Helmet>
       <Navbar invert={true} />
         <ProductDetail product={product} />

@@ -11,7 +11,20 @@ import SubscribeSection from '../components/subscribe'
 
 export default ({ data }) => {
   const collection = data.contentfulProductCollection
-  const { title, author } = useSiteMetadata()
+  const { title, author, siteUrl } = useSiteMetadata()
+
+  const structured = {
+    "@context": "https://schema.org",
+    "@type": "ListItem",
+    "itemListElement": collection.products.filter(p => p.active).map((product, index) => {
+      return {
+        "@type": "ListItem",
+        "position": index,
+        "url": `${siteUrl}/products/${product.sku}`
+      }
+    })
+  }
+
   let heroStyle = null;
 
   if (collection.featuredImage)
@@ -34,6 +47,9 @@ export default ({ data }) => {
         <meta itemprop="name" content={author} />
         <meta itemprop="description" content={collection.shortDescription} />
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
+        <script type="application/ld+json">
+          { JSON.stringify(structured) }
+        </script>
       </Helmet>
       <section className="hero" style={heroStyle}>
         <Navbar invert={collection.featuredImage == null} />
