@@ -110,9 +110,9 @@ module.exports = {
 			resolve: `gatsby-plugin-netlify`,
 			options: {
 				allPageHeaders: [
-					'X-Frame-Options: SAMEORIGIN',
+					// 'X-Frame-Options: SAMEORIGIN',
 					'X-Content-Type-Options: nosniff',
-					"Content-Security-Policy: default-src 'self' *.intentfulmotion.com; script-src 'self' js.stripe.com d33wubrfki0l68.cloudfront.net",
+					// "Content-Security-Policy: default-src 'self' *.intentfulmotion.com; script-src 'self' js.stripe.com d33wubrfki0l68.cloudfront.net",
 					'Referrer-Policy: strict-origin-when-cross-origin',
 					'Feature-Policy: none'
 				]
