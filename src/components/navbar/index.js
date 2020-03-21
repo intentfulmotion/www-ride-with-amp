@@ -35,14 +35,14 @@ export default ({ alt, invert }) => {
 			<nav className={`${navbarClasses} ${invertClasses}`}>
 				<div className="container">
 					<div className="navbar-brand">
-						<Link className={`navbar-item ${itemInvertClasses}`} to="/">
+						<Link className={`navbar-item ${itemInvertClasses}`} to="/" title="Home">
 							<img src={ampLogo} alt="Logo" className="navbar-brand-icon" />
 						</Link>
-						<Link className={`navbar-item has-text-white is-hidden-mobile`} to="/">
+						<Link className={`navbar-item has-text-white is-hidden-mobile`} to="/" title="Home">
 							<span className={`navbar-item ${itemInvertClasses}`}>Light up your ride.</span>
 						</Link>
 						<span className={`navbar-item mobile-cart is-hidden-desktop`}>
-							<Link className={`button is-outline is-text ${itemInvertClasses}`} to='/checkout'>
+							<Link className={`button is-outline is-text ${itemInvertClasses}`} to='/checkout' title="Checkout">
 								<span className="icon">
 									<FaShoppingBag />
 								</span>
@@ -61,12 +61,12 @@ export default ({ alt, invert }) => {
 								menuLinks
 									.map(link =>
 										<span className={`navbar-item`} key={"link-" + link.name}>
-											<Link className={`button is-text ${itemInvertClasses}`} to={link.link}>{link.name}</Link>
+											<Link className={`button is-text ${itemInvertClasses}`} to={link.link} title={link.name}>{link.name}</Link>
 										</span>
 									)
 							}
 							<span className={`navbar-item`}>
-								<Link className={`button is-outline is-text is-hidden-mobile ${itemInvertClasses}`} to='/checkout'>
+								<Link className={`button is-outline is-text is-hidden-mobile ${itemInvertClasses}`} to='/checkout' title="Checkout">
 									<span className="icon">
 										<FaShoppingBag />
 									</span>

@@ -49,8 +49,8 @@ const Header = () => {
 							<p className="subtitle">Beta Available Now.</p>
 							<br/>
 							<div className="buttons">
-								<Link to="/#what" className="button is-white is-outlined">Learn More</Link>
-								<Link to="/store" className="button is-primary has-text-white">Shop Now</Link>
+								<Link to="/#what" className="button is-white is-outlined" title="Learn More">Learn More</Link>
+								<Link to="/store" className="button is-primary has-text-white" title="Shop Now">Shop Now</Link>
 							</div>
 						</div>
 					</div>

@@ -21,7 +21,7 @@ const ProductListItem = ({ product, compact }) => {
   return (
     <div className={`column ${size}`} key={`product-${product.name}-sku-${product.sku}`}>
       <div className="card">
-        <Link to={`/products/${product.sku}`}>
+        <Link to={`/products/${product.sku}`} title={product.name}>
           <Img fluid={product.images[0].fluid} fadeIn={true} />
         </Link>
         <div className="card-content">
@@ -32,7 +32,7 @@ const ProductListItem = ({ product, compact }) => {
           </div>
         </div>
         <div className="card-footer">
-          <Link className="card-footer-item is-outlined list-item-details" to={`/products/${product.sku}`}>
+          <Link className="card-footer-item is-outlined list-item-details" to={`/products/${product.sku}`} title={product.name}>
             <span>Learn More</span>
           </Link>
           <a className="card-footer-item is-primary bold list-item-cta" onClick={(evt) => addToCart(evt)}>

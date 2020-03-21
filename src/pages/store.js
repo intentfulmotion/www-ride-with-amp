@@ -33,7 +33,7 @@ const ShopPage = ({ data }) => {
                 <ul className="menu-list">
                   {
                     categories.map(c => (
-                      <li key={`menu-collection-${c.slug}`}><Link to={c.slug}>{c.name}</Link></li>
+                      <li key={`menu-collection-${c.slug}`}><Link to={c.slug} title={c.name}>{c.name}</Link></li>
                     ))
                   }
                 </ul>

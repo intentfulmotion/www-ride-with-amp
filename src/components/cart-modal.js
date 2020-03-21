@@ -16,7 +16,7 @@ export default () => {
   }
 
   let checkoutButton = cart.length > 0 ? 
-    (<Link to="/checkout" className="button is-primary has-text-white checkout-card">Checkout</Link>) :
+    (<Link to="/checkout" className="button is-primary has-text-white checkout-card" title="Checkout">Checkout</Link>) :
     (<button className="button is-primary has-text-white checkout-card" disabled>Checkout</button>)
 
   return (
