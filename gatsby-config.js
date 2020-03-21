@@ -38,7 +38,7 @@ module.exports = {
         links: [
           {
             name: `Contact`,
-            link: `mailto://chat@intentfulmotion.com?subject=Contact`
+            link: ``
 					},
 					{
             name: `Terms`,

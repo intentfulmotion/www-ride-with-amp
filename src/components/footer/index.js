@@ -11,6 +11,17 @@ import GooglePlay from '../../images/google-play.svg'
 export default () => {
 	const { footer } = useSiteMetadata()
 	const collections = useCollections()
+
+	const openContact = async () => {
+		let result = await fetch('/.netlify/functions/contact', {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json' }
+		})
+
+		let { address } = await result.json()
+		window.location.href = `mailto://${address}&subject=Contact`
+	}
+
 	return (
 	<footer className="footer center has-background-primary has-text-white">
 		<div className="columns is-centered is-mobile is-multiline">
@@ -21,9 +32,9 @@ export default () => {
 							<Link className="footer-section-header" to={section.link}><p className="is-size-6 bold">{section.section}</p></Link>
 							{
 								section.links.map(link => {
-									if (link.link.indexOf("mailto://") >= 0)
+									if (link.name == "Contact")
 										return (
-											<span key={'footer-link-' + link.name}><a className="footer-link is-text" href={link.link}>{link.name}</a><br/></span>
+											<span key={'footer-link-' + link.name}><a className="footer-link is-text" onClick={openContact}>{link.name}</a><br/></span>
 										)
 									else return (
 										<span key={'footer-link-' + link.name}><Link className="footer-link is-text" to={link.link}>{link.name}</Link><br/></span>
