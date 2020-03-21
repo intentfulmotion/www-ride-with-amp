@@ -78,6 +78,7 @@ export const productQuery = graphql`
       sku
       price
       active
+      madeToOrder
       shortDescription
       description {
         childMarkdownRemark {

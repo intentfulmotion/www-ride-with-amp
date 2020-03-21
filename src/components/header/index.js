@@ -43,9 +43,10 @@ const Header = () => {
 				<div className="container">
 					<div className="columns">
 						<div className="column is-half">
-							<h1 className="brand-name">aMp</h1>
-							<h1 className="title">Smart, reactive lights for your ride</h1>
-							<h2 className="subtitle">Beta Available Now.</h2>
+							<h1 className="is-hidden">Amp: Smart Lighting for Your Ride</h1>
+							<p className="brand-name">aMp</p>
+							<p className="title">Smart, reactive lights for your ride</p>
+							<p className="subtitle">Beta Available Now.</p>
 							<br/>
 							<div className="buttons">
 								<Link to="/#what" className="button is-white is-outlined">Learn More</Link>

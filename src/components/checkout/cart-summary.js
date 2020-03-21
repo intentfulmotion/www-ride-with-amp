@@ -13,7 +13,7 @@ export default ({ shipping, taxes }) => {
   return (
     <div>
       <div className="checkout-cart">
-        <h1 className="checkout-subtitle">Bag Contents</h1>
+        <span className="checkout-subtitle">Bag Contents</span>
         <div className="cart-items">
           { 
             cart.map(item => {
@@ -30,11 +30,11 @@ export default ({ shipping, taxes }) => {
                         </figure>
                       </div>
                       <div className="media-content">
-                        <h3 className="checkout-item-title is-hidden-mobile">{product.name}</h3>
-                        <h4 className="checkout-item-subtitle is-hidden-mobile">Quantity: {quantity}</h4>
+                        <p className="checkout-item-title is-hidden-mobile">{product.name}</p>
+                        <p className="checkout-item-subtitle is-hidden-mobile">Quantity: {quantity}</p>
                       </div>
                       <div className="media-right">
-                        <h3 className="checkout-item-title has-text-right"><FormattedNumber value={product.price * quantity} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /></h3>
+                        <p className="checkout-item-title has-text-right"><FormattedNumber value={product.price * quantity} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /></p>
                         <div className="buttons checkout-item-subtitle">
                           <button className="button is-white" onClick={() => { quantity === 1 ? remove(product.sku) : set(product.sku, quantity - 1) }}>
                             <span className="icon is-small">
@@ -53,7 +53,7 @@ export default ({ shipping, taxes }) => {
                       </div>
                     </div>
                     <div className="is-hidden-desktop is-hidden-tablet">
-                      <h3 className="checkout-item-title">{product.name}</h3>
+                      <p className="checkout-item-title">{product.name}</p>
                     </div>
                   </div>
                 </div>
@@ -64,16 +64,16 @@ export default ({ shipping, taxes }) => {
         <div className="is-divider" data-content="SUMMARY"></div>
         <div className="columns is-mobile">
           <div className="column">
-            <h2 className="checkout-line-item">Sub-Total</h2>
-            <h2 className="checkout-line-item">Shipping</h2>
-            <h2 className="checkout-line-item">Taxes</h2>
-            <h2 className="checkout-line-total">Total</h2>
+            <p className="checkout-line-item">Sub-Total</p>
+            <p className="checkout-line-item">Shipping</p>
+            <p className="checkout-line-item">Taxes</p>
+            <p className="checkout-line-total">Total</p>
           </div>
           <div className="column has-text-right">
-            <h2 className="checkout-line-item">{<FormattedNumber value={total} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</h2>
-            <h2 className="checkout-line-item">{ shipping ? <FormattedNumber value={shipping} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</h2>
-            <h2 className="checkout-line-item">{ taxes ? <FormattedNumber value={taxes} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</h2>
-            <h2 className="checkout-line-total">{<FormattedNumber value={summaryTotal} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</h2>
+            <p className="checkout-line-item">{<FormattedNumber value={total} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</p>
+            <p className="checkout-line-item">{ shipping ? <FormattedNumber value={shipping} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</p>
+            <p className="checkout-line-item">{ taxes ? <FormattedNumber value={taxes} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</p>
+            <p className="checkout-line-total">{<FormattedNumber value={summaryTotal} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</p>
           </div>
         </div>
       </div>
