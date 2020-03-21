@@ -15,7 +15,7 @@ const ShopPage = ({ data }) => {
     <Layout>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
-        <meta name="description" content={description} />
+        <meta name="description" content="Your one stop shop for Amp smart lighting for your bicycle, scooter, or e-skate" />
         <meta name="keywords" content={keywords} />
         <title>Store | {title}</title>
         <html lang="en" />

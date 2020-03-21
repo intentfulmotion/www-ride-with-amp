@@ -122,7 +122,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-robots-txt`,
 			options: {
-				policy: [{ userAgent: '*', disallow: ['/checkout', '/404'] }],
+				policy: [{ userAgent: '*', disallow: ['/checkout', '/404', '/subscribe-success'] }],
 			}
 		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality

@@ -58,9 +58,33 @@ export default ({ data }) => {
         <meta name="keywords" content={[].concat(product.tags, ',')} />
         <title>{product.name} | {title}</title>
         <html lang="en" />
+
+        {/* Schema.org */}
         <meta itemprop="name" content={author} />
         <meta itemprop="description" content={product.shortDescription} />
+        <meta itemprop="image" content={product.images[0].file.url} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" />
+        <meta name="twitter:site" content="@publisher_handle" />
+        <meta name="twitter:title" content={`${product.name} | ${title}`} />
+        <meta name="twitter:description" content={product.shortDescription} />
+        <meta name="twitter:creator" content="@ridewithamp" />
+        <meta name="twitter:image" content={`https:${product.images[0].file.url}`} />
+        <meta name="twitter:image:alt" content={product.name} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`${product.name} | ${title}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/products/${product.sku}`} />
+        <meta property="og:image" content={`https:${product.images[0].file.url}`} />
+        <meta property="og:description" content={product.shortDescription} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:price:amount" content={product.price} />
+        <meta property="og:price:currency" content="USD" />
+
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
+
         <script type="application/ld+json">
           { JSON.stringify(structured) }
         </script>

@@ -37,15 +37,36 @@ export default ({ data }) => {
     }
 
   return (
-    <Layout title={collection.name} description={collection.description}>
+    <Layout>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"	/>	
         <meta name="description" content={collection.description} />
         <meta name="keywords" content={[].concat(collection.tags, ',')} />
-        <title>Smart Lights for {collection.name}s | {title}</title>
+        <title>{collection.name} | {title}</title>
         <html lang="en" />
+
+        {/* Schema.org */}
         <meta itemprop="name" content={author} />
-        <meta itemprop="description" content={collection.shortDescription} />
+        <meta itemprop="description" content={collection.description} />
+        <meta itemprop="image" content={collection.featuredImage.file.url} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" />
+        <meta name="twitter:site" content="@publisher_handle" />
+        <meta name="twitter:title" content={`${collection.name} | ${title}`} />
+        <meta name="twitter:description" content={collection.description} />
+        <meta name="twitter:creator" content="@ridewithamp" />
+        <meta name="twitter:image" content={`https:${collection.featuredImage.file.url}`} />
+        <meta name="twitter:image:alt" content={collection.name} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`${collection.name} | ${title}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/${collection.slug}`} />
+        <meta property="og:image" content={`https:${collection.featuredImage.file.url}`} />
+        <meta property="og:description" content={collection.description} />
+        <meta property="og:site_name" content={title} />
+        
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
         <script type="application/ld+json">
           { JSON.stringify(structured) }
