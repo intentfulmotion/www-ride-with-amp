@@ -6,6 +6,9 @@ import Img from 'gatsby-image'
 
 export default ({ shipping, taxes }) => {
   const { cart, total, remove, set } = useContext(CartContext)
+  let summaryTotal = parseFloat(total)
+  summaryTotal += shipping ? shipping : 0.00
+  summaryTotal += taxes ? taxes : 0.00
 
   return (
     <div>
@@ -70,7 +73,7 @@ export default ({ shipping, taxes }) => {
             <h2 className="checkout-line-item">{<FormattedNumber value={total} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</h2>
             <h2 className="checkout-line-item">{ shipping ? <FormattedNumber value={shipping} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</h2>
             <h2 className="checkout-line-item">{ taxes ? <FormattedNumber value={taxes} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} /> : ('Included') }</h2>
-            <h2 className="checkout-line-total">{<FormattedNumber value={total} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</h2>
+            <h2 className="checkout-line-total">{<FormattedNumber value={summaryTotal} style="currency" currency="USD" minimumFractionDigits={2} maximumFractionDigits={2} />}</h2>
           </div>
         </div>
       </div>

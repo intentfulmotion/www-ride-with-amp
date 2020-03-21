@@ -48,28 +48,33 @@ class ShippingDetails extends Component {
     }
 
     try {
-      let result = await fetch('/.netlify/functions/validate-address', {
-        method: 'POST',
-        body: JSON.stringify({ address: toVerify }),
-        headers: { 'Content-Type': 'application/json' }
-      })
+      this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: [] })
+      if (this.props.onVerifiedShippingInfo)
+        this.props.onVerifiedShippingInfo({ email: this.state.customer_email, previousCustomer: this.state.previousCustomer, customer: this.state.customer, shipping: this.state.shipping })
 
-      if (result.status === 200) {
-        const validationResult = await result.json()
-        if (validationResult.is_valid) {
-          this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: [] })
+      // temporarily disable address validation
+      // let result = await fetch('/.netlify/functions/validate-address', {
+      //   method: 'POST',
+      //   body: JSON.stringify({ address: toVerify }),
+      //   headers: { 'Content-Type': 'application/json' }
+      // })
 
-          if (this.props.onVerifiedShippingInfo)
-            this.props.onVerifiedShippingInfo({ email: this.state.customer_email, previousCustomer: this.state.previousCustomer, customer: this.state.customer, shipping: this.state.shipping })
-        }
-        else
-          this.setState({ ...this.state, shippingAddressValid: false, shippingAddressErrors: validationResult.messages.filter(m => m.type.indexOf('error') > 0 || m.type.indexOf('warning') > 0).map(m => m.text) })
-      }
-      else {
-        let reason = await result.text()
-        console.log('error result from server', reason)
-        this.setState({ ...this.state, shippingAddressValid: false, shippingAddressErrors: [reason] })
-      }
+      // if (result.status === 200) {
+      //   const validationResult = await result.json()
+      //   if (validationResult.is_valid) {
+      //     this.setState({ ...this.state, shipping: { ...this.state.shipping, address: addressNoContact, name: address.name, phone: address.phone }, step: 3, shippingAddressValid: true, shippingAddressErrors: [] })
+
+      //     if (this.props.onVerifiedShippingInfo)
+      //       this.props.onVerifiedShippingInfo({ email: this.state.customer_email, previousCustomer: this.state.previousCustomer, customer: this.state.customer, shipping: this.state.shipping })
+      //   }
+      //   else
+      //     this.setState({ ...this.state, shippingAddressValid: false, shippingAddressErrors: validationResult.messages.filter(m => m.type.indexOf('error') > 0 || m.type.indexOf('warning') > 0).map(m => m.text) })
+      // }
+      // else {
+      //   let reason = await result.text()
+      //   console.log('error result from server', reason)
+      //   this.setState({ ...this.state, shippingAddressValid: false, shippingAddressErrors: [reason] })
+      // }
     }
     catch (err) {
       console.log('shipping validation error', err)
@@ -122,7 +127,7 @@ class ShippingDetails extends Component {
         return (
           <div>
             { summarySteps }
-            <AddressSection name={this.state.shipping.name} phone={this.state.shipping.phone} address={this.state.shipping.address} errors={this.state.shippingAddressErrors} title="Shipping Address" onSubmit={(address) => { this.updateShippingAddress(address) }} submitText="Verify Address" />
+            <AddressSection name={this.state.shipping.name} phone={this.state.shipping.phone} address={this.state.shipping.address} errors={this.state.shippingAddressErrors} title="Shipping Address" onSubmit={(address) => { this.updateShippingAddress(address) }} submitText="Save Address" />
           </div>
         )
       case 2:

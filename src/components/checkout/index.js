@@ -10,6 +10,7 @@ export default ({ success, reference }) => {
   const { cart, remove } = useContext(CartContext)
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [error, setError] = useState(null)
+  const [isInternational, setInternational] = useState(false)
   let stripe = null
 
   if (success) {
@@ -45,6 +46,8 @@ export default ({ success, reference }) => {
       if (details.previousCustomer)
         options.customer = details.customer.id
 
+      setInternational(details.shipping.address.country != 'US')
+
       try {
         setError(null)
         let result = await fetch('/.netlify/functions/checkout', {
@@ -68,6 +71,7 @@ export default ({ success, reference }) => {
       const { error: err } = await stripe.redirectToCheckout({
         sessionId: checkoutSession
       })
+
       if (err)
         setError(err)
     }
@@ -86,7 +90,7 @@ export default ({ success, reference }) => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <CartSummary />
+              <CartSummary shipping={isInternational ? 20.00 : null} />
             </div>
             <div className="column is-offset-1">
               <h1 className="checkout-subtitle">Shipment Details</h1>

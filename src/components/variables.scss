@@ -1,7 +1,9 @@
 // VARIABLES
 
-$primary: #ed177e;
-$info: #8617ed;
+$primary: rgba(237, 23, 126, 1);
+$primary-light: rgba(237, 23, 126, 0.75);
+$info: rgba(134, 23, 237, 1);
+$info-light: rgba(134, 23, 237, 0.25);
 $text: #333333;
 $inactive: #69797E;
 
@@ -15,6 +17,8 @@ $link-focus-border: #fff;
 $button-text-hover-background-color: transparent;
 $button-text-color: white;
 $button-text-hover-color: $primary;
+
+$notification-padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 
 $card-footer-background-color: $primary;
 

@@ -243,6 +243,14 @@ export const AddressSummary = ({ title, address, onEdit, onChange }) => {
   if (!onEdit)
     onEdit = () => {}
 
+  let shippingNotification = null
+  if (address.country != 'US')
+    shippingNotification = (
+    <div className="notification shipping-notification">
+      Shipping outside of the U.S. will be charged a flat rate $20 USD
+    </div>
+  )
+
   return (
     <div className="card checkout-card">
       <header className="card-header">
@@ -256,6 +264,7 @@ export const AddressSummary = ({ title, address, onEdit, onChange }) => {
         </button>
       </header>
       <div className="card-content">
+        { shippingNotification }
         <span><MdLocalShipping className="checkout-summary-icon" /> {address.line1}{ address.line2 ? `, ${address.line2}` : '' }, { address.city }, { address.state }, { address.country } { address.postal_code }</span><br/>
       </div>
     </div>
