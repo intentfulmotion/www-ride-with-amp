@@ -1,6 +1,10 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const contentful = require('contentful')
 const xkcdPassword = require('xkcd-z-password').init();
+const listOfCountries = require('iso3166-2-db/i18n/dispute/UN/en')
+
+// not allowed due to US sanctions / other restrictions
+const notAllowed = ['AS', 'CX', 'CC', 'CU', 'HM', 'IR', 'KP', 'MH', 'FM', 'NF', 'MP', 'PW', 'SD', 'SY', 'UM', 'VI']
 
 const contentfulClient = contentful.createClient({
   space: `smrlz4o6hk32`,
@@ -13,7 +17,7 @@ exports.handler = async (event, context) => {
     return { statusCode: 200, body: '' }
 
   try {
-    const { items, email, customer, shipping, success_url, cancel_url } = JSON.parse(event.body)
+    const { items, email, customer, success_url, cancel_url } = JSON.parse(event.body)
 
     let { items: results } = await contentfulClient.getEntries({
       'fields.sku[in]': ''.concat(Object.keys(items), ','),
@@ -36,10 +40,12 @@ exports.handler = async (event, context) => {
       locale: 'auto',
       payment_method_types: ['card'],
       billing_address_collection: 'auto',
+      shipping_address_collection: {
+        allowed_countries: Object.keys(listOfCountries).map(isoCode => isoCode).filter(isoCode => !notAllowed.includes(isoCode)),
+      },
       payment_intent_data: {
         receipt_email: email,
         setup_future_usage: "on_session",
-        shipping: shipping,
         metadata: {
           weight: totalWeight,
         }

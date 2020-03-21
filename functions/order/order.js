@@ -1,7 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const shippo = require("shippo")(process.env.SHIPPO_API_KEY)
 const axios = require("axios").default
 const fromAddress = JSON.parse(process.env.FROM_ADDRESS)
+
 
 const headers = {
   "Access-Control-Allow-Origin" : "*",
@@ -9,11 +9,7 @@ const headers = {
   "Access-Control-Allow-Methods": "OPTIONS, POST"
 };
 
-exports.handler = async (event, context) => {
-  const { data, type } = JSON.parse(event.body)
-  if (type == 'checkout.session.completed') {
-    console.log('checkout completed')
-
+function createShippoData(payment_intent) {
     let { shipping, receipt_email, amount, currency, metadata } = await stripe.paymentIntents.retrieve(data.object.payment_intent)
     let toAddress = {
       name: shipping.name,
@@ -27,7 +23,7 @@ exports.handler = async (event, context) => {
       email: receipt_email
     }
 
-    let options = {
+    return {
       to_address: toAddress,
       from_address: fromAddress,
       order_status: "PAID",
@@ -46,6 +42,18 @@ exports.handler = async (event, context) => {
       weight_unit: 'g',
       notes: data.object.client_reference_id
     }
+}
+
+function createDripNotification() {
+
+}
+
+exports.handler = async (event, context) => {
+  const { data, type } = JSON.parse(event.body)
+  if (type == 'checkout.session.completed') {
+    console.log('checkout completed')
+
+    const options = createShippoData(data.object.payment_intent)
 
     try {
       // Shippo Node.js module doesn't yet support the Orders API for some reason
