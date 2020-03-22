@@ -2,6 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const axios = require("axios").default
 const fromAddress = JSON.parse(process.env.FROM_ADDRESS)
 
+stripe.setApiVersion('2020-03-02')
 
 const headers = {
   "Access-Control-Allow-Origin" : "*",
