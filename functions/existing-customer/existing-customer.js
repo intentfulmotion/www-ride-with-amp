@@ -8,10 +8,11 @@ exports.handler = async (event, context) => {
 
   let { email } = JSON.parse(event.body)
   if (!email || email.length === 0)
-    return { statusCdoe: 400, body: JSON.stringify({ error: 'email required' }) }
+    return { statusCode: 400, body: JSON.stringify({ error: 'email required' }) }
  
   try {
-    const { email } = event.queryStringParameters
+    console.log(email)
+    let results = await stripe.customers.list({ email: email, limit: 1 })    
     
     let { data: result } = await stripe.customers.list({ email: email, limit: 1 })
     if (result.length > 0)
