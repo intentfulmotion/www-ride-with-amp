@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'gatsby'
 import { CartContext } from '../cart-provider'
 import CartSummary from './cart-summary'
 import ShippingDetails from './shipping-details'
@@ -11,7 +12,7 @@ export default ({ success, reference }) => {
   const [checkoutSession, setCheckoutSession] = useState(null)
   const [error, setError] = useState(null)
   const [isInternational, setInternational] = useState(false)
-  let stripe = null
+  const [stripe, setStripe] = useState(null)
 
   if (success) {
     cart.forEach(c => {
@@ -20,7 +21,8 @@ export default ({ success, reference }) => {
   }
 
   useEffect(() => {
-    stripe = window.Stripe("pk_live_DjVeCbarLJtrnDP5ntOs5Hua")
+    if (!stripe)
+      setStripe(window.Stripe("pk_live_DjVeCbarLJtrnDP5ntOs5Hua"))
   })
 
   if (cart.length > 0) {
@@ -106,8 +108,23 @@ export default ({ success, reference }) => {
     )
   }
   else if (success) return <OrderComplete reference={reference} />
+  else if (stripe == null) return <LoadingCart />
   else return <EmptyCart />
 }
+
+const LoadingCart = () => (
+  <section className="section">
+    <div className="container">
+      <div className="columns is-vcentered center-content">
+        <div className="column has-text-centered">
+          <img className="invalid-content-logo" src={AmpLogo} alt="Loading Cart" />
+          <h3 className="subtitle">Just a sec...we're getting things ready</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
 
 const EmptyCart = () => (
   <section className="section">
@@ -115,7 +132,7 @@ const EmptyCart = () => (
       <div className="columns is-vcentered center-content">
         <div className="column has-text-centered">
           <img className="invalid-content-logo" src={AmpLogo} alt="Empty Cart" />
-          <h3 className="subtitle">Hmmm....your cart is empty. Check out the store to fix that!</h3>
+          <h3 className="subtitle">Hmmm....your cart is empty. Check out the <Link className="link" to='/store' title="Amp Store">store</Link> to fix that!</h3>
         </div>
       </div>
     </div>

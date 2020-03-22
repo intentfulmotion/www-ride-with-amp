@@ -8,6 +8,15 @@ html {
   font-weight: 500;
 }
 
+.link {
+  color: $info;
+}
+
+.link:hover, .link:active {
+  color: $info;
+  font-weight: 700;
+}
+
 .center-content {
   height: 65vh;
 }

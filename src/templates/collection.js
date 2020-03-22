@@ -37,7 +37,7 @@ export default ({ data }) => {
     }
 
   if (!collection.featuredImage)
-    collection.featuredImage = { file: { url: '' } }
+    collection.featuredImage = { file: { url: '' } }  
 
   return (
     <Layout>

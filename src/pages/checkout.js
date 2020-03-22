@@ -35,7 +35,7 @@ const CheckoutPage = ({ search }) => {
         <link rel="stylesheet" href="https://use.typekit.net/fqo0mlk.css" />
       </Helmet>
       <Navbar invert={true} />
-      <Checkout success={success} reference={reference} />
+      <Checkout success={success} cancel={cancel} reference={reference} />
     </Layout>
   )
 }
