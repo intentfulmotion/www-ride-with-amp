@@ -36,6 +36,9 @@ export default ({ data }) => {
       color: `#fff`
     }
 
+  if (!collection.featuredImage)
+    collection.featuredImage = { file: { url: '' } }
+
   return (
     <Layout>
       <Helmet>
