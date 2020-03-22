@@ -2,6 +2,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const contentful = require('contentful')
 const xkcdPassword = require('xkcd-z-password').init();
 
+stripe.setApiVersion('2020-03-02')
+
 const contentfulClient = contentful.createClient({
   space: `smrlz4o6hk32`,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

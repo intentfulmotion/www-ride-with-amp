@@ -1,4 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+stripe.setApiVersion('2020-03-02')
 
 exports.handler = async (event, context) => {
   if (event.httpMethod == 'OPTIONS')
