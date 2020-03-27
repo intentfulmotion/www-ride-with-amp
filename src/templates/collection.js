@@ -20,7 +20,7 @@ export default ({ data }) => {
       return {
         "@type": "ListItem",
         "position": index + 1,
-        "url": `${siteUrl}/products/${product.sku}`
+        "url": `${siteUrl}/store/${product.sku}`
       }
     })
   }

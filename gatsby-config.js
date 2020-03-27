@@ -23,10 +23,6 @@ module.exports = {
         link: `/#mixer`
       },
 			{
-        name: `Subscribe`,
-        link: `/#subscribe`
-			},
-			{
 				name: `Shop Now`,
 				link: `/store`
 			}

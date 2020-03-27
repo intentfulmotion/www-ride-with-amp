@@ -23,7 +23,7 @@ export default ({ data }) => {
       "description": description,
       "url": siteUrl
     },
-    "url": `${siteUrl}/products/${product.name}`,
+    "url": `${siteUrl}/store/${product.name}`,
     "name": product.name,
     "description": product.shortDescription,
     "sku": product.sku,
@@ -35,7 +35,7 @@ export default ({ data }) => {
     "image": product.images.map(i => i.file.url),
     "offers": {
       "@type": "Offer",
-      "url": `${siteUrl}/products/${product.name}`,
+      "url": `${siteUrl}/store/${product.name}`,
       "priceCurrency": "USD",
       "price": product.price,
       "itemCondition": "https://schema.org/NewCondition",
@@ -76,7 +76,7 @@ export default ({ data }) => {
         {/* Open Graph */}
         <meta property="og:title" content={`${product.name} | ${title}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${siteUrl}/products/${product.sku}`} />
+        <meta property="og:url" content={`${siteUrl}/store/${product.sku}`} />
         <meta property="og:image" content={`https:${product.images[0].file.url}`} />
         <meta property="og:description" content={product.shortDescription} />
         <meta property="og:site_name" content={title} />
