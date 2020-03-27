@@ -5,31 +5,31 @@
 	"author": "Nishanth Samala <nish@intentfulmotion.com>",
 	"dependencies": {
 		"@reach/router": "^1.3.3",
-		"bulma": "^0.8.0",
+		"bulma": "^0.8.1",
 		"bulma-calendar": "^6.0.7",
 		"bulma-divider": "^0.2.0",
 		"bulma-pricingtable": "^0.2.0",
 		"drip-nodejs": "^3.1.1",
 		"embla-carousel-react": "^1.2.19",
-		"gatsby": "^2.20.2",
-		"gatsby-image": "^2.3.0",
-		"gatsby-link": "^2.3.0",
+		"gatsby": "^2.20.7",
+		"gatsby-image": "^2.3.1",
+		"gatsby-link": "^2.3.1",
 		"gatsby-plugin-drip": "^1.0.0",
-		"gatsby-plugin-google-analytics": "^2.2.0",
-		"gatsby-plugin-manifest": "^2.3.1",
-		"gatsby-plugin-netlify": "^2.2.0",
-		"gatsby-plugin-react-helmet": "^3.2.0",
+		"gatsby-plugin-google-analytics": "^2.2.2",
+		"gatsby-plugin-manifest": "^2.3.3",
+		"gatsby-plugin-netlify": "^2.2.1",
+		"gatsby-plugin-react-helmet": "^3.2.1",
 		"gatsby-plugin-robots-txt": "^1.5.0",
-		"gatsby-plugin-sass": "^2.2.0",
-		"gatsby-plugin-sharp": "^2.5.1",
-		"gatsby-plugin-sitemap": "^2.3.0",
+		"gatsby-plugin-sass": "^2.2.1",
+		"gatsby-plugin-sharp": "^2.5.3",
+		"gatsby-plugin-sitemap": "^2.3.1",
 		"gatsby-plugin-stripe": "^1.2.3",
-		"gatsby-react-router-scroll": "^2.2.0",
-		"gatsby-source-contentful": "^2.2.2",
-		"gatsby-source-filesystem": "^2.2.1",
-		"gatsby-transformer-json": "^2.3.0",
-		"gatsby-transformer-remark": "^2.7.0",
-		"gatsby-transformer-sharp": "^2.4.1",
+		"gatsby-react-router-scroll": "^2.2.1",
+		"gatsby-source-contentful": "^2.2.5",
+		"gatsby-source-filesystem": "^2.2.2",
+		"gatsby-transformer-json": "^2.3.1",
+		"gatsby-transformer-remark": "^2.7.1",
+		"gatsby-transformer-sharp": "^2.4.2",
 		"iso3166-2-db": "^2.3.6",
 		"node-sass": "^4.13.1",
 		"query-string": "^6.11.1",
@@ -38,7 +38,7 @@
 		"react-helmet": "^5.2.1",
 		"react-hook-form": "^5.1.3",
 		"react-icons": "^3.9.0",
-		"react-intl": "^4.2.2"
+		"react-intl": "^4.3.0"
 	},
 	"keywords": [
 		"landing page",
@@ -55,8 +55,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {
-		"gatsby-cli": "^2.11.0",
+		"gatsby-cli": "^2.11.2",
 		"netlify-cli": "^2.40.0",
-		"prettier": "^2.0.1"
+		"prettier": "^2.0.2"
 	}
 }

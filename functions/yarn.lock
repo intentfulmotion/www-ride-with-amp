@@ -5971,10 +5971,10 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-stripe@^8.33.0:
-  version "8.33.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.33.0.tgz#5e4ef3f2059781f33857164951fc845bb1ba650f"
-  integrity sha512-fj7gOJ5/uy0xWWRV5VJ1WaAPHNIyJMFVubbLuUJCcmDQI6WzwTl+NCikWouAkjExyYwhKbSpSK2SFLKOoQca0A==
+stripe@^8.37.0:
+  version "8.37.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.37.0.tgz#7abfe911273a3162c3edecad070a52e1dc660da8"
+  integrity sha512-LhfYJuMnvvGYttUHhXiCJ/LfPDZk7tEBjxVZquvC0tFJO+g5WHgjv/PsX6lsmUHA7oRo+4wm4M4vvigtbA69HA==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"

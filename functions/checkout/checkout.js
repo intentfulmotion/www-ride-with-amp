@@ -1,7 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const contentful = require('contentful')
 const xkcdPassword = require('xkcd-z-password').init();
-
 stripe.setApiVersion('2020-03-02')
 
 const contentfulClient = contentful.createClient({
@@ -36,6 +35,7 @@ exports.handler = async (event, context) => {
       line_items.push({ amount: 20 * 100, currency: 'usd', name: 'Flat Rate International Shipping', description: 'Shipping outside of the U.S.', quantity: 1 })
 
     let reference = await xkcdPassword.generate(4)
+    console.log(reference.join('-'))
 
     let options = {
       client_reference_id: reference.join('-'),
@@ -49,7 +49,7 @@ exports.handler = async (event, context) => {
         shipping: shipping,
         metadata: {
           international: shippingInternational,
-          weight: totalWeight,
+          weight: totalWeight
         }
       },
       submit_type: 'pay',
@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
     }
 
     results.forEach(r => {
-      options.payment_intent_data.metadata[r.fields.sku] = JSON.stringify({ title: r.fields.name, quantity: items[r.fields.sku], sku: r.fields.sku, total_price: (r.fields.price * items[r.fields.sku]).toFixed(2) })
+      options.payment_intent_data.metadata[r.fields.sku] = JSON.stringify({ title: r.fields.name, quantity: items[r.fields.sku], sku: r.fields.sku, price: r.fields.price, total_price: (r.fields.price * items[r.fields.sku]).toFixed(2), image: r.fields.images[0].fields.file.url })
     })
 
     if (customer)

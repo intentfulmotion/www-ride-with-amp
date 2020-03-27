@@ -2,6 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 stripe.setApiVersion('2020-03-02')
 
 exports.handler = async (event, context) => {
+  console.log(process.env.STRIPE_SECRET_KEY)
   if (event.httpMethod == 'OPTIONS')
     return { statusCode: 200, body: '' }
   else if (event.httpMethod != 'POST')
