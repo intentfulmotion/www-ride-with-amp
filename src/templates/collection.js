@@ -55,7 +55,7 @@ export default ({ data }) => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" />
-        <meta name="twitter:site" content="@publisher_handle" />
+        <meta name="twitter:site" content="@ridewithamp" />
         <meta name="twitter:title" content={`${collection.name} | ${title}`} />
         <meta name="twitter:description" content={collection.description} />
         <meta name="twitter:creator" content="@ridewithamp" />

@@ -7,6 +7,7 @@
     "netlify-cli": "^2.40.0"
   },
   "dependencies": {
+    "@easypost/api": "^3.8.1",
     "axios": "^0.19.2",
     "contentful": "^7.14.0",
     "drip-nodejs": "^3.1.1",

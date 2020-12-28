@@ -23,7 +23,7 @@ module.exports = {
         link: `/#mixer`
       },
 			{
-				name: `Shop Now`,
+				name: `Store`,
 				link: `/store`
 			}
 		],

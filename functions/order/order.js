@@ -1,7 +1,10 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const drip = require('drip-nodejs')({ token: process.env.DRIP_API_KEY, accountId: process.env.DRIP_ACCOUNT_ID })
 const axios = require("axios").default
+const EasyPost = require('@easypost/api')
 const fromAddress = JSON.parse(process.env.FROM_ADDRESS)
+
+const post = new EasyPost(process.env.EASYPOST_API_KEY)
 
 stripe.setApiVersion('2020-03-02')
 
@@ -11,7 +14,7 @@ const headers = {
   "Access-Control-Allow-Methods": "OPTIONS, POST"
 };
 
-async function notifyShippo(payment_intent, products, client_reference_id) {
+async function notifyEasyPost(payment_intent, products, client_reference_id) {
     let { shipping, receipt_email, amount, currency, metadata } = payment_intent
     let toAddress = {
       name: shipping.name,
@@ -25,24 +28,14 @@ async function notifyShippo(payment_intent, products, client_reference_id) {
       email: receipt_email
     }
 
-    let shippo_options = {
+    let easypost_options = {
+      reference: client_reference_id,
       to_address: toAddress,
       from_address: fromAddress,
-      order_status: "PAID",
-      placed_at: new Date().toISOString(),
-      shipping_cost: 0,
-      shipping_cost_currency: 'USD',
-      line_items: products.map(p => { return { 
-        ...p,
-        manufacture_country: 'US',
-        currency: 'USD'
-      }}),
-      total_price: (amount / 100.0),
-      total_tax: 0,
-      currency: currency.toUpperCase(),
-      weight: metadata.weight,
-      weight_unit: 'g',
-      notes: client_reference_id
+      parcel: {
+        mode: "production",
+        weight: metadata.weight
+      }
     }
 
     // Shippo Node.js module doesn't yet support the Orders API for some reason

@@ -34,7 +34,7 @@ exports.handler = async (event, context) => {
     if (shippingInternational)
       line_items.push({ amount: 20 * 100, currency: 'usd', name: 'Flat Rate International Shipping', description: 'Shipping outside of the U.S.', quantity: 1 })
 
-    let reference = await xkcdPassword.generate(4)
+    let reference = await xkcdPassword.generate({ numWords: 3 })
     console.log(reference.join('-'))
 
     let options = {
@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
     }
 
     results.forEach(r => {
-      options.payment_intent_data.metadata[r.fields.sku] = JSON.stringify({ title: r.fields.name, quantity: items[r.fields.sku], sku: r.fields.sku, price: r.fields.price, total_price: (r.fields.price * items[r.fields.sku]).toFixed(2), image: r.fields.images[0].fields.file.url })
+      options.payment_intent_data.metadata[r.fields.sku] = JSON.stringify({ title: r.fields.name, quantity: items[r.fields.sku], sku: r.fields.sku, price: r.fields.price, total_price: (r.fields.price * items[r.fields.sku]).toFixed(2), image: `https:${r.fields.images[0].fields.file.url}` })
     })
 
     if (customer)
